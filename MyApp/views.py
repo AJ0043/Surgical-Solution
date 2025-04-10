@@ -74,3 +74,6 @@ def Contact(request):
 
 def Book(request):
     return render(request,"Book.html")
+
+def Html(request):
+    return render(request,"html.html")

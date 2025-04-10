@@ -1,0 +1,159 @@
+<!-- Trigger Button -->
+<button onclick="openAppointmentPopup()" class="appointment-btn">
+    Book Appointment
+</button>
+
+<!-- Popup Modal -->
+<div id="appointmentPopup" class="popup-overlay">
+    <div class="popup-box">
+        <!-- Close Button -->
+        <span onclick="closeAppointmentPopup()" class="popup-close">&times;</span>
+
+        <h3 class="popup-title">Book Your Appointment</h3>
+
+        <!-- Appointment Form -->
+        <form method="POST" action="/book-appointment/" class="popup-form">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <input type="text" name="city" placeholder="City" required>
+            <input type="number" name="age" placeholder="Age" required>
+            <textarea name="message" placeholder="Your Message..." rows="3"></textarea>
+            <button type="submit">Submit Appointment</button>
+        </form>
+    </div>
+</div>
+
+<!-- CSS Styling -->
+<style>
+    /* Button Style */
+    .appointment-btn {
+        padding: 12px 24px;
+        background: linear-gradient(135deg, #2980b9, #6dd5fa);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .appointment-btn:hover {
+        background: linear-gradient(135deg, #2575fc, #6a11cb);
+    }
+
+    /* Popup Overlay */
+    .popup-overlay {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    /* Popup Box */
+    .popup-box {
+        background: #fff;
+        border-radius: 12px;
+        padding: 30px;
+        width: 90%;
+        max-width: 500px;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        animation: slideUp 0.4s ease-out;
+    }
+
+    /* Close Button */
+    .popup-close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 26px;
+        color: #555;
+        cursor: pointer;
+    }
+
+    /* Title */
+    .popup-title {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+
+    /* Form Styling */
+    .popup-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .popup-form input,
+    .popup-form textarea {
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+        width: 100%;
+        resize: none;
+    }
+
+    .popup-form button {
+        background: #27ae60;
+        color: #fff;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .popup-form button:hover {
+        background: #219150;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+        from { transform: translateY(30px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Mobile Optimization */
+    @media (max-width: 480px) {
+        .popup-box {
+            padding: 20px;
+        }
+
+        .popup-title {
+            font-size: 20px;
+        }
+
+        .popup-form button {
+            font-size: 14px;
+        }
+    }
+</style>
+
+<!-- JavaScript -->
+<script>
+    function openAppointmentPopup() {
+        document.getElementById("appointmentPopup").style.display = "flex";
+    }
+
+    function closeAppointmentPopup() {
+        document.getElementById("appointmentPopup").style.display = "none";
+    }
+</script>

@@ -22,6 +22,7 @@ urlpatterns = [
     path('About/', views.About, name='About'), 
     path('Contact/', views.Contact, name='Contact'), 
     path('Book/', views.Book, name='Book'),
+    path('html/', views.Html, name='html'),
         
         
         
