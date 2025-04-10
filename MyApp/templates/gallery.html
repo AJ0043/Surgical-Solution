@@ -3,7 +3,9 @@
 
 {% block content %}
 
-<!-- Parallax Gallery Banner Section -->
+<!-- Lightbox2 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
+
 <style>
     .Banner {
         width: 100%;
@@ -105,11 +107,16 @@
     <div class="row">
         {% for photo in photos %}
             <div class="col-lg-4 col-md-6 col-sm-12 image-box">
-                <img src="{{ photo.image.url }}" alt="Gallery Image">
+                <a href="{{ photo.image.url }}" data-lightbox="gallery" data-title="Gallery Image">
+                    <img src="{{ photo.image.url }}" alt="Gallery Image">
+                </a>
             </div>
         {% endfor %}
     </div>
 </div>
+
+<!-- Lightbox2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
 
 {% include 'Store/Inc/Footer.html' %}
 {% endblock content %}
