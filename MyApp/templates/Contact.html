@@ -18,10 +18,12 @@
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
-        height: 300px;
+        height: 350px;  /* Increased height for better spacing */
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
+        justify-content: center;  /* Ensures center alignment */
     }
 
     .Banner::before {
@@ -41,6 +43,14 @@
         color: #fff;
     }
 
+    .Banner p {
+        position: relative;
+        z-index: 2;
+        font-size: 1.2rem;
+        color: #fff;
+        margin-top: 10px;
+    }
+
     .Container {
         max-width: 1000px;
         margin: 40px auto;
@@ -49,6 +59,8 @@
         border-radius: 10px;
         box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         background: rgba(39, 121, 202, 0.7);
+        position: relative;
+        z-index: 2;
     }
 
     .Container h1 {
@@ -87,7 +99,19 @@
     .submit-btn {
         grid-column: 1 / -1;
         text-align: center;
+        margin-top: 20px;  /* Increased margin-top to provide more spacing from the form */
+        padding-bottom: 20px;  /* Added padding at the bottom to ensure spacing from the map/image */
     }
+    
+    .contact-left-right-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 45px;
+        gap: 30px;
+        flex-wrap: wrap;
+        padding-top: 20px;  /* Added padding-top to give space between the form and contact details */
+    }
+    
 
     .submit-btn button {
         padding: 12px 30px;
@@ -98,6 +122,7 @@
         color: white;
         cursor: pointer;
         transition: 0.3s ease;
+        
     }
 
     .submit-btn button:hover {
@@ -107,7 +132,7 @@
     .contact-details-map {
         display: flex;
         justify-content: space-between;
-        margin-top: 40px;
+        margin-top: 45px;
         gap: 30px;
         flex-wrap: wrap;
     }
@@ -144,6 +169,23 @@
         text-decoration: underline;
     }
 
+    /* New Styles for Image Next to Map */
+    .contact-left-right-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .contact-left-right-container .contact-left {
+        flex: 0 0 45%;
+    }
+
+    .contact-left-right-container .contact-right {
+        flex: 0 0 45%;
+    }
+
+    /* Responsive Styles */
     @media (max-width: 768px) {
         .Banner {
             height: 220px;
@@ -151,6 +193,10 @@
 
         .Banner h1 {
             font-size: 2rem;
+        }
+
+        .Banner p {
+            font-size: 1rem;
         }
 
         form {
@@ -163,6 +209,15 @@
 
         .contact-left, .contact-right {
             width: 100%;
+        }
+
+        .contact-left-right-container {
+            flex-direction: column;
+        }
+
+        .contact-left-right-container .contact-left,
+        .contact-left-right-container .contact-right {
+            flex: 1 0 100%;
         }
     }
 
@@ -179,6 +234,7 @@
     <!-- 🔹 Banner -->
     <div class="Banner">
         <h1>Contact Us</h1>
+        <p>We are here to assist you with any queries. Reach out to us through the form below.</p>
     </div>
 
     <!-- 🔹 Main Container -->
@@ -200,8 +256,8 @@
             </div>
         </form>
 
-        <!-- 🔹 Contact Info + Map -->
-        <div class="contact-details-map">
+        <!-- 🔹 Contact Info + Image and Map Side-by-Side -->
+        <div class="contact-left-right-container">
             <div class="contact-left">
                 <h2>Our Clinic</h2>
                 <p><strong>📍 Address:</strong><br>238 Rosewood Apartment,<br>Sector 13, Dwarka, Delhi - 110078</p>
@@ -222,7 +278,6 @@
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
-            
         </div>
     </div>
 </div>
