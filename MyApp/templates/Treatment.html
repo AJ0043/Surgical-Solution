@@ -1,0 +1,750 @@
+{% extends 'Store/layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- 🌄 Parallax Banner -->
+<div class="Treatemnt">
+  <div class="Banner3">
+    <div>
+      <h1>Welcome to Our Surgical Solution Services</h1>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 💡 Services Section -->
+<div class="service-section">
+  <h2>Choose Our Services</h2>
+  <p>Experience Advanced Surgical Care Tailored Just for You – Choose the Expertise You Deserve.</p>
+
+  <div class="service-grid">
+    <!-- Card 1 -->
+    <div class="service-card">
+        <div class="service-icon"><i class="fas fa-user-md"></i></div>
+        <div class="service-title">Anorectal Surgery</div>
+        <div class="service-desc">
+          Advanced treatment for piles, fissures, fistulas, and related anorectal conditions.
+        </div>
+        <button onclick="window.location.href='http://127.0.0.1:5000/Anorc/'" class="read-more-btn">
+          Read More
+        </button>
+      </div>
+      
+
+    <!-- Card 2 -->
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-lungs"></i></div>
+      <div class="service-title">Laparoscopic Surgery</div>
+      <div class="service-desc">Minimally invasive procedures with faster recovery times.</div>
+      <button onclick="window.location.href='http://127.0.0.1:5000/Lapro/'" class="read-more-btn">Read More</button>
+
+    </div>
+
+    <!-- Card 3 -->
+    <div class="service-card">
+        <div class="service-icon"><i class="fas fa-procedures"></i></div>
+        <div class="service-title">Lap Hernia Surgery</div>
+        <div class="service-desc">Minimally invasive hernia repair with faster recovery and less pain.</div>
+        <button onclick="window.location.href='http://127.0.0.1:5000/Lap/'" class="read-more-btn">Read More</button>
+      </div>
+      
+
+    <!-- Card 4 -->
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-user-nurse"></i></div>
+      <div class="service-title">Stapler Surgery</div>
+      <div class="service-desc">Cutting-edge stapler techniques for effective surgical outcomes.</div>
+      <button onclick="window.location.href='http://127.0.0.1:5000/Stepler/'" class="read-more-btn">Read More</button>
+ 
+    </div>
+
+    <!-- Card 5 -->
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
+      <div class="service-title">Breast Surgery</div>
+      <div class="service-desc">Comprehensive breast care with surgical precision.</div>
+      <button onclick="window.location.href='http://127.0.0.1:5000/Breast/'" class="read-more-btn">Read More</button>
+
+    </div>
+
+    <!-- Card 6 -->
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-weight"></i></div>
+      <div class="service-title">Lipoma Removal</div>
+      <div class="service-desc">Quick and safe removal of fatty tumors (lipomas).</div>
+      <button class="read-more-btn">Read More</button>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-syringe"></i></div>
+      <div class="service-title">Proctology Surgery</div>
+      <div class="service-desc">Relief from piles, fissures & fistulas with advanced methods.</div>
+      <button onclick="window.location.href='http://127.0.0.1:5000/Procto/'" class="read-more-btn">Read More</button>
+
+    </div>
+  
+    <div class="service-card">
+        <div class="service-icon"><i class="fas fa-phone-alt"></i></div>
+        <div class="service-title">Contact Us</div>
+        <div class="service-desc">Reach out for expert consultation, appointment booking, or general inquiries — we're here to help you.</div>
+        <button class="read-more-btn">Click Here</button>
+      </div>
+      
+ </div>
+</div>
+
+
+
+
+
+
+
+<div class="Content">
+    <div class="content-photo">
+      <img src="{% static 'Images/Smile.jpg' %}" alt="Smiling Patient">
+    </div>
+    <div class="content-text">
+      <h1>We Always Go the Extra Mile for Our Patients — Because Your Health Means Everything to Us.</h1>
+      <p>
+        At our clinic, we don’t just treat conditions — we care for people. Every patient who walks through our doors is treated with dignity, compassion, and the utmost respect. With over two decades of surgical experience and a commitment to excellence, we strive to make your healing journey as smooth, comfortable, and effective as possible. From your first consultation to post-treatment follow-ups, we ensure that you are informed, supported, and confident every step of the way.
+        <br><br>
+        We understand that undergoing surgery can be a deeply personal and emotional experience. That’s why we listen carefully, explain clearly, and tailor every treatment to suit your unique needs. Our goal is not just to cure but to comfort — to offer holistic care that treats the body, reassures the mind, and touches the heart.
+      </p>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+<!-- 👨‍⚕️ Treatment Steps Section -->
+<div class="how-we">
+    <div class="treat">
+      <h1>How We Treat You and Your Problems</h1>
+    </div>
+  
+    <div class="treatment-container">
+      <div class="treatment-card">
+        <img src="{% static 'Images/Cosul.webp' %}" alt="Consultation">
+        <h3>Consultation</h3>
+        <p>We begin with a detailed discussion to understand your symptoms, concerns, and medical history.</p>
+        <a href="/Consultation/" class="water-btn"><span>Read More</span></a>
+      </div>
+      <div class="treatment-card">
+        <img src="{% static 'Images/Diag.jpg' %}" alt="Diagnosis">
+        <h3>Diagnosis</h3>
+        <p>We conduct relevant tests and evaluations to accurately identify the root cause of your condition.</p>
+        <a href="/Diagonsis/" class="water-btn"><span>Read More</span></a>
+      </div>
+      <div class="treatment-card">
+        <img src="{% static 'Images/Trea.jpg' %}" alt="Treatment Plan">
+        <h3>Treatment Plan</h3>
+        <p>Based on diagnosis, we create a personalized treatment plan tailored to your health needs.</p>
+        <a href="http://127.0.0.1:5000/Treat/" class="water-btn"><span>Read More</span></a>
+      </div>
+      <div class="treatment-card">
+        <img src="{% static 'Images/Surg.jpeg' %}" alt="Surgery">
+        <h3>Surgery / Procedure</h3>
+        <p>Expert surgical intervention or medical procedure is carried out with utmost precision and care.</p>
+        <a href="/Surgury/" class="water-btn"><span>Read More</span></a>
+      </div>
+      <div class="treatment-card">
+        <img src="{% static 'Images/Recc.webp' %}" alt="Recovery">
+        <h3>Recovery</h3>
+        <p>We ensure proper recovery and provide continuous follow-up care to track your progress.</p>
+        <a href="http://127.0.0.1:5000/Recovery/" class="water-btn"><span>Read More</span></a>
+      </div>
+      <div class="treatment-card">
+        <img src="{% static 'Images/Feeddd.webp' %}" alt="Recovery">
+        <h3>Feedback</h3>
+        <p>Share your experience with Dr. Shialendra Jain. Your feedback helps us improve and provide better care to every patient.</p>
+        <a href="/Test/" class="water-btn"><span>click Here</span></a>
+      </div>
+    
+    
+    </div>
+  </div>
+  
+  <div class="Banner">
+    <img src="{% static 'Images/Treat.webp' %}" alt="Consultation">
+    <div class="banner-content">
+      <h2>Your Health Matters – Book Your Appointment Today</h2>
+      <p>Get expert surgical advice from Dr. Shialendra Jain. Book your appointment now for personalized, compassionate, and professional healthcare.</p>
+      <a href="#" class="banner-btn">Book Appointment</a>
+    </div>
+ 
+</div>
+
+ 
+  <!-- 💅 CSS Styling for appointment -->
+   <style>
+    
+    
+    
+    .Banner {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top:150px;
+        
+        
+      }
+  
+      .Banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(50%);
+      }
+  
+      .banner-content {
+        position: absolute;
+        z-index: 2;
+        text-align: center;
+        color: white;
+        padding: 0 20px;
+        max-width: 800px;
+      }
+  
+      .banner-content h2 {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 5px rgba(27, 23, 23, 0.6);
+        Font-family:Serif;
+        color:rgb(197, 198, 198);
+      }
+  
+      .banner-content p {
+        font-size: 18px;
+        margin-bottom: 25px;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+      }
+  
+      .banner-btn {
+        position: relative;
+        display: inline-block;
+        background: rgb(107, 163, 67);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 6px;
+        font-weight: bold;
+        text-decoration: none;
+        overflow: hidden;
+        z-index: 1;
+        border: 2px solid white;
+        cursor: pointer;
+        transition: color 0.4s ease;
+        border-color:rgb(107, 163, 67);
+      }
+      
+      .banner-btn::before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #1565c0;
+        z-index: -1;
+        transition: top 0.4s ease;
+        border-radius: 6px;
+      }
+      
+      .banner-btn:hover::before {
+        top: 0;
+      }
+      
+      .banner-btn:hover {
+        color: #fff;
+      }
+      
+      @media (max-width: 768px) {
+        .Banner {
+          height: 300px;
+        }
+  
+        .banner-content h2 {
+          font-size: 24px;
+        }
+  
+        .banner-content p {
+          font-size: 16px;
+        }
+  
+        .banner-btn {
+          padding: 10px 20px;
+          font-size: 14px;
+        }
+      }
+    </style>
+  
+      
+   </style>
+
+  <!-- 💅 CSS Styling -->
+  <style>
+    .how-we {
+      background-color:rgb(223, 227, 232);
+      padding: 60px 20px;
+      text-align: center;
+    }
+  
+    .treat h1 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #2c7be5;
+      margin-bottom: 50px;
+      font-family:Satisfy,cursive;
+    }
+  
+    .treatment-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  
+    .treatment-card {
+      background-color:rgba(228, 229, 231, 0.7);
+      border-radius: 6px;
+      padding: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  
+    .treatment-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+  
+    .treatment-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+  
+    .treatment-card h3 {
+      font-size: 22px;
+      color: #333;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+  
+    .treatment-card p {
+      font-size: 15px;
+      color: black;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+  
+    /* 🌊 Water Fill Button */
+    .water-btn {
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #fff;
+      background-color:rgb(107, 163, 67);
+      padding: 10px 20px;
+      z-index: 1;
+    }
+  
+    .water-btn span {
+      position: relative;
+      z-index: 2;
+    }
+  
+    .water-btn::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 100%;
+      width: 100%;
+      height: 100%;
+      background:rgb(69, 116, 191);
+      z-index: 1;
+      transition: top 0.4s ease;
+      border-radius: 5px;
+    }
+  
+    .water-btn:hover::before {
+      top: 0;
+    }
+  
+    @media (max-width: 767px) {
+      .treat h1 {
+        font-size: 28px;
+      }
+  
+      .treatment-card img {
+        height: 180px;
+      }
+    }
+  </style>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 🌐 Content photo banner Styling -->
+
+  <style>
+    .Content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        padding: 60px 20px;
+        background: #fff;
+        border-top: 2px solid #f1f1f1;
+        margin-top:100px;
+      }
+      
+      .content-photo {
+        flex: 1 1 500px;
+        max-width: 600px;
+      }
+      
+      .content-photo img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        transition: transform 0.4s ease;
+      }
+      
+      .content-photo img:hover {
+        transform: scale(1.03);
+      }
+      
+      .content-text {
+        flex: 1 1 500px;
+        max-width: 600px;
+      }
+      
+      .content-text h1 {
+        font-size: 28px;
+        font-weight: 700;
+        color:rgb(52, 69, 147);
+        margin-bottom: 15px;
+        line-height: 1.4;
+      }
+      
+      .content-text p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #444;
+        font-weight: 400;
+      }
+      
+      /* 🔧 Mobile Tweaks */
+      @media (max-width: 768px) {
+        .Content {
+          flex-direction: column;
+          text-align: center;
+          padding: 30px 10px; /* less padding */
+          gap: -20px; /* reduced space between items */
+        }
+      
+        .content-photo {
+          max-width: 100%;
+          margin-bottom: -150px; /* reduce spacing */
+        }
+      
+        .content-text h1 {
+          font-size: 22px;
+          margin-bottom: 12px;
+        }
+      
+        .content-text p {
+          font-size: 15px;
+          line-height: 1.6;
+          gap: -40px; 
+        }
+      }
+            
+  
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 🌐 Banner Styling Parallex Image and Descice Cards-->
+
+
+</div>
+<!-- 🌐 Font Awesome CDN -->
+<!-- 🎨 Styling -->
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .Treatemnt {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .Banner3 {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-image: url("{% static 'Images/Hand.jpg' %}");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Banner3::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 20, 22, 0.4);
+    z-index: 1;
+  }
+
+  .Banner3 h1 {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    font-size: 32px;
+    line-height: 1.4;
+    padding: 0 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    font-family: 'Satisfy', cursive;
+  }
+
+  @media (max-width: 768px) {
+    .Banner3 {
+      background-attachment: scroll;
+      height: 250px;
+    }
+
+    .Banner3 h1 {
+      font-size: 18px;
+    }
+  }
+
+  .service-section {
+    padding: 60px 20px;
+    background:rgb(225, 229, 231);
+    text-align: center;
+  }
+
+  .service-section h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-weight:bold;
+    color:rgb(71, 85, 145);
+    font-family:Serif;
+  }
+
+  .service-section p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #555;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    justify-content: center;
+    padding: 0 10px;
+  }
+
+  @media (max-width: 1200px) {
+    .service-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .service-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .service-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .service-card {
+    background: rgba(40, 58, 224, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 15px;
+    transition: transform 0.3s ease;
+
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .service-icon {
+    font-size: 40px;
+    color: #2c7be5;
+    margin-bottom: 20px;
+  }
+
+  .service-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .service-desc {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  .read-more-btn {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    font-weight: bold;
+    color:rgb(107, 163, 67);
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 6px;
+    transition: color 0.4s ease-in-out;
+    border:ridge;
+    border-color: rgb(107, 163, 67);
+  }
+
+  .read-more-btn::before {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgb(107, 163, 67);
+    z-index: -1;
+    transition: width 0.4s ease-in-out;
+  }
+
+  .read-more-btn:hover::before {
+    width: 100%;
+  }
+
+  .read-more-btn:hover {
+    color: white;
+  }
+</style>
+
+
+
+{% include 'Store/Inc/Footer.html' %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

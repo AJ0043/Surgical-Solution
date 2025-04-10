@@ -1,0 +1,242 @@
+{% load static %}
+<div class="main-banner">
+  <!-- Banner Image -->
+  <img src="{% static 'Images/bnn.jpg' %}" alt="Banner Image" />
+
+  <!-- Slider Buttons (only for mobile) -->
+  <div class="slider-buttons">
+    <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+    <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <!-- Overlay Stats -->
+  <div class="stats-overlay" id="slider">
+    <div class="stat-card">
+      <div class="icon"><i class="fas fa-briefcase-medical"></i></div>
+      <h5 class="count" data-target="20">1</h5>
+      <p>Years Experience</p>
+    </div>
+    <div class="stat-card">
+      <div class="icon"><i class="fas fa-smile-beam"></i></div>
+      <h5 class="count" data-target="5000">1</h5>
+      <p>Happy Patients</p>
+    </div>
+    <div class="stat-card">
+      <div class="icon"><i class="fas fa-user-check"></i></div>
+      <h5 class="count" data-target="100">1</h5>
+      <p>Successful Surgeries</p>
+    </div>
+  </div>
+</div>
+
+<style>
+.main-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 150px;
+}
+
+.main-banner img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  filter: brightness(0.5);
+}
+
+/* Overlay Cards */
+.stats-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 40px;
+  flex-wrap: wrap;
+  z-index: 1;
+}
+
+.stat-card {
+  text-align: center;
+  width: 220px;
+  padding: 30px 25px;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+}
+
+.icon {
+  background-color: #2785cd;
+  color: #fff;
+  font-size: 40px;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: flip 3s infinite;
+}
+
+.stat-card h5 {
+  font-size: 28px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.stat-card p {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #f1f1f1;
+}
+
+@keyframes flip {
+  0% { transform: rotateY(0deg); }
+  50% { transform: rotateY(180deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+/* Slider Buttons (Mobile Only) */
+.slider-buttons {
+  display: none;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 20px;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.slider-buttons button {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 10px 15px;
+  font-size: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #000;
+}
+
+/* Mobile View */
+@media (max-width: 480px) {
+  .stats-overlay {
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+  }
+
+  .stat-card {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .slider-buttons {
+    display: flex;
+  }
+
+  .icon {
+    font-size: 32px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .stat-card h5 {
+    font-size: 22px;
+  }
+
+  .stat-card p {
+    font-size: 14px;
+  }
+}
+
+/* Tablet View */
+@media (max-width: 768px) and (min-width: 481px) {
+  .stats-overlay {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .stat-card {
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .icon {
+    font-size: 36px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .stat-card h5 {
+    font-size: 24px;
+  }
+
+  .stat-card p {
+    font-size: 16px;
+  }
+}
+</style>
+
+<!-- Script: Counter & Slider -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Counter Animation
+  const counters = document.querySelectorAll(".count");
+  const speed = 100;
+
+  counters.forEach((counter) => {
+    const updateCount = () => {
+      const target = +counter.getAttribute("data-target");
+      const count = +counter.innerText;
+      const inc = target / speed;
+
+      if (count < target) {
+        counter.innerText = Math.ceil(count + inc);
+        setTimeout(updateCount, 20);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  });
+
+  // Mobile Slider
+  const slider = document.getElementById("slider");
+  const cards = slider.querySelectorAll(".stat-card");
+  let currentIndex = 0;
+
+  const showSlide = (index) => {
+    const width = slider.offsetWidth;
+    slider.scrollTo({
+      left: width * index,
+      behavior: "smooth"
+    });
+  };
+
+  document.getElementById("prevBtn").addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      showSlide(currentIndex);
+    }
+  });
+
+  document.getElementById("nextBtn").addEventListener("click", () => {
+    if (currentIndex < cards.length - 1) {
+      currentIndex++;
+      showSlide(currentIndex);
+    }
+  });
+});
+</script>

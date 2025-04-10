@@ -1,0 +1,91 @@
+{% extends 'Store/layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    .Book {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .appointment {
+        position: relative;
+        width: 100%;
+        min-height: 350px;
+        background-image: url("{% static 'Images/appi.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border-radius: 0;
+        overflow: hidden;
+    }
+
+    .appointment::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 51, 102, 0.4));
+        z-index: 1;
+    }
+
+    .appointment-content {
+        position: relative;
+        z-index: 2;
+        color: #fff;
+        padding: 40px 20px;
+        max-width: 800px;
+    }
+
+    .appointment-content h3 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+    }
+
+    .appointment-content p {
+        font-size: 1.4rem;
+        color: #ddd;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+        .appointment {
+            min-height: 280px;
+            padding: 30px 10px;
+        }
+
+        .appointment-content h3 {
+            font-size: 2rem;
+        }
+
+        .appointment-content p {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<div class="Book">
+    <div class="appointment">
+        <div class="appointment-content">
+            <h3>Book Appointment</h3>
+            <p>Fill out the form below to schedule your appointment. We're always ready to help you feel better.</p>
+        </div>
+    </div>
+</div>
+
+
+{% include 'Store/Inc/con.html' %}
+
+
+
+{% include 'Store/Inc/Footer.html' %}
+
+{% endblock content %}

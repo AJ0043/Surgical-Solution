@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Appointment</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #eaf0f6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 15px;
+    }
+
+    .section-heading {
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 40px;
+      font-family: Satisfy, cursive;
+    }
+
+    .contact-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      background: rgb(125, 181, 192);
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .contact-form {
+      flex: 1 1 500px;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-form label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 100%;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .contact-form button {
+      position: relative;
+      overflow: hidden;
+      background-color: #1e66d2;
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: color 0.3s ease-in-out;
+      z-index: 1;
+    }
+
+    .contact-form button::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgb(54, 60, 57);
+      transition: top 0.4s ease-in-out;
+      z-index: -1;
+    }
+
+    .contact-form button:hover::before {
+      top: 0;
+    }
+
+    .contact-form button:hover {
+      color: #fff;
+    }
+
+    .contact-image {
+      flex: 1 1 400px;
+      text-align: center;
+    }
+
+    .contact-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      height:700px;
+    }
+
+    @media (max-width: 768px) {
+      .section-heading {
+        font-size: 26px;
+        margin-bottom: 30px;
+      }
+
+      .contact-wrapper {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .contact-form,
+      .contact-image {
+        width: 100%;
+      }
+
+      .contact-image img {
+        width: 80%;
+        max-width: 300px;
+        margin-top: 20px;
+        height:80%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="section-heading">
+      We Are Always Ready to Help You.<br />Book An Appointment
+    </div>
+
+    <div class="contact-wrapper">
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <form action="#" method="POST">
+          <div>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+          </div>
+          <div>
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" placeholder="Enter your age" required />
+          </div>
+          <div>
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" placeholder="Enter your city" required />
+          </div>
+          <div>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required />
+          </div>
+          <div>
+            <label for="surgery">Choose Surgery Type</label>
+            <select id="surgery" name="surgery" required>
+              <option value="" disabled selected>Select a surgery</option>
+              <option value="laparoscopic">Laparoscopic Surgery</option>
+              <option value="hernia">Hernia</option>
+              <option value="stapler">Stapler Surgery</option>
+              <option value="proctology">Proctology</option>
+              <option value="acroantics">Acroantics Surgery</option>
+              <option value="acroantics">Breast Surgery</option>
+            </select>
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Enter your message..." required></textarea>
+          </div>
+          <button type="submit">Book Appointment</button>
+        </form>
+      </div>
+
+      <!-- Doctor Image -->
+      <div class="contact-image">
+        <img src="{% static 'Images/Mosa.jpg' %}" alt="Dr. Shialendra Jain" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>

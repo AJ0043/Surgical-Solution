@@ -1,0 +1,117 @@
+<div class="logobanner">
+    <div class="description">
+        <h4>We Are Always Ready to Help Your Family</h4>
+        <p>Expert care, always here for and your loved ones.</p>
+    </div>
+
+    <div class="Images">
+        <i class="fas fa-ambulance"></i>
+        <h5>Emergency Help</h5>
+        <p>Always ready for urgent care when you need it most.</p>
+    </div>
+
+    <div class="Images">
+        <i class="fas fa-stethoscope"></i>
+        <h5>Medical Treatment</h5>
+        <p>Expert medical treatment with care, precision, and compassion.</p>
+    </div>
+
+    <div class="Images">
+        <i class="fas fa-heartbeat"></i>
+        <h5>Enriched Treatment</h5>
+        <p>Advanced technology and personalized care for better outcomes.</p>
+    </div>
+</div>
+
+<style>
+.logobanner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 40px 20px;
+    text-align: center;
+    gap: 30px;
+}
+
+.description {
+    flex: 1 1 100%;
+    margin-bottom: 40px;
+}
+
+.description h4 {
+    font-size: 28px;
+    color:rgb(28, 91, 150);
+    margin-bottom: 10px;
+    font-family: serif;
+}
+
+.description p {
+    font-size: 20px;
+    color: #555;
+}
+
+.Images {
+    flex: 1 1 250px;
+    max-width: 280px;
+    background: white;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.Images:hover {
+    transform: translateY(-5px);
+}
+
+.Images i {
+    font-size: 50px;
+    color: white;
+    background-color:rgb(70, 102, 191);
+    padding: 25px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    transition: transform 0.6s;
+    display: inline-block;
+    transform-style: preserve-3d;
+}
+
+.Images i:hover {
+    transform: rotateY(180deg);
+}
+
+.Images h5 {
+    font-size: 25px;
+    color: #1c967d;
+    margin-bottom: 10px;
+    font-family: serif;
+}
+
+.Images p {
+    font-size: 14px;
+    color: #444;
+}
+
+/* 🔹 Responsive */
+@media (max-width: 768px) {
+    .logobanner {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Images {
+        width: 90%;
+    }
+
+    .description p{
+        font-size:15px;
+
+
+    }
+
+
+
+}
+</style>
+

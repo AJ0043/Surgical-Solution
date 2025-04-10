@@ -1,0 +1,383 @@
+{% extends 'Store/layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- ✅ Parallax Section Start -->
+<section class="parallax-section">
+    <div class="overlay">
+        <h1 class="heading">Laparoscopic Surgery</h1>
+    </div>
+</section>
+
+<!-- ✅ Info Section -->
+<div class="info-section">
+    <div class="left-side">
+      
+      <!-- ✅ Department Section -->
+      <div class="Topic">
+        <h3>Department</h3>
+        <div class="dept-links">
+          <a href="/Lapro/">Laparoscopic Surgery</a>
+          <a href="/Anorc/">Anorectal Surgery</a>
+          <a href="/Lap/">Lap Hernia</a>
+          <a href="/Breast/">Breast Surgery</a>
+          <a href="#">Laser Fistula Treatment</a>
+          <a href="/Stepler/">Stapler Surgery</a>
+          <a href="/Procto/">Proctology Surgery</a>
+        </div>
+      </div>
+  
+      <!-- ✅ Opening Time Section -->
+      <div class="Time">
+        <h3>Opening Time</h3>
+        <p><strong>Monday to Friday:</strong> 09:00 PM – 07:00 AM</p>
+        <p><strong>Saturday:</strong> 09:00 PM – 03:00 AM</p>
+        <p><strong>Sunday:</strong> Closed</p>
+      </div>
+  
+      <!-- ✅ Quick Contact Section -->
+      <div class="Contact">
+        <h3>Quick Contact</h3>
+        <p><strong>Phone:</strong> +91 98102 1713</p>
+        <p><strong>Email:</strong> info@laprosurgicare.com</p>
+        <p><strong>Address:</strong> 238, Rosewood Appartment, Sector 13,Dwarka, Delhi</p>
+      </div>
+    </div>
+</div>
+
+<!-- ✅ Laproscopic Surgery Content -->
+<div class="Para3">
+    <div class="Leprr">
+        <h3>Laproscopic Surgery</h3>
+        <p>Laparoscopic surgery, also known as minimally invasive surgery, is a modern surgical technique performed through small incisions using a special instrument called a laparoscope. The laparoscope is a thin tube with a camera and light at the tip, allowing the surgeon to view the internal organs on a monitor with high precision.</p>
+        
+        <div class="Why">
+            <h4>Why Choose Laproscopic Surgery</h4>
+            <p>Smaller Incisions: Minimal cuts mean less pain and quicker healing.</p>
+            <p>Faster Recovery: Most patients go home the same day or the next.</p>
+            <p>Lower Risk of Infection: Reduced exposure lowers chances of complications.</p>
+            <p>Less Scarring: Small marks instead of large surgical scars.</p>
+            <p>High Accuracy: Real-time video enhances the precision of the surgery.</p>
+        </div>    
+        
+        <div class="Comman">
+            <h4>Common Procedures Done Laparoscopically</h4>  
+            <p>Gallbladder removal (Cholecystectomy)</p>  
+            <p>Appendectomy</p>  
+            <p>Hernia Repair</p>
+            <p>Hysterectomy</p>
+        </div>    
+    </div>
+    <div>
+       
+
+
+
+
+
+
+
+<!-- ✅ CSS Styling -->
+<style>
+/* ---------- Parallax Section ---------- */
+.parallax-section {
+  background-image: url("{% static 'Images/Lapro.webp' %}");
+  min-height: 400px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 128, 0, 0.5);
+  display: flex;
+  align-items: center;
+  padding-left: 5%;
+  z-index: 1;
+}
+.heading {
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  z-index: 2;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .heading { font-size: 2rem; }
+}
+
+/* ---------- Info Section ---------- */
+.info-section {
+  display: flex;
+  justify-content: flex-start;
+  margin: 50px 0 50px 10px;
+  padding: 0 20px;
+}
+.left-side {
+  flex: 1;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.Topic, .Time, .Contact {
+  padding: 30px 25px;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.Topic { background: rgb(125, 181, 192); }
+.Time { background: rgb(192, 172, 105); }
+.Contact { background: rgb(125, 192, 150); }
+
+.Topic h3, .Time h3, .Contact h3 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  font-family: 'Georgia', serif;
+  border-left: 5px solid;
+}
+.Topic h3 { border-color: Orange; color: white; }
+.Time h3 { border-color: #4CAF50; color: #1a1a1a; }
+.Contact h3 { border-color: #007BFF; color: #1a1a1a; }
+
+.dept-links a {
+  display: block;
+  padding: 10px 0;
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+  position: relative;
+}
+.dept-links a:hover {
+  color: #000;
+  padding-left: 8px;
+}
+.Time p, .Contact p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ---------- Laproscopic Section ---------- */
+.Para3 {
+    max-width: 1100px;
+    padding: 40px 30px;
+    background-color: rgba(225, 224, 221,0.8);
+    border-radius: 5px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+    margin: -1020px auto 0 auto;
+    margin-left: 500px;
+  }
+  
+  /* Headings and Paragraphs */
+  .Leprr h3 {
+    font-size: 32px;
+    color: #007b83;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #007b83;
+    display: inline-block;
+    padding-bottom: 8px;
+  }
+  
+  .Leprr p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 16px;
+  }
+  
+  /* Why & Common Sections */
+  .Why, .Comman {
+    margin-top: 35px;
+  }
+  
+  .Why h4, .Comman h4 {
+    font-size: 24px;
+    color: #004d4d;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  
+  .Why h4::after, .Comman h4::after {
+    content: '';
+    width: 50px;
+    height: 3px;
+    background-color: #00a8a8;
+    display: block;
+    margin-top: 6px;
+    border-radius: 2px;
+  }
+  
+  .Why p::before {
+    content: "✔️ ";
+    margin-right: 8px;
+    font-size: 18px;
+  }
+  
+  .Comman p {
+    font-size: 17px;
+    color: #444;
+    margin-left: 10px;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  
+  .Comman p::before {
+    content: "";
+    position: absolute;
+    left: -15px;
+    top: 0;
+    color: #007b83;
+  }
+  
+  /* ---------------- Responsive ---------------- */
+  
+  @media (max-width: 1200px) {
+    .Para3 {
+      margin-left: 300px;
+      max-width: 95%;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .Para3 {
+      padding: 30px 20px;
+      margin-left: 100px;
+      max-width: 90%;
+      margin-top: 0;
+    }
+  
+    .Leprr h3 {
+      font-size: 28px;
+    }
+  
+    .Why h4, .Comman h4 {
+      font-size: 22px;
+    }
+  
+    .Leprr p, .Comman p, .Why p {
+      font-size: 16px;
+    }
+  
+    .info-section {
+      flex-direction: column;
+    }
+  
+    .left-side {
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .Para3 {
+      padding: 25px 18px;
+      margin: 30px 10px;
+      max-width: 95%;
+    }
+  
+    .Leprr h3 {
+      font-size: 24px;
+    }
+  
+    .Why h4, .Comman h4 {
+      font-size: 20px;
+    }
+  
+    .Leprr p, .Comman p, .Why p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .Para3 {
+      padding: 20px 15px;
+      border-radius: 12px;
+      margin: 20px 8px;
+    }
+  
+    .Leprr h3 {
+      font-size: 22px;
+    }
+  
+    .Why h4, .Comman h4 {
+      font-size: 18px;
+    }
+  
+    .Leprr p, .Comman p, .Why p {
+      font-size: 14.5px;
+    }
+  
+    .Why p::before {
+      font-size: 16px;
+    }
+  
+    .Comman p::before {
+      font-size: 14px;
+      left: -12px;
+    }
+  }
+  
+</style>
+</div>
+
+<div class="image">
+    <div class="Section7">
+        <div class="image-gallery">
+            <div class="image-box"><img src="{% static 'Images/Lapro.webp' %}" alt="Consultation"></div>
+            <div class="image-box"><img src="{% static 'Images/Lapro00.webp' %}" alt="Consultation"></div>
+            <div class="image-box"><img src="{% static 'Images/Lapro34.webp' %}" alt="Consultation"></div>
+        </div>
+          
+          <style>
+          .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+          }
+          
+          .image-box {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #fff;
+          }
+          
+          .image-box img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+          }
+          
+          .image-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+          }
+          
+          .image-box:hover img {
+            transform: scale(1.05);
+          }
+          </style>
+</div>
+
+</div>
+</div>
+
+{% include 'Store/Inc/con.html' %}
+
+{% include 'Store/Inc/Footer.html' %}
+
+{% endblock content %}

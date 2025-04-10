@@ -1,0 +1,378 @@
+{% extends 'Store/layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Banner Section -->
+<style>
+    .testimonial-banner {
+        width: 100%;
+        background: linear-gradient(to top, #0f1a2f, #1e2b40, #2e3d52, #3e5065, #4e6380);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 150px 20px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .testimonial-banner::before {
+        content: '';
+        background-image: url("{% static 'Images/Tee.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.25;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        border-bottom-left-radius: 100px;
+        border-bottom-right-radius: 100px;
+    }
+
+    .testimonial-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .testimonial-content h3 {
+        font-size: 42px;
+        font-weight: bold;
+        font-family: 'Satisfy', cursive;
+        color: #ffffff;
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .testimonial-content h3 {
+            font-size: 30px;
+        }
+
+        .testimonial-banner {
+            padding: 100px 15px;
+        }
+
+        .testimonial-banner::before {
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 60px;
+        }
+    }
+</style>
+
+<div class="testimonial-banner">
+    <div class="testimonial-content">
+        <h3>What Our Patients Say</h3>
+    </div>  
+</div>
+
+<!-- Flip Testimonials Section -->
+<style>
+    .testimonial-section {
+        max-width: 1200px;
+        margin: 60px auto;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        perspective: 1000px;
+    }
+
+    .testimonial-card-wrapper {
+        display: none;
+    }
+
+    .testimonial-card {
+        width: 100%;
+        height: 320px;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.8s;
+        cursor: pointer;
+    }
+
+    .testimonial-card:hover {
+        transform: rotateY(180deg);
+    }
+
+    .testimonial-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+    }
+
+    .card-front,
+    .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        background: rgb(124, 217, 191);
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        padding: 25px;
+        text-align: center;
+    }
+
+    .card-front img {
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        border: 4px solid #05afa1;
+    }
+
+    .card-front h4 {
+        font-size: 20px;
+        color: rgb(175, 87, 5);
+        margin-bottom: 10px;
+    }
+
+    .card-front p {
+        font-size: 15px;
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    .card-back {
+        background-color: #ffffff;
+        transform: rotateY(180deg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        color: #333;
+    }
+
+    .card-back p {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .testimonial-social {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    .testimonial-social a {
+        color: rgb(201, 133, 17);
+        font-size: 18px;
+        transition: color 0.3s ease;
+    }
+
+    .testimonial-social a:hover {
+        color: #333;
+    }
+
+    #loadMoreBtn {
+        padding: 10px 25px;
+        background-color: #05afa1;
+        border: none;
+        color: white;
+        font-size: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    #loadMoreBtn:hover {
+        background-color: #048b82;
+    }
+</style>
+
+<div class="testimonial-section">
+    {% for card in testimonials %}
+        <div class="testimonial-card-wrapper">
+            <div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                    <div class="card-front">
+                        <img src="{{ card.image.url }}" alt="{{ card.name }}">
+                        <h4>{{ card.name }}</h4>
+                        <p>{{ card.description|truncatechars:100 }}</p>
+                    </div>
+                    <div class="card-back">
+                        <p>{{ card.description|truncatechars:220 }}</p>
+                        <div class="testimonial-social">
+                            {% if card.facebook %}
+                                <a href="{{ card.facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            {% endif %}
+                            {% if card.twitter %}
+                                <a href="{{ card.twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                            {% endif %}
+                            {% if card.instagram %}
+                                <a href="{{ card.instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<!-- Load More Button -->
+<div style="text-align: center;">
+    <button id="loadMoreBtn">Load More</button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const cards = document.querySelectorAll('.testimonial-card-wrapper');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+        let visibleCount = 4;
+
+        function showCards() {
+            for (let i = 0; i < cards.length; i++) {
+                if (i < visibleCount) {
+                    cards[i].style.display = 'block';
+                }
+            }
+
+            if (visibleCount >= cards.length) {
+                loadMoreBtn.style.display = 'none';
+            }
+        }
+
+        loadMoreBtn.addEventListener('click', function () {
+            visibleCount += 4;
+            showCards();
+        });
+
+        showCards(); // Initial show
+    });
+</script>
+
+
+<style>
+    .feedback-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: 50px auto;
+      background:rgba(83, 168, 165, 0.6);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+  
+    .feedback-image {
+      flex: 1 1 400px;
+      min-height: 500px;
+      overflow: hidden;
+    }
+  
+    .feedback-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  
+    .feedback-container {
+      flex: 1 1 500px;
+      padding: 30px;
+      background: rgba(136, 137, 137, 0.4);
+    }
+  
+    .feedback-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: rgb(217, 39, 68);
+      font-family:Satisfy,Cursive;
+    }
+  
+    .feedback-container label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+      color: #444;
+    }
+  
+    .feedback-container input,
+    .feedback-container textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+  
+    .feedback-container input[type="file"] {
+      padding: 5px;
+    }
+  
+    .feedback-container button {
+      width: 100%;
+      background-color: #05afa1;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  
+    .feedback-container button:hover {
+      background-color: #038f85;
+    }
+  
+    @media (max-width: 768px) {
+      .feedback-wrapper {
+        flex-direction: column;
+      }
+  
+      .feedback-image {
+        min-height: 250px;
+      }
+    }
+  </style>
+  
+  <div class="feedback-wrapper">
+    <!-- Image section -->
+    <div class="feedback-image">
+      <img src="{% static 'Images/SS.png' %}" alt="Feedback Side Image">
+    </div>
+  
+    <!-- Form section -->
+    <div class="feedback-container">
+      <h2>Feedback Form</h2>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+  
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name..." required>
+  
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+  
+        <label for="image">Upload Image</label>
+        <input type="file" id="image" name="image">
+  
+        <label for="facebook">Facebook Link (optional)</label>
+        <input type="url" id="facebook" name="facebook" placeholder="https://facebook.com/yourprofile">
+  
+        <label for="instagram">Instagram Link (optional)</label>
+        <input type="url" id="instagram" name="instagram" placeholder="https://instagram.com/yourprofile">
+  
+        <label for="twitter">Twitter Link (optional)</label>
+        <input type="url" id="twitter" name="twitter" placeholder="https://twitter.com/yourprofile">
+  
+        <button type="submit">Send Feedback</button>
+      </form>
+    </div>
+  </div>
+    
+{% include 'Store/Inc/Footer.html' %}
+{% endblock content %}

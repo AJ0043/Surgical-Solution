@@ -1,0 +1,136 @@
+{% load static %}
+<div class="cards">
+    <div class="Card1">
+        <h3><i class="fas fa-ambulance"></i> Emergency Cases</h3>
+        <p>Emergency surgical solutions with expert care, immediate response, and advanced treatment for critical cases.</p>
+        <a href="#"><i class="fas fa-arrow-right"></i> Contact</a>
+    </div>
+
+    <div class="Card1">
+        <h3><i class="fas fa-user-md"></i> Doctor Timetable</h3>
+        <p>Check our doctors' availability and schedule your visit with ease. Stay informed, stay healthy.</p>
+        <a href="#"><i class="fas fa-arrow-right"></i> Click Here</a>
+    </div>
+    
+    <div class="Card1">
+        <h3><i class="fas fa-clock"></i> Opening Hours</h3>
+        <p>Stay informed about our clinic's opening hours to better plan your visits. We are committed to being available .</p>
+        <a href="#"><i class="fas fa-arrow-right"></i> Click Here</a>
+    </div>
+</div>    
+
+<style>
+.cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 50px 20px;
+        background-color: #f5f5f5;
+        gap: 60px; /* 🔻 Reduced gap between cards */
+    }
+    
+
+.Card1 {
+    background: rgb(34, 97, 156); /* Transparent blue */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    flex: 1 1 300px;
+    max-width: 320px;
+    padding: 40px;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    backdrop-filter: blur(5px);
+}
+
+
+.Card1 h3 {
+    font-size: 24px;
+    color: rgb(59, 209, 174);
+    margin-bottom: 20px;
+    font-family: Serif;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgb(255, 255, 255); /* White border for contrast */
+    display: inline-block;
+}
+
+
+.Card1 p {
+    font-size: 17px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.Card1 a {
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #1c967d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.4s ease;
+}
+
+.Card1 a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: rgb(234, 188, 22); /* Water-fill color */
+    z-index: -1;
+    transition: width 0.5s ease;
+}
+
+.Card1 a:hover::before {
+    width: 100%; /* Fill from left to right */
+}
+
+.Card1 a:hover {
+    color: white;
+}
+
+
+.Card1:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 150, 255, 0.3); /* blue shadow glow */
+}
+
+
+/* 🔹 Responsive Design */
+@media (max-width: 1024px) {
+    .cards {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .Card1 {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards {
+        padding: 30px 10px;
+        gap: 20px;
+    }
+
+    .Card1 h3 {
+        font-size: 20px;
+    }
+
+    .Card1 p {
+        font-size: 14px;
+    }
+
+    .Card1 a {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+</style>

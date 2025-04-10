@@ -1,0 +1,265 @@
+{% extends 'Store/layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Consultation Banner -->
+<link rel="stylesheet" href="{% static 'css/consultation.css' %}">
+
+<div class="consultation-banner">
+  <div class="consultation-container">
+    
+    <!-- Left: Text -->
+    <div class="consultation-text">
+        <h1>Expert Surgical Care</h1>
+        <p>
+            Dr. Shialendra Jain specializes in advanced and minimally invasive surgeries for stomach-related disorders. With 20+ years of surgical expertise, every procedure is handled with precision and personalized care.
+          </p>
+    
+    </div>
+
+    <!-- Right: Image -->
+    <div class="consultation-image">
+      <img src="{% static 'Images/TTTTT.jpg' %}" alt="Consultation Doctor">
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<!-- CONTENT CONTAINER BANNER SURGERY / PROCEDURE -->
+<style>
+    .surgery-section {
+      max-width: 1100px;
+      margin: 40px auto;
+      display: flex;
+      flex-wrap: wrap;
+      background: #843b62;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+  
+    .surgery-img {
+      flex: 1 1 400px;
+      overflow: hidden;
+    }
+  
+    .surgery-img img {
+      width: 100%;
+      height: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+  
+    .surgery-content {
+      flex: 1 1 600px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    .surgery-content h1 {
+      font-size: 2rem;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+  
+    .surgery-content p {
+      font-size: 1.2rem;
+      color: #ffe8f3;
+      line-height: 2;
+      margin-bottom: 30px;
+    }
+  
+    .btn {
+      position: relative;
+      display: inline-block;
+      background-color: #e91e63;
+      color: #fff;
+      padding: 14px 50px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      overflow: hidden;
+      text-decoration: none;
+      z-index: 1;
+      transition: color 0.4s ease;
+    }
+  
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #c2185b;
+      transition: top 0.4s ease;
+      z-index: -1;
+    }
+  
+    .btn:hover {
+      color: #fff;
+    }
+  
+    .btn:hover::before {
+      top: 0;
+    }
+  
+    @media (max-width: 768px) {
+      .surgery-section {
+        flex-direction: column;
+      }
+  
+      .surgery-img img {
+        width: 100%;
+        height: auto;
+        max-height: none;
+      }
+  
+      .surgery-content {
+        padding: 20px;
+        text-align: center;
+      }
+  
+      .btn {
+        margin: 0 auto;
+      }
+    }
+  </style>
+  
+  <div class="surgery-section">
+    <div class="surgery-img">
+      <img src="{% static 'Images/s56.jpeg' %}" alt="Surgery or Procedure">
+    </div>
+    <div class="surgery-content">
+      <h1>Safe & Planned Surgical Procedures</h1>
+      <p>
+        At Dr. Shailendra Jain Clinic, we understand that undergoing a surgical procedure can be a big decision — one that requires trust, care, and thorough preparation. That’s why every surgery or medical procedure we recommend is based on detailed evaluation, second opinions, and complete transparency.
+  
+        From minor outpatient procedures to more complex surgeries, our team ensures that every step is handled with expertise and empathy. Dr. Jain discusses the benefits, risks, recovery process, and cost implications of each procedure so you feel confident and informed.
+  
+        We collaborate with trusted surgical centers and hospitals equipped with advanced technologies to ensure your safety and comfort. Our goal is to provide a smooth and stress-free experience from pre-op consultations to post-op recovery.
+      </p>
+      <a href="#" class="btn">Contact Now</a>
+    </div>
+  </div>
+  
+
+
+<style>
+    .consultation-banner {
+      background: rgba(0, 0, 0, 0.3); /* Light transparent green */
+      padding: 60px 20px;
+    }
+  
+    .consultation-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+  
+    .consultation-text {
+      flex: 1 1 500px;
+    }
+  
+    .consultation-text h1 {
+      font-size: 36px;
+      color: #0a3d62;
+      margin-bottom: 15px;
+      font-family: Serif;
+    }
+  
+    .consultation-text p {
+      font-size: 18px;
+      color: #333;
+      line-height: 1.6;
+    }
+  
+    .consultation-image {
+      flex: 1 1 400px;
+      text-align: center;
+    }
+  
+    .consultation-image img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.30);
+      object-fit: cover;
+    }
+  
+    @media (max-width: 768px) {
+        .consultation-banner {
+          padding: 40px 15px; /* reduced padding */
+          height:650px;
+        }
+      
+        .consultation-container {
+          flex-direction: column-reverse;
+          text-align: center;
+          padding: 0;
+          gap: 20px; /* reduced vertical gap */
+        }
+      
+        .consultation-text h1 {
+          font-size: 28px;
+          margin-bottom: 10px; /* reduced spacing below heading */
+        }
+      
+        .consultation-text p {
+          font-size: 16px;
+          line-height: 1.5;
+          margin-bottom: 0;
+        }
+      
+        .consultation-image img {
+          max-width: 80%;
+        }
+      }
+        
+      @media (max-width: 480px) {
+        .consultation-banner {
+          padding: 20px 10px; /* tightened padding */
+          height:650px;
+        }
+      
+        .consultation-container {
+          gap: 15px; /* fixed: removed blank value */
+        }
+      
+        .consultation-text h1 {
+          font-size: 24px;
+          margin-bottom: 8px;
+        }
+      
+        .consultation-text p {
+          font-size: 15px;
+          line-height: 1.4;
+          margin-bottom: 100px; /* fixed: removed 200px space */
+        }
+      
+        .consultation-image img {
+          border-radius: 8px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+          margin-top:50px;
+        }
+      }
+      
+      
+  </style>
+  
+
+</style>
+{% include 'Store/Inc/Footer.html' %}
+{% endblock content %}

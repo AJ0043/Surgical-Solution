@@ -1,0 +1,301 @@
+{% extends 'Store/layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Consultation Banner -->
+<link rel="stylesheet" href="{% static 'css/consultation.css' %}">
+
+<div class="consultation-banner">
+  <div class="consultation-container">
+    
+    <!-- Left: Text -->
+    <div class="consultation-text">
+        <h1>Our Treatment Process</h1>
+        <p class="process-intro">
+            At Dr. Shialendra Jain's clinic, we follow a transparent and patient-focused process to ensure the best care.
+          </p>
+    </div>
+
+    <!-- Right: Image -->
+    <div class="consultation-image">
+      <img src="{% static 'Images/TTT.jpg' %}" alt="Consultation Doctor">
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<!-- CONTENT CONTAINER BANNER TREATMENT PLAN -->
+<style>
+    .treatment-section {
+      max-width: 1100px;
+      margin: 40px auto;
+      display: flex;
+      flex-wrap: wrap;
+      background:rgb(92, 119, 183);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+  
+    .treatment-img {
+      flex: 1 1 400px;
+      overflow: hidden;
+    }
+  
+    .treatment-img img {
+      width: 130%;
+      height: 190%;
+      max-height: 600px;
+      object-fit: cover;
+      display: block;
+    }
+  
+    .treatment-content {
+      flex: 1 1 600px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    .treatment-content h1 {
+      font-size: 2rem;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+  
+    .treatment-content p {
+      font-size: 1.2rem;
+      color: #eaffff;
+      line-height: 2;
+      margin-bottom: 30px;
+    }
+  
+    .btn {
+      position: relative;
+      display: inline-block;
+      background-color: #28a745;
+      color: #fff;
+      padding: 14px 50px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      overflow: hidden;
+      text-decoration: none;
+      z-index: 1;
+      transition: color 0.4s ease;
+    }
+  
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #1d7a37;
+      transition: top 0.4s ease;
+      z-index: -1;
+    }
+  
+    .btn:hover {
+      color: #fff;
+    }
+  
+    .btn:hover::before {
+      top: 0;
+    }
+  
+    @media (max-width: 768px) {
+      .treatment-section {
+        flex-direction: column;
+      }
+  
+      .treatment-img img {
+        width: 100%;
+        height: auto;
+        max-height: none;
+      }
+  
+      .treatment-content {
+        padding: 20px;
+        text-align: center;
+      }
+  
+      .btn {
+        margin: 0 auto;
+      }
+    }
+  </style>
+  
+  <div class="treatment-section">
+    <div class="treatment-img">
+      <img src="{% static 'Images/T.jpg' %}" alt="Treatment Plan">
+    </div>
+    <div class="treatment-content">
+      <h1>Personalized Treatment Plan</h1>
+      <p>
+        Once the diagnosis is confirmed, the next vital step is to initiate a clear and customized treatment plan tailored to your individual health needs. At Dr. Shailendra Jain Clinic, we don’t believe in one-size-fits-all solutions — each patient’s condition, lifestyle, and preferences are taken into account before creating the right care strategy.
+  
+        Dr. Jain personally explains all available treatment options to you, ensuring transparency and comfort with every decision. Whether it's medication management, lifestyle changes, dietary guidance, or referrals to specialists, your plan is made with your well-being as the top priority.
+  
+        For chronic illnesses or long-term care, we offer a structured follow-up schedule and progress tracking so that you are never alone in your healing journey.
+      </p>
+      <a href="#" class="btn">Start Treatment</a>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    .consultation-banner {
+      background: rgba(179, 42, 29, 0.3); /* Light transparent green */
+      padding: 60px 20px;
+    }
+  
+    .consultation-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+  
+    .consultation-text {
+      flex: 1 1 500px;
+    }
+  
+    .consultation-text h1 {
+      font-size: 36px;
+      color: #0a3d62;
+      margin-bottom: 15px;
+      font-family: Serif;
+    }
+  
+    .consultation-text p {
+      font-size: 18px;
+      color: #333;
+      line-height: 1.6;
+    }
+  
+    .consultation-image {
+      flex: 1 1 400px;
+      text-align: center;
+    }
+  
+    .consultation-image img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.30);
+      object-fit: cover;
+    }
+  
+    @media (max-width: 768px) {
+        .consultation-banner {
+          padding: 40px 15px; /* reduced padding */
+          height:650px;
+        }
+      
+        .consultation-container {
+          flex-direction: column-reverse;
+          text-align: center;
+          padding: 0;
+          gap: 20px; /* reduced vertical gap */
+        }
+      
+        .consultation-text h1 {
+          font-size: 28px;
+          margin-bottom: 10px; /* reduced spacing below heading */
+        }
+      
+        .consultation-text p {
+          font-size: 16px;
+          line-height: 1.5;
+          margin-bottom: 0;
+        }
+      
+        .consultation-image img {
+          max-width: 80%;
+        }
+      }
+        
+      @media (max-width: 480px) {
+        .consultation-banner {
+          padding: 20px 10px; /* tightened padding */
+          height:650px;
+        }
+      
+        .consultation-container {
+          gap: 15px; /* fixed: removed blank value */
+        }
+      
+        .consultation-text h1 {
+          font-size: 24px;
+          margin-bottom: 8px;
+        }
+      
+        .consultation-text p {
+          font-size: 15px;
+          line-height: 1.4;
+          margin-bottom: 100px; /* fixed: removed 200px space */
+        }
+      
+        .consultation-image img {
+          border-radius: 8px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+          margin-top:50px;
+        }
+      }
+      
+      
+  </style>
+  
+
+</style>
+{% include 'Store/Inc/Footer.html' %}
+{% endblock content %}

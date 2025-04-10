@@ -1,0 +1,320 @@
+{% load static %}
+<div class="Who">
+  <div class="content">
+    <h3>We Offer Different Services To Improve Your Health</h3>
+    <p>
+      We are a trusted and experienced healthcare clinic committed to delivering high-quality medical care with compassion, professionalism, and dedication. With a team of skilled doctors and advanced medical technology, we provide expert consultation, diagnosis, and surgical treatments tailored to each patient’s needs. Our clinic specializes in laparoscopic, anorectal, hernia, breast, and laser surgeries, ensuring effective outcomes with minimal recovery time. We believe in patient-first care, where every individual is treated with empathy, respect, and personalized attention. Whether it’s a routine checkup or a complex procedure, your health is our priority. Experience safe, advanced, and caring treatment – because you deserve the best.
+    </p>
+  </div>
+
+  <div class="Treatment">
+    <!-- Card 1 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <i class="fas fa-procedures"></i>
+          <h3>Laparoscopic Surgery</h3>
+        </div>
+        <div class="flip-card-back">
+          <i class="fas fa-procedures"></i>
+          <h3>Laparoscopic Surgery</h3>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card 2 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <i class="fas fa-user-injured"></i>
+          <h3>Anorectal Surgery</h3>
+        </div>
+        <div class="flip-card-back">
+          <i class="fas fa-user-injured"></i>
+          <h3>Anorectal Surgery</h3>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card 3 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <i class="fas fa-x-ray"></i>
+          <h3>Lap Hernia</h3>
+        </div>
+        <div class="flip-card-back">
+          <i class="fas fa-x-ray"></i>
+          <h3>Lap Hernia</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <i class="fas fa-ribbon"></i>
+          <h3>Breast Surgery</h3>
+        </div>
+        <div class="flip-card-back">
+          <i class="fas fa-ribbon"></i>
+          <h3>Breast Surgery</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <i class="fas fa-lightbulb"></i>
+          <h3>Laser Fistula Treatment</h3>
+        </div>
+        <div class="flip-card-back">
+          <i class="fas fa-lightbulb"></i>
+          <h3>Laser Fistula Treatment</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>Press here to Read more</h3>
+          <a href="#" class="click-btn">Click Here</a>
+        </div>
+        <div class="flip-card-back">
+          <h3>Press here to Read more</h3>
+          <a href="/Treatment/" class="click-btn">Click Here</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.Who {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 60px 30px;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: center;
+  margin-top: 290px;
+}
+
+.Who .content {
+  flex: 1 1 45%;
+}
+
+.Who .content h3 {
+  font-size: 32px;
+  color: #1c3d5a;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-family: 'Satisfy', cursive;
+}
+
+.Who .content p {
+  font-size: 20px;
+  color: #444;
+  line-height: 1.8;
+}
+
+/* Treatment Cards Grid */
+.Treatment {
+  flex: 1 1 45%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+
+}
+
+/* Flip Card */
+.flip-card {
+  background: transparent;
+  width: 100%;
+  height: 240px;
+  perspective: 1000px;
+  margin-top:-10px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  padding: 30px 20px;
+  background: rgb(28, 90, 162);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.flip-card h3 {
+  font-size: 20px;
+  color: rgb(39, 191, 205);
+  font-weight: bold;
+  font-family: "Serif", serif;
+  margin-top: 15px;
+}
+
+.flip-card i {
+  font-size: 32px;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  padding: 10px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.click-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background-color: #2785cd;
+  color: white;
+  font-size: 14px;
+  border-radius: px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.click-btn:hover {
+  background-color: #1c6eb1;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .Who {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 30px;
+  }
+
+  .Who .content,
+  .Treatment {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .Treatment {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .Who .content h3 {
+    font-size: 28px;
+  }
+
+  .Who .content p {
+    font-size: 18px;
+  }
+
+  .flip-card {
+    height: 230px;
+  }
+
+  .flip-card h3 {
+    font-size: 18px;
+  }
+
+  .flip-card i {
+    font-size: 28px;
+    width: 65px;
+    height: 65px;
+    padding: 15px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .Treatment {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .flip-card {
+    height: 220px;
+  }
+
+  .Who .content h3 {
+    font-size: 26px;
+  }
+
+  .Who .content p {
+    font-size: 17px;
+  }
+
+  .flip-card h3 {
+    font-size: 16px;
+  }
+
+  .flip-card i {
+    font-size: 26px;
+    width: 60px;
+    height: 60px;
+    padding: 13px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .Treatment {
+    grid-template-columns: 1fr;
+  }
+
+  .flip-card {
+    height: 210px;
+  }
+
+  .Who .content h3 {
+    font-size: 22px;
+  }
+
+  .Who .content p {
+    font-size: 16px;
+  }
+
+  .flip-card h3 {
+    font-size: 15px;
+  }
+
+  .flip-card i {
+    font-size: 22px;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+  }
+}
+</style>
+
+<!-- Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>

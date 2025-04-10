@@ -1,0 +1,274 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Navbar with Smooth Scroll Effect</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      padding-top: 120px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* 🔹 Top Navbar */
+    .top-navbar {
+      width: 100%;
+      background: rgb(47, 107, 195);
+      color: white;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      position: fixed;
+      top: 0;
+      z-index: 1002;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-family: Serif;
+    }
+
+    @media screen and (max-width: 768px) {
+      .top-navbar {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+        font-size: 14px;
+        padding: 5px;
+      }
+    }
+
+    /* 🔹 Main Navbar */
+    .navbar {
+      position: fixed;
+      top: 40px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      height: 80px;
+      background: transparent; /* Initial transparent */
+      z-index: 1001;
+      transition: background 0.1s ease-in-out;
+    }
+
+    .navbar .logo img {
+      width: 170px;
+      height: auto;
+      margin-top: -6px;
+      user-select: none;
+    }
+
+    /* 🔹 Navbar Links */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 20px;
+      flex-grow: 1;
+      padding-right: 50px;
+    }
+
+    .nav-links li {
+      margin: 5px 10px;
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgb(6, 25, 26);
+      font-size: 19px;
+      position: relative;
+      font-weight: bold;
+    }
+
+    /* 🔹 Dropdown Menu */
+    .dropdown {
+      position: relative;
+      cursor: pointer;
+      color: rgb(4, 18, 19);
+      font-weight: bold;
+      font-size: 19px;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: 180%;
+      left: 0;
+      background: rgb(49, 112, 200);
+      min-width: 200px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+      font-family: Serif;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-content a:hover {
+      background: rgb(231, 233, 233);
+      color: rgb(42, 185, 166);
+    }
+
+    .dropdown:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown::after {
+      content: " ▼";
+      font-size: 12px;
+    }
+
+    /* 🔹 Appointment Button */
+    .appointment-btn {
+      padding: 10px 20px;
+      background: rgb(102, 186, 136);
+      color: rgb(39, 27, 27);
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.2s ease;
+      margin-left: 30px;
+    }
+
+    .appointment-btn:hover {
+      background: rgb(239, 234, 232);
+      transform: scale(1.05);
+      color: teal;
+    }
+
+    /* 🔹 Sidebar Menu */
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: rgb(23, 104, 158);
+    }
+
+    @media screen and (max-width: 1024px) {
+      .nav-links {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -250px;
+        height: 100%;
+        width: 250px;
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: -4px 0px 6px rgba(0, 0, 0, 0.2);
+        transition: transform 0.4s ease-in-out;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-links.active {
+        transform: translateX(-250px);
+      }
+
+      .hamburger {
+        display: block;
+        z-index: 1003;
+      }
+
+      .navbar {
+        margin-top: 17px;
+      }
+
+      .navbar .logo img {
+        width: 130px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 🔹 Top Navbar -->
+  <div class="top-navbar">
+    <span>📞 Phone: +91 98102 1713</span>
+    <span>📍 Address: 238 Rosewood Apartment, Sector 13 Dwarka, Delhi.</span>
+  </div>
+
+  <!-- 🔹 Main Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="/"><img src="{% static 'Images/1212.png' %}" alt="Logo"></a>
+    </div>
+    <button class="hamburger">☰</button>
+    <ul class="nav-links">
+      <li><a href="/">HOME</a></li>
+      <li class="dropdown">
+        <a href="http://127.0.0.1:5000/Treatment/">TREATMENT</a>
+        <div class="dropdown-content">
+          <a href="/Lapro/">Laparoscopic Surgery</a>
+          <a href="/Anorc/">Anorctal Surgery</a>
+          <a href="/Lap/">Lap Hernia Surgery</a>
+          <a href="/Breast/">Breast Surgery</a>
+          <a href="/Stepler/">Stapler Surgery</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="/Test/">TESTIMONIALS</a>
+        <div class="dropdown-content">
+          <a href="/gallery/">Gallery</a>
+          <a href="/blogs/">Blog</a>
+          <a href="#">FAQ</a>
+          
+        </div>
+      </li>
+      <li><a href="/About/">ABOUT US</a></li>
+      <li><a href="/Contact/">CONTACT US</a></li>
+      
+      
+      <li><a href="/Book/" class="appointment-btn">BOOK APPOINTMENT</a></li>
+    </ul>
+  </nav>
+
+  <!-- 🔹 JavaScript -->
+  <script>
+    document.querySelector(".hamburger").addEventListener("click", function () {
+      document.querySelector(".nav-links").classList.toggle("active");
+    });
+
+    window.addEventListener("scroll", function () {
+      const navbar = document.querySelector(".navbar");
+      let scrollTop = window.scrollY;
+      let maxScroll = 150;
+      let opacity = Math.min(scrollTop / maxScroll, 1);
+
+      navbar.style.background = `linear-gradient(90deg, rgba(255, 255, 255, ${opacity}), rgba(204, 224, 255, ${opacity}))`;
+    });
+  </script>
+</body>
+</html>

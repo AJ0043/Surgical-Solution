@@ -1,0 +1,246 @@
+{% load static %}
+
+<body>
+    <div class="Banner2">
+        <img src="{% static 'Images/FFFP.jpg' %}">
+    </div>
+    <div class="Contentbanner">
+        <img src="{% static 'Images/Mosaji22.png' %}">
+    </div>    
+    <div class="head">
+        <h2>Your Health Our<span> Priority.... </span></h2>
+        <p>At our clinic, your health comes first. We provide top-quality care with a patient-focused approach. Our expert team ensures personalized treatments using advanced technology. From diagnosis to recovery, we prioritize your well-being with compassionate service. Trust us for reliable, effective, and comprehensive healthcare tailored to your unique needs.</p>
+        <a href="#">CONTACT US</a>
+    </div>
+</body>
+
+<style>
+    /* 🔹 Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background-color: #fff;
+        padding-top: 120px;
+    }
+
+    /* 🔹 Banner Section */
+    .Banner2 {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        user-select: none;
+        margin-top:-80px;
+    }
+
+    .Banner2 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        z-index: -1;
+        filter: blur(4px)brightness(0.7);;
+        
+    }
+
+    /* 🔹 Mosaji Image */
+.Contentbanner img {
+    position: absolute;
+    width: 850px; /* Width thodi adjust ki */
+    height: auto;
+    right: 0; /* Right se properly align */
+    top: 38%; /* Positioning adjust ki */
+    max-width: 90%;
+}
+
+    /* 🔹 Text Box */
+    .head {
+        position: absolute;
+        bottom: 5%;
+        left: 5%;
+        max-width: 700px;
+    }
+
+    .head h2 {
+        font-size: 60px;
+        color: rgb(74, 137, 209);
+        font-family: 'Satisfy', cursive;
+        font-weight: bolder;
+        margin-bottom: 15px;
+    }
+
+    .head p {
+        font-size: 20px;
+        color: white;
+        line-height: 26px;
+        max-width: 600px;
+        font-family: serif;
+    }
+
+    /* 🔹 Contact Button */
+    .head a {
+        position: relative;
+        display: inline-block;
+        margin-top: 25px;
+        padding: 12px 25px;
+        font-size: 20px;
+        color: white;
+        border-radius: 5px;
+        background-color: rgb(39, 133, 205);
+        text-decoration: none;
+        overflow: hidden;
+        z-index: 1;
+        transition: color 0.4s ease;
+    }
+    
+    .head a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0;
+        background: rgb(35, 173, 148); /* Water fill effect */
+        z-index: -1;
+        transition: width 0.5s ease;
+    }
+    
+    .head a:hover::before {
+        width: 100%;
+    }
+    
+    .head a:hover {
+        color: black;
+    }
+    
+
+    span {
+        font-family: 'Satisfy', cursive;
+        color: white;
+    }
+
+    /* 🔹 Responsive Design */
+        @media (max-width: 1024px) {
+            .Banner2 {
+                height: 90vh;
+            }
+        
+            .Contentbanner img {
+                width: 80%;
+                top: 57%;
+                left: 60%;
+                transform: translateX(-50%);
+            }
+        
+            .head {
+                bottom: 40%;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+                max-width: 85%;
+            }
+        
+            .head h2 {
+                font-size: 70px;
+                color:
+            }
+        
+            .head p {
+                font-size: 25px;
+                text-align: center;
+                width: 100%;
+                margin: 0 auto;
+            }
+        
+            .head a {
+                padding: 10px 20px;
+                font-size: 18px;
+            }
+        }
+        
+    
+
+    @media (max-width: 768px) {
+        .Banner2 {
+            height: 85vh;
+        }
+
+        .Contentbanner img {
+            width: 70%;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .head {
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            max-width: 90%;
+        }
+
+        .head h2 {
+            font-size: 40px;
+        }
+
+        .head p {
+            font-size: 18px;
+            text-align: center;
+            width: 85%;
+            margin: 0 auto;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .Banner2 {
+            height: 80vh;
+        }
+
+        .Contentbanner img {
+            width: 130%;
+            top: 55%;
+            left: 55%;
+            transform: translateX(-50%);
+        }
+
+        .head {
+            bottom: 50%;
+            text-align: center;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 95%;
+        }
+
+        .head h2 {
+            font-size: 32px;
+            color:rgb(16, 70, 62);
+        }
+
+        .head p {
+            font-size: 16px;
+            text-align: center;
+            display:none;
+        }
+
+        .head a{
+           
+            font-size: 10px;
+
+        }
+    
+       
+    
+    
+    }
+</style>
+

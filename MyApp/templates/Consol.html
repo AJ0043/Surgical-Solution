@@ -1,0 +1,261 @@
+{% extends 'Store/layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Consultation Banner -->
+<link rel="stylesheet" href="{% static 'css/consultation.css' %}">
+
+<div class="consultation-banner">
+  <div class="consultation-container">
+    
+    <!-- Left: Text -->
+    <div class="consultation-text">
+      <h1>Consultation</h1>
+      <p>
+        Schedule your consultation with <strong>Dr. Shialendra Jain</strong> – a trusted stomach surgeon with 20+ years of experience and thousands of satisfied patients.
+      </p>
+    </div>
+
+    <!-- Right: Image -->
+    <div class="consultation-image">
+      <img src="{% static 'Images/CCCC.jpeg' %}" alt="Consultation Doctor">
+    </div>
+
+  </div>
+</div>
+
+
+ <!-- CONTENT CONTAINER -->
+<style>
+ .consultation-section {
+    max-width: 1100px;
+    margin: 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+    background: rgb(145, 112, 112);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .consultation-img {
+    flex: 1 1 400px;
+    overflow: hidden;
+  }
+
+  .consultation-img img {
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .consultation-content {
+    flex: 1 1 600px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .consultation-content h1 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+
+  .consultation-content p {
+    font-size: 1.1rem;
+    color: #ffe8e8;
+    line-height: 2;
+    margin-bottom: 30px;
+  }
+
+  .btn {
+    position: relative;
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 14px 50px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    z-index: 1;
+    transition: color 0.4s ease;
+  }
+
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0056b3;
+    transition: top 0.4s ease;
+    z-index: -1;
+  }
+
+  .btn:hover {
+    color: #fff;
+  }
+
+  .btn:hover::before {
+    top: 0;
+  }
+
+  @media (max-width: 768px) {
+    .consultation-section {
+      flex-direction: column;
+    }
+
+    .consultation-content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .consultation-img img {
+      max-height: 300px;
+    }
+
+    .btn {
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="consultation-section">
+  <div class="consultation-img">
+    <img src="{% static 'Images/img.jpg' %}" alt="Consultation Doctor">
+  </div>
+  <div class="consultation-content">
+    <h1>Book a Consultation at Dr. Shailendra Jain Clinic</h1>
+    <p>
+      At Dr. Shailendra Jain Clinic, we offer trusted, compassionate, and personalized healthcare services designed to meet the unique needs of every patient. Our consultation sessions are not just about treatment — they are about building a relationship of care and trust. Whether you require a routine health checkup, need a second opinion, or have specific health concerns, our clinic ensures a professional yet friendly environment where your voice is heard.
+
+      We understand that your time is valuable, which is why we offer flexible appointment scheduling, including both in-clinic visits and online video consultations for your convenience. Dr. Shailendra Jain takes the time to thoroughly understand your symptoms, review your medical history, and offer guidance that is practical .
+    </p>
+    <a href="#" class="btn">Contact US</a>
+  </div>
+</div>
+
+
+
+
+
+<style>
+    .consultation-banner {
+      background: rgba(65, 91, 163, 0.3); /* Light transparent green */
+      padding: 60px 20px;
+    }
+  
+    .consultation-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+  
+    .consultation-text {
+      flex: 1 1 500px;
+    }
+  
+    .consultation-text h1 {
+      font-size: 36px;
+      color: #0a3d62;
+      margin-bottom: 15px;
+      font-family: Serif;
+    }
+  
+    .consultation-text p {
+      font-size: 18px;
+      color: #333;
+      line-height: 1.6;
+    }
+  
+    .consultation-image {
+      flex: 1 1 400px;
+      text-align: center;
+    }
+  
+    .consultation-image img {
+      width: 110%;
+      max-width: 450px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.30);
+      object-fit: cover;
+    }
+  
+    @media (max-width: 768px) {
+        .consultation-banner {
+          padding: 40px 15px; /* reduced padding */
+          height:650px;
+        }
+      
+        .consultation-container {
+          flex-direction: column-reverse;
+          text-align: center;
+          padding: 0;
+          gap: 20px; /* reduced vertical gap */
+        }
+      
+        .consultation-text h1 {
+          font-size: 28px;
+          margin-bottom: 10px; /* reduced spacing below heading */
+        }
+      
+        .consultation-text p {
+          font-size: 16px;
+          line-height: 1.5;
+          margin-bottom: 0;
+        }
+      
+        .consultation-image img {
+          max-width: 80%;
+        }
+      }
+        
+      @media (max-width: 480px) {
+        .consultation-banner {
+          padding: 20px 10px; /* tightened padding */
+          height:650px;
+        }
+      
+        .consultation-container {
+          gap: 15px; /* fixed: removed blank value */
+        }
+      
+        .consultation-text h1 {
+          font-size: 24px;
+          margin-bottom: 8px;
+        }
+      
+        .consultation-text p {
+          font-size: 15px;
+          line-height: 1.4;
+          margin-bottom: 100px; /* fixed: removed 200px space */
+        }
+      
+        .consultation-image img {
+          border-radius: 8px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+          margin-top:50px;
+        }
+      }
+      
+      
+  </style>
+  
+
+</style>
+{% include 'Store/Inc/Footer.html' %}
+{% endblock content %}

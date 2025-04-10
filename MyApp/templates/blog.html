@@ -1,0 +1,149 @@
+{% extends 'Store/layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Blog Banner Section -->
+<style>
+    .blog {
+        width: 100%;
+        height: 50vh;
+        background-image: url("{% static 'Images/Feed.jpeg' %}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .blog::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+    }
+
+    .Chapter {
+        position: relative;
+        z-index: 1;
+        color: #fff;
+    }
+
+    .Chapter h3 {
+        font-size: 42px;
+        font-weight: bold;
+        font-family: 'Satisfy', cursive;
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .blog {
+            height: 35vh;
+            background-attachment: scroll;
+        }
+
+        .Chapter h3 {
+            font-size: 28px;
+        }
+    }
+
+    /* Blog Cards Styling */
+    .blog-container {
+        max-width: 1200px;
+        margin: 60px auto;
+        padding: 0 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 35px;
+    }
+
+    .blog-card {
+        width: 260px;
+        background:rgb(44, 180, 164);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease;
+    }
+
+    .blog-card img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+    }
+
+    .blog-card .card-content {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .blog-card h4 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .blog-card p {
+        font-size: 14px;
+        color: #555;
+        flex-grow: 1;
+    }
+
+    .blog-card a {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 8px 16px;
+        background: #3498db;
+        color: #fff;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 14px;
+        transition: background 0.3s ease;
+    }
+
+    .blog-card a:hover {
+        background: #2c80b4;
+    }
+</style>
+
+<!-- Banner -->
+<div class="blog">
+    <div class="Chapter">
+        <h3>Our Blog</h3>
+    </div>
+</div>
+
+<!-- Blog Cards Section -->
+<div class="blog-container">
+    {% for blog in blogs %}
+        <div class="blog-card">
+            <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+            <div class="card-content">
+                <h4>{{ blog.title }}</h4>
+                <p>{{ blog.description|truncatewords:20 }}</p>
+                {% if blog.button_link %}
+                    <a href="{{ blog.button_link }}" target="_blank">{{ blog.button_text }}</a>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% include 'Store/Inc/Footer.html' %}
+{% endblock content %}

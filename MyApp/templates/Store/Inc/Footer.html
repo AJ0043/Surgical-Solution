@@ -1,0 +1,272 @@
+{% load static %}
+
+<!-- Footer Section -->
+<footer>
+  <div class="footer-logo">
+    <a href="#"><img src="{% static 'Images/1212.png' %}" alt="Logo"></a>
+  </div>
+
+  <div class="footer-col about1">
+    <p>Dr. Shialendra Jain is a highly accomplished and respected surgeon, specializing in stomach-related diseases and gastrointestinal disorders. With over 20 years of hands-on surgical experience, he has successfully treated thousands of patients with compassion, precision, and a commitment to excellence. Known for his patient-first approach, Dr. Jain combines the latest medical advancements with personalized care to ensure the best possible outcomes.</p>
+
+  </div>
+
+  <div class="footer-col services">
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="/Lapro/">→ Laparoscopic Surgery</a></li>
+      <li><a href="/Anorc/">→ Anorectal Surgery</a></li>
+      <li><a href="/Lap/">→ Lap Hernia</a></li>
+      <li><a href="/Breast/">→ Breast Surgery</a></li>
+      <li><a href="">→ Laser Fistula Treatment</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-col company">
+    <h4>We're Here to Help</h4>
+    <ul>
+      <li><a href="#">→ Contact us</a></li>
+      <li><a href="#">→ Feedback</a></li>
+      <li><a href="#">→ Opening Hours:</a></li>
+      <li><span class="opening-hours">Mon - Fri: 9 AM - 7 PM</span></li>
+      <li><span class="opening-hours">Saturday: 9 AM - 5 PM</span></li>
+      <li><span class="opening-hours">Sunday: Closed</span></li>
+    </ul>
+  </div>
+
+  <div class="footer-col follow">
+    <h4>Follow Us</h4>
+    <div class="links">
+        <a href="https://wa.me/your-number" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/anveshjain1635/" target="_blank"><i class="fab fa-instagram"></i></a>
+       
+    </div>
+
+    <div class="contact-under-social">
+      <p><i class="fas fa-phone-alt"></i> +91 98102 1713</p>
+      <p><i class="fas fa-map-marker-alt"></i> 238 Rosewood Apartment,<br> Sector 13 Dwarka, Delhi.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Small Footer Bar -->
+<div class="footer-bottom">
+  <p>© 2025 Surgical Solutions. All rights reserved.</p>
+</div>
+
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<style>
+/* Main Footer Styling */
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #ffffff, #cce0ff);
+  padding: 40px 5%;
+  color: black;
+  position: relative;
+  margin-top:100px;
+}
+
+.footer-col {
+  flex: 1 1 220px;
+  margin: 15px;
+}
+
+.footer-col.about1 {
+  margin-top: -20px;
+  max-width: 450px;
+}
+
+.footer-col h4 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: rgb(50, 76, 154);
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 3px;
+  background: orange;
+  transition: width 0.4s ease;
+}
+
+.footer-col h4:hover::after {
+  width: 100%;
+}
+
+.footer-col p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: #122d80;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: 'Lora', serif;
+  display: inline-block;
+  transition: 0.3s;
+  position: relative;
+}
+
+.footer-col ul li a:hover {
+  color: orange;
+  transform: translateX(5px);
+}
+
+/* Opening Hours */
+.opening-hours {
+  color: #333;
+  font-size: 19px;
+  font-family: 'Lora', serif;
+  margin-left: 10px;
+}
+
+/* Social Media */
+.links a {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  background-color: blue;
+  color: white;
+  border-radius: 50%;
+  line-height: 45px;
+  margin: 5px;
+  text-align: center;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s;
+}
+
+.links a::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: -1;
+  transition: all 0.3s ease-in-out;
+  border-radius: 50%;
+}
+
+.links a:hover::before {
+  top: 0;
+}
+
+.links a:hover {
+  color: orange;
+}
+
+/* 🔹 Contact Info below Social */
+.contact-under-social {
+  margin-top: 15px;
+}
+
+.contact-under-social p {
+  font-size: 20px;
+  color: #333;
+  margin: 5px 0;
+  font-family: Serif;
+}
+
+.contact-under-social i {
+  margin-right: 10px;
+  color: #2b54a3;
+}
+
+/* Logo */
+.footer-logo {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Logo Image */
+.footer-logo img {
+  height: 60px;
+}
+
+/* Bottom Footer */
+.footer-bottom {
+  background-color: rgb(42, 62, 121);
+  color: white;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 18px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-logo {
+    order: 0;
+  }
+
+  .footer-logo img {
+    height: 50px;
+  }
+
+  .footer-col.about1 {
+    order: 1;
+    max-width: 100%;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  .footer-col {
+    margin: 20px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-col h4 {
+    font-size: 20px;
+  }
+
+  .footer-col p,
+  .footer-col ul li a,
+  .opening-hours,
+  .contact-under-social p {
+    font-size: 15px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
+
+  .links a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+  }
+}
+</style>

@@ -1,0 +1,157 @@
+{% extends 'Store/layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .Contact {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        
+    }
+
+    .Banner {
+        position: relative;
+        text-align: center;
+        color: white;
+        background-image: url("{% static 'Images/CCCC.jpeg' %}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .Banner::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+    }
+
+    .Banner h1 {
+        position: relative;
+        z-index: 2;
+        font-size: 3rem;
+        font-weight: bold;
+        font-family: 'Merriweather', serif;
+        color: #fff;
+    }
+
+    .Container {
+        max-width: 1000px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        background:rgba(39, 121, 202,0.7);
+    }
+
+    .Container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #003366;
+        font-size: 2.5rem;
+    }
+
+    .Container p {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #666;
+    }
+
+    form {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        
+    }
+
+    form input, form textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+    }
+
+    form textarea {
+        grid-column: 1 / -1;
+        resize: none;
+        min-height: 120px;
+    }
+
+    .submit-btn {
+        grid-column: 1 / -1;
+        text-align: center;
+    }
+
+    .submit-btn button {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 50px;
+        background: linear-gradient(to right, #0066cc, #003366);
+        color: white;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    .submit-btn button:hover {
+        background: linear-gradient(to right, #003366, #0066cc);
+    }
+
+    @media (max-width: 768px) {
+        .Banner {
+            height: 220px;
+        }
+
+        .Banner h1 {
+            font-size: 2rem;
+        }
+
+        form {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    footer {
+        margin-top: 50px;
+        padding: 20px;
+        background-color: #003366;
+        color: white;
+        text-align: center;
+    }
+</style>
+
+<div class="Contact">
+    <div class="Banner">
+        <h1>Contact Us</h1>
+    </div>
+
+    <div class="Container">
+        <h1>Get in Touch</h1>
+        <p>If you have any questions, inquiries, or need assistance, feel free to reach out. We’re happy to help!</p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <input type="tel" name="phone" placeholder="Phone Number">
+            <textarea name="message" placeholder="Your Message" required></textarea>
+
+            <div class="submit-btn">
+                <button type="submit">Send Message</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% include 'Store/Inc/Footer.html' %}
+{% endblock content %}
