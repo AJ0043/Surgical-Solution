@@ -3,11 +3,11 @@
 
 {% block content %}
 
-<!-- Blog Banner Section -->
 <style>
+    /* === Blog Banner Section === */
     .blog {
         width: 100%;
-        height: 50vh;
+        height: 60vh;
         background-image: url("{% static 'Images/Feed.jpeg' %}");
         background-size: cover;
         background-position: center;
@@ -16,9 +16,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
-        overflow: hidden;
         text-align: center;
+        position: relative;
         padding: 0 20px;
     }
 
@@ -37,28 +36,25 @@
         position: relative;
         z-index: 1;
         color: #fff;
+        max-width: 800px;
     }
 
     .Chapter h3 {
         font-size: 42px;
-        font-weight: bold;
         font-family: 'Satisfy', cursive;
         margin: 0;
     }
 
     .Chapter p {
         font-size: 18px;
-        font-family: 'Open Sans', sans-serif;
         margin-top: 10px;
         color: #ddd;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
+        font-family: 'Open Sans', sans-serif;
     }
 
     @media (max-width: 768px) {
         .blog {
-            height: 35vh;
+            height: 45vh;
             background-attachment: scroll;
         }
 
@@ -67,20 +63,35 @@
         }
 
         .Chapter p {
-            font-size: 16px;
+            font-size: 15px;
         }
     }
 
-    /* Blog Cards Styling */
+    @media (max-width: 480px) {
+        .blog {
+            height: 40vh;
+        }
+
+        .Chapter h3 {
+            font-size: 24px;
+        }
+
+        .Chapter p {
+            font-size: 14px;
+        }
+    }
+
+    /* === Blog Cards Grid === */
     .blog-container {
         max-width: 1300px;
         margin: 60px auto;
-        padding: 0 15px;
+        padding: 0 20px;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 40px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
     }
 
+    /* === Blog Card === */
     .blog-card {
         background: rgb(44, 180, 164);
         border-radius: 12px;
@@ -97,22 +108,22 @@
 
     .blog-card img {
         width: 100%;
-        height: 170px;
+        height: 180px;
         object-fit: cover;
     }
 
-    .blog-card .card-content {
+    .card-content {
         padding: 20px;
         display: flex;
         flex-direction: column;
-        flex-grow: 1;
+        height: 100%;
     }
 
     .blog-card h4 {
-        font-size: 18px;
+        font-size: 20px;
         font-weight: bold;
-        color: #333;
-        margin-bottom: 10px;
+        color: #fff;
+        margin-bottom: 12px;
     }
 
     .blog-card p {
@@ -137,7 +148,6 @@
         text-align: center;
     }
 
-    /* Water Fill Hover Animation */
     .blog-card a::before {
         content: '';
         position: absolute;
@@ -155,25 +165,30 @@
     }
 
     .blog-card a:hover {
-        color:rgb(44, 180, 130);
+        color: rgb(44, 180, 130);
     }
 
-    @media (max-width: 480px) {
-        .blog-card .card-content {
-            padding: 15px;
+    @media (max-width: 576px) {
+        .card-content {
+            padding: 16px;
         }
 
         .blog-card h4 {
-            font-size: 16px;
+            font-size: 17px;
         }
 
         .blog-card p {
             font-size: 13px;
         }
+
+        .blog-card a {
+            font-size: 13px;
+            padding: 8px 18px;
+        }
     }
 </style>
 
-<!-- Banner -->
+<!-- === Blog Banner === -->
 <div class="blog">
     <div class="Chapter">
         <h3>Our Blog</h3>
@@ -181,7 +196,7 @@
     </div>
 </div>
 
-<!-- Blog Cards Section -->
+<!-- === Blog Cards === -->
 <div class="blog-container">
     {% for blog in blogs %}
         <div class="blog-card">
