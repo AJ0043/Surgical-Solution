@@ -4,7 +4,6 @@
 {% block content %}
 
 <style>
-    /* === Blog Banner Section === */
     .blog {
         width: 100%;
         height: 60vh;
@@ -81,17 +80,31 @@
         }
     }
 
-    /* === Blog Cards Grid === */
     .blog-container {
         max-width: 1300px;
         margin: 60px auto;
         padding: 0 20px;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 30px;
     }
 
-    /* === Blog Card === */
+    .blog-card-wrapper {
+        flex: 1 1 280px;
+        max-width: 320px;
+        display: none;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .blog-card-wrapper.show {
+        display: block !important;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
     .blog-card {
         background: rgb(44, 180, 164);
         border-radius: 12px;
@@ -100,6 +113,7 @@
         display: flex;
         flex-direction: column;
         transition: transform 0.3s ease;
+        height: 100%;
     }
 
     .blog-card:hover {
@@ -168,13 +182,13 @@
         color: rgb(44, 180, 130);
     }
 
-    @media (max-width: 576px) {
-        .card-content {
-            padding: 16px;
+    @media (max-width: 768px) {
+        .blog-card img {
+            height: 150px;
         }
 
         .blog-card h4 {
-            font-size: 17px;
+            font-size: 18px;
         }
 
         .blog-card p {
@@ -185,6 +199,37 @@
             font-size: 13px;
             padding: 8px 18px;
         }
+    }
+
+    @media (max-width: 480px) {
+        .blog-card img {
+            height: 130px;
+        }
+
+        .card-content {
+            padding: 14px;
+        }
+
+        .blog-card h4 {
+            font-size: 16px;
+        }
+
+        .blog-card p {
+            font-size: 12px;
+        }
+    }
+
+    /* === Load More Button === */
+    #loadMoreBtn {
+        padding: 10px 25px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+        cursor: pointer;
+        margin: 20px auto 0;
+        display: block;
     }
 </style>
 
@@ -197,20 +242,53 @@
 </div>
 
 <!-- === Blog Cards === -->
-<div class="blog-container">
+<div class="blog-container" id="blogContainer">
     {% for blog in blogs %}
-        <div class="blog-card">
-            <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
-            <div class="card-content">
-                <h4>{{ blog.title }}</h4>
-                <p>{{ blog.description|truncatewords:20 }}</p>
-                {% if blog.button_link %}
-                    <a href="{{ blog.button_link }}" target="_blank">{{ blog.button_text }}</a>
-                {% endif %}
+        <div class="blog-card-wrapper">
+            <div class="blog-card">
+                <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+                <div class="card-content">
+                    <h4>{{ blog.title }}</h4>
+                    <p>{{ blog.description|truncatewords:20 }}</p>
+                    {% if blog.button_link %}
+                        <a href="{{ blog.button_link }}" target="_blank">{{ blog.button_text }}</a>
+                    {% endif %}
+                </div>
             </div>
         </div>
     {% endfor %}
 </div>
+
+<!-- Load More Button -->
+<button id="loadMoreBtn">Load More</button>
+
+<!-- JavaScript for Load More -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".blog-card-wrapper");
+        const loadMoreBtn = document.getElementById("loadMoreBtn");
+        let visibleCount = 4;
+
+        function showCards() {
+            cards.forEach((card, index) => {
+                if (index < visibleCount) {
+                    card.classList.add("show");
+                }
+            });
+
+            if (visibleCount >= cards.length) {
+                loadMoreBtn.style.display = "none";
+            }
+        }
+
+        loadMoreBtn.addEventListener("click", function () {
+            visibleCount += 4;
+            showCards();
+        });
+
+        showCards();
+    });
+</script>
 
 {% include 'Store/Inc/Footer.html' %}
 {% endblock content %}

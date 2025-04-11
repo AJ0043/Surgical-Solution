@@ -36,16 +36,16 @@
       display: flex;
       flex-wrap: wrap;
       gap: 30px;
-     background: linear-gradient(to right,rgb(96, 153, 196),rgb(69, 157, 165));;
+      background: linear-gradient(to right, rgb(96, 153, 196), rgb(69, 157, 165));
       border-radius: 10px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       padding: 40px;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
     }
 
     .contact-form {
-      flex: 1 1 500px;
+      flex: 1 1 48%;
     }
 
     .contact-form form {
@@ -54,10 +54,20 @@
       gap: 20px;
     }
 
+    .form-row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .form-row > div {
+      flex: 1;
+    }
+
     .contact-form label {
       font-weight: 600;
       margin-bottom: 5px;
       color: #333;
+      display: block;
     }
 
     .contact-form input,
@@ -72,7 +82,7 @@
 
     .contact-form textarea {
       resize: vertical;
-      min-height: 100px;
+      min-height: 180px;
     }
 
     .contact-form button {
@@ -96,7 +106,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to right,rgb(0, 102, 97),rgb(42, 149, 161));
+      background: linear-gradient(to right, rgb(0, 102, 97), rgb(42, 149, 161));
       transition: top 0.4s ease-in-out;
       z-index: -1;
     }
@@ -110,16 +120,52 @@
     }
 
     .contact-image {
-      flex: 1 1 400px;
+      flex: 1 1 48%;
       text-align: center;
     }
 
     .contact-image img {
+      width: 100%;
       max-width: 100%;
       height: auto;
       border-radius: 10px;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-      height:700px;
+    }
+
+    .call-now-btn {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(to right, #009688, #4caf50);
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: color 0.3s ease-in-out;
+      z-index: 1;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .call-now-btn::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, rgb(0, 102, 97), rgb(42, 149, 161));
+      transition: top 0.4s ease-in-out;
+      z-index: -1;
+    }
+
+    .call-now-btn:hover::before {
+      top: 0;
+    }
+
+    .call-now-btn:hover {
+      color: #fff;
     }
 
     @media (max-width: 768px) {
@@ -139,10 +185,14 @@
       }
 
       .contact-image img {
-        width: 80%;
-        max-width: 300px;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
         margin-top: 20px;
-        height:80%;
+      }
+
+      .form-row {
+        flex-direction: column;
       }
     }
   </style>
@@ -157,22 +207,28 @@
       <!-- Contact Form -->
       <div class="contact-form">
         <form action="#" method="POST">
-          <div>
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+          <div class="form-row">
+            <div>
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+            </div>
+            <div>
+              <label for="age">Age</label>
+              <input type="number" id="age" name="age" placeholder="Enter your age" required />
+            </div>
           </div>
-          <div>
-            <label for="age">Age</label>
-            <input type="number" id="age" name="age" placeholder="Enter your age" required />
+
+          <div class="form-row">
+            <div>
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" placeholder="Enter your city" required />
+            </div>
+            <div>
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required />
+            </div>
           </div>
-          <div>
-            <label for="city">City</label>
-            <input type="text" id="city" name="city" placeholder="Enter your city" required />
-          </div>
-          <div>
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required />
-          </div>
+
           <div>
             <label for="surgery">Choose Surgery Type</label>
             <select id="surgery" name="surgery" required>
@@ -182,15 +238,22 @@
               <option value="stapler">Stapler Surgery</option>
               <option value="proctology">Proctology</option>
               <option value="acroantics">Acroantics Surgery</option>
-              <option value="acroantics">Breast Surgery</option>
+              <option value="breast">Breast Surgery</option>
             </select>
           </div>
+
           <div>
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Enter your message..." required></textarea>
           </div>
+
           <button type="submit">Book Appointment</button>
         </form>
+
+        <!-- WhatsApp Call Button -->
+        <a href="https://wa.me/91981021713" target="_blank">
+          <button class="call-now-btn">Call Now</button>
+        </a>
       </div>
 
       <!-- Doctor Image -->
