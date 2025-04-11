@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import TestimonialCard
-from .models import GalleryPhoto,Blog
+from .models import GalleryPhoto,Blog,Testimonial
 
 @admin.register(TestimonialCard)
 class TestimonialCardAdmin(admin.ModelAdmin):
@@ -20,3 +20,8 @@ class BlogAdmin(admin.ModelAdmin):
     search_fields = ('title', 'description')
     list_filter = ('created_at',)
 
+
+class TestimonialAdmin(admin.ModelAdmin):
+    list_display = ['name', 'message', 'facebook', 'instagram', 'image']  # Yahin error hai
+
+admin.site.register(Testimonial, TestimonialAdmin)

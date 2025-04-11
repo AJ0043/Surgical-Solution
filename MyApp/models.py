@@ -31,3 +31,16 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title    
+    
+
+
+
+# models For Feedback ####
+class Testimonial(models.Model):
+    name = models.CharField(max_length=100)
+    message = models.TextField()
+    image = models.ImageField(upload_to='Testimonial/', blank=True, null=True)
+    facebook = models.URLField(blank=True, null=True)
+    instagram = models.URLField(blank=True, null=True)
+    twitter = models.URLField(blank=True, null=True)
+   
