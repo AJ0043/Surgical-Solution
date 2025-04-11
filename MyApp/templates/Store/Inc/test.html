@@ -1,5 +1,4 @@
 {% load static %}
-
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
@@ -18,47 +17,13 @@
     </div>
     
     <div class="slider">
+        {% for testimonial in testimonials %}
         <div class="Image-container">
-            <img src="{% static 'Images/Varun.webp' %}" alt="Patient Image" />
-            <p>Had an amazing experience at this clinic. The doctors were highly professional and caring, ensuring I felt comfortable throughout my treatment.</p>
-            <h3>Vikram Verma</h3>
+            <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }} Image" />
+            <p>{{ testimonial.description }}</p>
+            <h3>{{ testimonial.name }}</h3>
         </div>
-
-        <div class="Image-container">
-            <img src="{% static 'Images/Varr.jpg' %}" alt="Patient Image" />
-            <p>The staff was very friendly and attentive. The treatment was smooth and well-explained. Highly recommended.</p>
-            <h3>Priya Sharma</h3>
-        </div>
-
-        <div class="Image-container">
-            <img src="{% static 'Images/Shr.jpg' %}" alt="Patient Image" />
-            <p>Excellent service and top-notch medical care. The doctors are highly skilled and very supportive.</p>
-            <h3>Amit Khanna</h3>
-        </div>
-
-        <div class="Image-container">
-            <img src="{% static 'Images/VE.jpg' %}" alt="Patient Image" />
-            <p>From diagnosis to recovery, the entire process was seamless. Thanks to the amazing team at the clinic!</p>
-            <h3>Neha Kapoor</h3>
-        </div>
-
-        <div class="Image-container">
-            <img src="{% static 'Images/Varr.jpg' %}" alt="Patient Image" />
-            <p>The level of care and expertise at this clinic is unmatched. Truly grateful for the service.</p>
-            <h3>Rahul Malhotra</h3>
-        </div>
-
-        <div class="Image-container">
-            <img src="{% static 'Images/Varun.webp' %}" alt="Patient Image" />
-            <p>I felt at ease knowing I was in expert hands. The entire experience was stress-free and smooth.</p>
-            <h3>Sneha Arora</h3>
-        </div>
-
-        <div class="Image-container">
-            <img src="{% static 'Images/VE.jpg' %}" alt="Patient Image" />
-            <p>Amazing doctors and a great environment. They really prioritize patient care and comfort.</p>
-            <h3>Rohan Mehta</h3>
-        </div>
+        {% endfor %}
     </div>
 </div>
 
@@ -131,40 +96,41 @@ $(document).ready(function(){
 
 .Image-container {
     background: rgb(74, 151, 206);
-    padding: 25px;
+    padding: 18px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
-    margin: 15px;
+    margin: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 340px;
+    max-width: 280px;
+    width: 100%;
 }
 
 .Image-container:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .Image-container img {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     object-fit: cover;
     border-radius: 50%;
-    margin-bottom: 15px;
-    border: 3px solid white;
+    margin-bottom: 12px;
+    border: 2px solid white;
 }
 
 .Image-container p {
-    font-size: 17px;
+    font-size: 16px;
     color: #fff;
-    margin-bottom: 15px;
-    line-height: 1.7;
+    margin-bottom: 12px;
+    line-height: 1.6;
 }
 
 .Image-container h3 {
-    font-size: 19px;
+    font-size: 17px;
     color: #fff;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .slick-dots {
@@ -197,7 +163,8 @@ $(document).ready(function(){
         margin-top: 120px;
     }
     .Image-container {
-        max-width: 90%;
+        max-width: 85%;
+        padding: 16px;
     }
 }
 
@@ -207,10 +174,24 @@ $(document).ready(function(){
         margin-top: 100px;
     }
     .Patients h4 {
-        font-size: 26px;
+        font-size: 24px;
     }
     .Image-container {
-        padding: 20px;
+        padding: 14px;
+        max-width: 95%;
+    }
+
+    .Image-container img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .Image-container p {
+        font-size: 15px;
+    }
+
+    .Image-container h3 {
+        font-size: 16px;
     }
 }
 
@@ -220,10 +201,23 @@ $(document).ready(function(){
         margin-top: 80px;
     }
     .Patients h4 {
-        font-size: 24px;
+        font-size: 22px;
     }
     .Image-container {
-        padding: 18px;
+        padding: 12px;
+    }
+
+    .Image-container img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .Image-container p {
+        font-size: 14px;
+    }
+
+    .Image-container h3 {
+        font-size: 15px;
     }
 }
 </style>

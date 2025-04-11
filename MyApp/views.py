@@ -6,7 +6,8 @@ from .models import GalleryPhoto,Blog
 # Create your views here.
 
 def Home(request):
-    return render(request,'index.html')
+    testimonials = TestimonialCard.objects.all()
+    return render(request, 'index.html', {'testimonials': testimonials})
 
 
 def Treatment(request):
