@@ -139,6 +139,7 @@
     transition: transform 0.8s;
     transform-style: preserve-3d;
     cursor: pointer;
+    padding: 30px;
 }
 
 .testimonial-card-inner:hover {
@@ -152,7 +153,7 @@
     padding: 25px;
     border-radius: 15px;
     backface-visibility: hidden;
-    background: rgba(16, 101, 116, 0.2);
+    background: rgba(40, 179, 66, 0.2);
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -176,7 +177,8 @@
     margin-bottom: 10px;
     border: 3px solid white;
     box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    margin-left:60px;
+    margin-left: auto;
+    margin-right: auto; /* Center the image */
 }
 
 .card-back {
@@ -231,6 +233,67 @@
     background: linear-gradient(to right, #047991, #025f6e);
     transform: scale(1.05);
 }
+
+/* Tablet View (Max-width: 1024px) */
+@media (max-width: 1024px) {
+    .testimonial-section {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+        gap: 20px;
+    }
+
+    .testimonial-card-inner {
+        padding: 20px;
+    }
+
+    .card-front img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .card-front h4 {
+        font-size: 17px;
+    }
+
+    .card-front p,
+    .card-back p {
+        font-size: 14px;
+    }
+
+    #loadMoreBtn {
+        padding: 10px 25px;
+        font-size: 15px;
+    }
+}
+
+/* Mobile View (Max-width: 768px) */
+@media (max-width: 768px) {
+    .testimonial-section {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+
+    .testimonial-card-inner {
+        padding: 15px;
+    }
+
+    .card-front img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .card-front h4 {
+        font-size: 16px;
+    }
+
+    .card-front p,
+    .card-back p {
+        font-size: 13px;
+    }
+
+    #loadMoreBtn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
 </style>
 
 <!-- JS -->
@@ -265,14 +328,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Feedback</title>
 
     <style>
         .feedback-wrapper {
@@ -440,7 +495,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 </script>
 
-</body>
-</html>
+
 {% include 'Store/Inc/Footer.html' %}
 {% endblock content %}
