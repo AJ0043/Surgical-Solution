@@ -8,6 +8,9 @@
 
 <div class="testimonial-section">
     <h2>What Our Patients Say</h2>
+    <p class="testimonial-subtext">
+        Our patients' experiences inspire us to deliver the best care possible. Read their heartfelt messages and see how we’ve made a difference in their health and happiness.
+    </p>
     <div class="testimonial-slider">
         {% for card in testimonials %}
         <div class="testimonial-card">
@@ -66,13 +69,20 @@ $(document).ready(function(){
 .testimonial-section {
     padding: 60px 20px;
     text-align: center;
-    background:rgb(255, 255, 255);
+    background: rgb(255, 255, 255);
 }
 .testimonial-section h2 {
     font-size: 32px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: #365DBE;
-    font-weight:bold;
+    font-weight: bold;
+}
+.testimonial-subtext {
+    font-size: 16px;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
 }
 .testimonial-slider {
     margin: 0 auto;
@@ -83,8 +93,7 @@ $(document).ready(function(){
     padding: 5px;
     max-width: 300px;
     margin: 0 auto;
-    background:rgba(56, 169, 167, 0.6);
-   
+    background: rgba(56, 169, 167, 0.6);
 }
 .testimonial-inner {
     position: relative;
@@ -92,7 +101,7 @@ $(document).ready(function(){
     height: 250px;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    background:rgba(24,165,112,0.6)
+    background: rgba(24,165,112,0.6)
 }
 .testimonial-inner:hover {
     transform: rotateY(180deg);
@@ -106,6 +115,10 @@ $(document).ready(function(){
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .testimonial-front {
     z-index: 2;
@@ -119,6 +132,7 @@ $(document).ready(function(){
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
+    margin-left: 0;
 }
 .testimonial-front h4 {
     font-size: 16px;
@@ -128,11 +142,17 @@ $(document).ready(function(){
 .testimonial-front p {
     font-size: 14px;
     color: #333;
+    text-align: center;
 }
 .testimonial-back p {
     font-size: 14px;
     color: #444;
     margin-bottom: 15px;
+    text-align: center;
+}
+.testimonial-social {
+    display: flex;
+    justify-content: center;
 }
 .testimonial-social a {
     margin: 0 8px;
