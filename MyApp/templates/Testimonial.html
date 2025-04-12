@@ -76,243 +76,266 @@
 
 <!-- testimonials.html -->
 
-<!-- Testimonial Section -->
-<section class="testimonial-section" id="testimonialSection">
-    {% for card in testimonials %}
-        <div class="testimonial-card-wrapper {% if forloop.counter > 4 %}hidden-card{% endif %}">
-            <div class="testimonial-card-inner">
-                <div class="card-front">
-                    {% if card.image %}
-                        <img src="{{ card.image.url }}" alt="{{ card.name }}">
-                    {% endif %}
-                    <h4>{{ card.name }}</h4>
-                    <p>{{ card.message|truncatechars:90 }}</p>
-                </div>
-                <div class="card-back">
-                    <p>{{ card.message|truncatechars:300 }}</p>
-                    <div class="testimonial-social">
-                        {% if card.facebook %}
-                            <a href="{{ card.facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        {% endif %}
-                        {% if card.instagram %}
-                            <a href="{{ card.instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
-                        {% endif %}
-                    </div>
-                </div>
+<!-- Testimonial Slider Section -->
+<section class="testimonial-slider-section" id="testimonialSlider">
+    <div class="slider-container">
+      <div class="slider-track">
+        {% for card in testimonials %}
+        <div class="testimonial-slide">
+          <div class="testimonial-card-inner">
+            <div class="card-front">
+              {% if card.image %}
+              <img src="{{ card.image.url }}" alt="{{ card.name }}">
+              {% endif %}
+              <h4>{{ card.name }}</h4>
+              <p>{{ card.message|truncatechars:90 }}</p>
             </div>
+            <div class="card-back">
+              <p>{{ card.message|truncatechars:300 }}</p>
+              <div class="testimonial-social">
+                {% if card.facebook %}
+                <a href="{{ card.facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                {% endif %}
+                {% if card.instagram %}
+                <a href="{{ card.instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
         </div>
-    {% endfor %}
-</section>
-
-<!-- Load More Button -->
-<div style="text-align: center; margin-top: 30px;">
-    <button id="loadMoreBtn">Load More</button>
-</div>
-
-<!-- CSS -->
-<style>
-.testimonial-section {
-    max-width: 1200px;
-    margin: 60px auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-    padding: 0 20px;
-    
-}
-
-.testimonial-card-wrapper {
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.hidden-card {
-    display: none;
-    opacity: 0;
-    transform: scale(0.9);
-}
-
-.testimonial-card-inner {
-    position: relative;
-    width: 100%;
-    min-height: 270px;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    cursor: pointer;
-    padding: 30px;
-}
-
-.testimonial-card-inner:hover {
-    transform: rotateY(180deg);
-}
-
-.card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    padding: 25px;
-    border-radius: 15px;
-    backface-visibility: hidden;
-    background: rgba(40, 179, 66, 0.2);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.card-front {
-    z-index: 2;
-    color: #000;
-}
-
-.card-front img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    border: 3px solid white;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    margin-left: auto;
-    margin-right: auto; /* Center the image */
-}
-
-.card-back {
-    transform: rotateY(180deg);
-    z-index: 1;
-    color: #333;
-}
-
-.card-front h4 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.card-front p,
-.card-back p {
-    font-size: 14px;
-}
-
-.testimonial-social {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 15px;
-}
-
-.testimonial-social a {
-    font-size: 18px;
-    color: #0d8aa8;
-    transition: 0.3s;
-}
-
-.testimonial-social a:hover {
-    color: #035f76;
-    transform: scale(1.2);
-}
-
-#loadMoreBtn {
-    background: linear-gradient(to right, #05afa1, #0d8aa8);
-    color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.4s ease;
-    font-weight: bold;
-    font-size: 16px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-#loadMoreBtn:hover {
-    background: linear-gradient(to right, #047991, #025f6e);
-    transform: scale(1.05);
-}
-
-/* Tablet View (Max-width: 1024px) */
-@media (max-width: 1024px) {
-    .testimonial-section {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
-        gap: 20px;
+        {% endfor %}
+      </div>
+    </div>
+  
+    <!-- Navigation Buttons -->
+    <button class="slider-btn left" id="prevSlide">&#10094;</button>
+    <button class="slider-btn right" id="nextSlide">&#10095;</button>
+  </section>
+  
+  <!-- Style -->
+  <style>
+    .testimonial-slider-section {
+      position: relative;
+      max-width: 1200px;
+      margin: 60px auto;
+      overflow: hidden;
+      padding: 0 20px;
+      
     }
-
+  
+    .slider-container {
+      overflow: hidden;
+      width: 100%;
+      
+    }
+  
+    .slider-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+  
+    .testimonial-slide {
+      min-width: 33.3333%;
+      box-sizing: border-box;
+      padding: 15px;
+      
+    }
+  
     .testimonial-card-inner {
-        padding: 20px;
+      position: relative;
+      width: 100%;
+      min-height: 270px;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      cursor: pointer;
     }
-
+  
+    .testimonial-card-inner:hover {
+      transform: rotateY(180deg);
+    }
+  
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      padding: 25px;
+      border-radius: 15px;
+      backface-visibility: hidden;
+      background: rgba(40, 149, 179, 0.2);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    .card-front {
+      z-index: 2;
+      color: #000;
+    }
+  
     .card-front img {
-        width: 70px;
-        height: 70px;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      border: 3px solid white;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      margin-left: auto;
+      margin-right: auto;
     }
-
+  
     .card-front h4 {
-        font-size: 17px;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
     }
-
+  
     .card-front p,
     .card-back p {
-        font-size: 14px;
+      font-size: 14px;
     }
-
-    #loadMoreBtn {
-        padding: 10px 25px;
-        font-size: 15px;
+  
+    .card-back {
+      transform: rotateY(180deg);
+      color: #333;
+      z-index: 1;
     }
-}
-
-/* Mobile View (Max-width: 768px) */
-@media (max-width: 768px) {
-    .testimonial-section {
-        grid-template-columns: 1fr; /* Single column on mobile */
+  
+    .testimonial-social {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 15px;
     }
-
-    .testimonial-card-inner {
-        padding: 15px;
+  
+    .testimonial-social a {
+      font-size: 18px;
+      color: #0d8aa8;
+      transition: 0.3s;
     }
-
-    .card-front img {
-        width: 60px;
-        height: 60px;
+  
+    .testimonial-social a:hover {
+      color: #035f76;
+      transform: scale(1.2);
     }
-
-    .card-front h4 {
-        font-size: 16px;
+  
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(13, 138, 168, 0.8);
+      border: none;
+      color: white;
+      font-size: 25px;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 50%;
+      z-index: 5;
+      transition: background 0.3s;
     }
-
-    .card-front p,
-    .card-back p {
-        font-size: 13px;
+  
+    .slider-btn:hover {
+      background-color: rgba(13, 138, 168, 1);
     }
-
-    #loadMoreBtn {
-        padding: 10px 20px;
-        font-size: 14px;
+  
+    .slider-btn.left {
+      left: 10px;
     }
-}
-</style>
-
-<!-- JS -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const hiddenCards = document.querySelectorAll('.testimonial-card-wrapper.hidden-card');
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
-
-    loadMoreBtn.addEventListener('click', function () {
-        hiddenCards.forEach(card => {
-            card.classList.remove('hidden-card');
-        });
-        loadMoreBtn.style.display = 'none';
+  
+    .slider-btn.right {
+      right: 10px;
+    }
+  
+    /* Responsive */
+    @media (max-width: 992px) {
+      .testimonial-slide {
+        min-width: 50%;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .testimonial-slide {
+        min-width: 100%;
+      }
+  
+      .slider-btn {
+        font-size: 20px;
+        padding: 8px 12px;
+      }
+    }
+  </style>
+  
+  <!-- JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.querySelector('.slider-track');
+      const slides = document.querySelectorAll('.testimonial-slide');
+      const prevBtn = document.getElementById('prevSlide');
+      const nextBtn = document.getElementById('nextSlide');
+      let currentIndex = 0;
+      let autoSlideInterval;
+  
+      function getSlidesPerView() {
+        if (window.innerWidth < 768) return 1;
+        if (window.innerWidth < 992) return 2;
+        return 3;
+      }
+  
+      function updateSlider() {
+        const slideWidth = slides[0].offsetWidth;
+        const slidesPerView = getSlidesPerView();
+        const maxIndex = slides.length - slidesPerView;
+  
+        // Clamp index
+        if (currentIndex < 0) currentIndex = maxIndex;
+        if (currentIndex > maxIndex) currentIndex = 0;
+  
+        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+      }
+  
+      function nextSlide() {
+        currentIndex++;
+        updateSlider();
+      }
+  
+      function prevSlide() {
+        currentIndex--;
+        updateSlider();
+      }
+  
+      function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 4000);
+      }
+  
+      function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+      }
+  
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        stopAutoSlide();
+        startAutoSlide();
+      });
+  
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        stopAutoSlide();
+        startAutoSlide();
+      });
+  
+      window.addEventListener('resize', updateSlider);
+  
+      updateSlider();
+      startAutoSlide();
     });
-});
-</script>
-
-
+  </script>
+  
 
 
 
