@@ -4,166 +4,168 @@
 {% block content %}
 <style>
     .Contact {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
+        font-family: Arial, sans-serif;
     }
 
+    /* 🔹 Parallax Banner */
     .Banner {
-        position: relative;
-        text-align: center;
-        color: white;
-        background-image: url("{% static 'Images/CCCC.jpeg' %}");
+        background-image: url("{% static 'Images/FFFP.jpg' %}");
+        background-attachment: fixed;
         background-size: cover;
         background-position: center;
-        background-attachment: fixed;
-        height: 350px;  /* Increased height for better spacing */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        justify-content: center;  /* Ensures center alignment */
+        padding: 150px 20px;
+        text-align: center;
+        color: black;
+        position: relative;
+        margin-top: -75px;
     }
 
     .Banner::before {
-        content: '';
+        content: "";
         position: absolute;
-        inset: 0;
-        background-color: rgba(0, 0, 0, 0.6);
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(84, 121, 117, 0.6); /* light greenish overlay */
         z-index: 1;
     }
 
     .Banner h1 {
-        position: relative;
+        font-size: 40px;
+        font-family: Serif;
         z-index: 2;
-        font-size: 3rem;
-        font-weight: bold;
-        font-family: 'Merriweather', serif;
-        color: #fff;
+        position: relative;
     }
 
     .Banner p {
-        position: relative;
+        font-size: 18px;
+        color: rgb(16, 14, 14);
         z-index: 2;
-        font-size: 1.2rem;
-        color: #fff;
-        margin-top: 10px;
+        position: relative;
     }
 
+    /* 🔹 Container Styles */
     .Container {
         max-width: 1000px;
-        margin: 40px auto;
-        background: #fff;
-        padding: 30px;
+        margin: 0 auto;
+        padding: 40px 20px 60px 20px;
+        background-color: rgba(33, 158, 54, 0.1); /* very light green background */
+        margin-top: 60px;
         border-radius: 10px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        background: linear-gradient(to right,rgb(96, 153, 196),rgb(69, 157, 165));;
-
-        position: relative;
-        z-index: 2;
     }
 
     .Container h1 {
+        font-size: 32px;
+        color: #222;
         text-align: center;
-        margin-bottom: 20px;
-        color: #003366;
-        font-size: 2.5rem;
+        font-family: Serif;
     }
 
     .Container p {
+        font-size: 16px;
+        color: #333;
         text-align: center;
         margin-bottom: 30px;
-        color: #fff;
     }
 
+    /* 🔹 Form Styles */
     form {
         display: grid;
-        gap: 20px;
-        grid-template-columns: 1fr 1fr;
+        gap: 15px;
     }
 
-    form input, form textarea {
-        width: 100%;
-        padding: 12px 15px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        font-size: 1rem;
-    }
-
+    form input,
     form textarea {
-        grid-column: 1 / -1;
-        resize: none;
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+    }
+
+    form input:focus,
+    form textarea:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+    textarea {
+        resize: vertical;
         min-height: 120px;
     }
 
     .submit-btn {
-        grid-column: 1 / -1;
-        text-align: center;
-        margin-top: 20px;  /* Increased margin-top to provide more spacing from the form */
-        padding-bottom: 20px;  /* Added padding at the bottom to ensure spacing from the map/image */
-    }
-    
-    .contact-left-right-container {
         display: flex;
-        justify-content: space-between;
-        margin-top: 45px;
-        gap: 30px;
-        flex-wrap: wrap;
-        padding-top: 20px;  /* Added padding-top to give space between the form and contact details */
+        justify-content: flex-end;
     }
-    
 
     .submit-btn button {
-        padding: 12px 100px;
-        font-size: 1.1rem;
-        border: none;
-        border-radius: 5px;
-        background: linear-gradient(to right, #0066cc, #003366);
+        padding: 12px 25px;
+        font-size: 16px;
+        background: linear-gradient(45deg, #007bff, #00c6ff);
         color: white;
+        border: none;
+        border-radius: 6px;
         cursor: pointer;
-        transition: 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
 
-        
+    .submit-btn button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: scaleX(0);
+        transform-origin: 100% 50%;
+        transition: transform 0.4s ease;
+    }
+
+    .submit-btn button:hover::before {
+        transform: scaleX(1);
+        transform-origin: 0 50%;
     }
 
     .submit-btn button:hover {
-        background: linear-gradient(to right, #003366, #0066cc);
+        background: linear-gradient(45deg, rgb(54, 143, 168), rgb(34, 255, 0));
     }
 
-    .contact-details-map {
+    .submit-btn button:hover {
+        color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 🔹 Contact Info + Map */
+    .contact-left-right-container {
         display: flex;
-        justify-content: space-between;
-        margin-top: 45px;
-        gap: 30px;
-        flex-wrap: wrap;
+        gap: 40px;
+        margin-top: 50px;
     }
 
-    .contact-left, .contact-right {
-        flex: 1;
-        min-width: 300px;
-        background: rgba(255, 255, 255, 0.9);
-        padding: 20px;
-        border-radius: 10px;
-        color: #003366;
-        font-size: 1rem;
+    .contact-left,
+    .contact-right {
+        flex: 1 1 45%;
     }
 
     .contact-left h2 {
-        font-size: 1.8rem;
+        font-size: 24px;
+        color: #333;
         margin-bottom: 15px;
-        color: #003366;
-        font-family:Serif;
+        text-align: center;
     }
 
     .contact-left p {
-        margin-bottom: 12px;
-        line-height: 1.5;
-        color:black;
+        font-size: 16px;
+        color: #444;
+        line-height: 1.6;
+        margin-bottom: 15px;
     }
 
     .contact-left a {
-        color: #003366;
+        color: #007bff;
         text-decoration: none;
     }
 
@@ -171,64 +173,31 @@
         text-decoration: underline;
     }
 
-    /* New Styles for Image Next to Map */
-    .contact-left-right-container {
+    /* 🔹 Flex layout for 2 fields on the same line */
+    form {
         display: flex;
-        justify-content: space-between;
-        gap: 30px;
         flex-wrap: wrap;
+        gap: 15px;
     }
 
-    .contact-left-right-container .contact-left {
-        flex: 0 0 45%;
+    form input {
+        flex: 1 1 calc(50% - 10px); /* 2 fields in one line */
     }
 
-    .contact-left-right-container .contact-right {
-        flex: 0 0 45%;
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-        .Banner {
-            height: 220px;
-        }
-
-        .Banner h1 {
-            font-size: 2rem;
-        }
-
-        .Banner p {
-            font-size: 1rem;
-        }
-
+    /* 🔹 Responsive design for Mobile and Tablet */
+    @media screen and (max-width: 768px) {
         form {
-            grid-template-columns: 1fr;
-        }
-
-        .contact-details-map {
             flex-direction: column;
-        }
-
-        .contact-left, .contact-right {
-            width: 100%;
         }
 
         .contact-left-right-container {
             flex-direction: column;
         }
 
-        .contact-left-right-container .contact-left,
-        .contact-left-right-container .contact-right {
-            flex: 1 0 100%;
+        .contact-left,
+        .contact-right {
+            flex: 1 1 100%; /* Take full width on mobile */
         }
-    }
-
-    footer {
-        margin-top: 50px;
-        padding: 20px;
-        background-color: #003366;
-        color: white;
-        text-align: center;
     }
 </style>
 
@@ -244,21 +213,32 @@
         <h1>Get in Touch</h1>
         <p>If you have any questions, inquiries, or need assistance, feel free to reach out. We’re happy to help!</p>
 
+        <!-- ✅ Message block -->
+        {% if messages %}
+            <div style="margin-bottom: 20px;">
+                {% for message in messages %}
+                    <div style="background-color:rgb(66, 180, 93); color:rgb(255, 255, 255); padding: 15px; border-radius: 5px; border: 1px solid #c3e6cb;">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
         <!-- 🔹 Contact Form -->
         <form method="POST">
             {% csrf_token %}
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Email Address" required>
-            <input type="text" name="subject" placeholder="Subject" required>
-            <input type="tel" name="phone" placeholder="Phone Number">
-            <textarea name="message" placeholder="Your Message" required></textarea>
+            <input type="text" name="Name2" placeholder="Your Name" required>
+            <input type="email" name="Email2" placeholder="Email Address" required>
+            <input type="text" name="Subject2" placeholder="Subject e.g. Consultant..." required>
+            <input type="tel" name="phone2" placeholder="Phone Number" required>
+            <textarea name="Message2" placeholder="Your Message" required></textarea>
 
             <div class="submit-btn">
                 <button type="submit">Send Message</button>
             </div>
         </form>
 
-        <!-- 🔹 Contact Info + Image and Map Side-by-Side -->
+        <!-- 🔹 Contact Info + Map -->
         <div class="contact-left-right-container">
             <div class="contact-left">
                 <h2>Our Clinic</h2>
@@ -266,7 +246,7 @@
 
                 <p><strong>📞 Phone:</strong><br><a href="tel:+91981021713">+91 98102 1713</a></p>
 
-                <p><strong>✉️ Email:</strong><br><a href="mailto:drshialendra@example.com">drshialendra@example.com</a></p>
+                <p><strong>✉️ Email:</strong><br><a href="mailto:shailendrajai24@gmail.com">shailendrajai24@gmail.com</a></p>
             </div>
 
             <div class="contact-right">

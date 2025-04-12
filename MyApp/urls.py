@@ -20,7 +20,7 @@ urlpatterns = [
     path('gallery/', views.gallery_view, name='gallery'),   
     path('blogs/', views.blog_list, name='blog_list'), 
     path('About/', views.About, name='About'), 
-    path('Contact/', views.Contact, name='Contact'), 
+    path('Contact/', views.contact_view, name='contact'),
     path('Book/', views.Book, name='Book'),
     path('html/', views.Html, name='html'), 
    

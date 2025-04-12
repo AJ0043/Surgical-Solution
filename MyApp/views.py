@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import TestimonialCard
 from .models import GalleryPhoto,Blog
-from .models import Testimonial  
+from .models import Testimonial , Contact ,Appointment
 from django.contrib import messages
 from django.contrib import messages
 
@@ -9,28 +9,168 @@ from django.contrib import messages
 # Create your views here.
 
 def Home(request):
-    testimonials = Testimonial.objects.all()
-    return render(request, 'index.html', {'testimonials': testimonials})
+     if request.method == 'POST':
+        name = request.POST.get('name')
+        age = request.POST.get('age')
+        city = request.POST.get('city')
+        phone = request.POST.get('phone')
+        surgery = request.POST.get('surgery')
+        message_text = request.POST.get('message')
 
+        Appointment.objects.create(
+            name=name,
+            age=age,
+            city=city,
+            phone=phone,
+            surgery=surgery,
+            message=message_text
+        )
+
+        messages.success(request, '🎉 Your appointment has been booked successfully!')
+        return redirect('home')
+
+     testimonials = Testimonial.objects.all()
+
+     return render(request, 'index.html', {
+        'testimonials': testimonials
+
+    })
 
 def Treatment(request):
     return render(request,'Treatment.html')
 
 
 def Lapro(request):
-    return render(request,'Lapro.html')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        age = request.POST.get('age')
+        city = request.POST.get('city')
+        phone = request.POST.get('phone')
+        surgery = request.POST.get('surgery')
+        message_text = request.POST.get('message')
+
+        Appointment.objects.create(
+            name=name,
+            age=age,
+            city=city,
+            phone=phone,
+            surgery=surgery,
+            message=message_text
+        )
+
+        messages.success(request, '🎉 Your appointment has been booked successfully!')
+        return redirect('Lapro')
+
+    return render(request, 'Lapro.html')  # Or 'Store/Inc/con.html' if that's the form
+
+    
 
 def Anorc(request):
-    return render(request,'Anorctal.html')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        age = request.POST.get('age')
+        city = request.POST.get('city')
+        phone = request.POST.get('phone')
+        surgery = request.POST.get('surgery')
+        message_text = request.POST.get('message')
+
+        Appointment.objects.create(
+            name=name,
+            age=age,
+            city=city,
+            phone=phone,
+            surgery=surgery,
+            message=message_text
+        )
+
+        messages.success(request, '🎉 Your appointment has been booked successfully for Anorctal Surgury!')
+        return redirect('Anorc')
+
+    return render(request, 'Anorctal.html')  # Or 'Store/Inc/con.html' if that's the form
+
+   
+    
 
 def lap(request):
-    return render(request,'Lap.html')
+     if request.method == 'POST':
+        name = request.POST.get('name')
+        age = request.POST.get('age')
+        city = request.POST.get('city')
+        phone = request.POST.get('phone')
+        surgery = request.POST.get('surgery')
+        message_text = request.POST.get('message')
+
+        Appointment.objects.create(
+            name=name,
+            age=age,
+            city=city,
+            phone=phone,
+            surgery=surgery,
+            message=message_text
+        )
+
+        messages.success(request, '🎉 Your appointment has been booked successfully ')
+        return redirect('Lap')
+
+     return render(request, 'Lap.html')  # Or 'Store/Inc/con.html' if that's the form
+
+
 
 def Breast(request):
-    return render(request,'Breast.html')
+ if request.method == 'POST':
+        name = request.POST.get('name')
+        age = request.POST.get('age')
+        city = request.POST.get('city')
+        phone = request.POST.get('phone')
+        surgery = request.POST.get('surgery')
+        message_text = request.POST.get('message')
+
+        Appointment.objects.create(
+            name=name,
+            age=age,
+            city=city,
+            phone=phone,
+            surgery=surgery,
+            message=message_text
+        )
+
+        messages.success(request, '🎉 Your appointment has been booked successfully ')
+        return redirect('Breast')
+
+ return render(request, 'Breast.html')  # Or 'Store/Inc/con.html' if that's the form
+
+   
+   
+   
+   
 
 def Stapler(request):
-    return render(request,'Stapler.html')
+   
+   if request.method == 'POST':
+        name = request.POST.get('name')
+        age = request.POST.get('age')
+        city = request.POST.get('city')
+        phone = request.POST.get('phone')
+        surgery = request.POST.get('surgery')
+        message_text = request.POST.get('message')
+
+        Appointment.objects.create(
+            name=name,
+            age=age,
+            city=city,
+            phone=phone,
+            surgery=surgery,
+            message=message_text
+        )
+
+        messages.success(request, '🎉 Your appointment has been booked successfully ')
+        return redirect('stepler')
+
+   return render(request, 'Stapler.html')  # Or 'Store/Inc/con.html' if that's the form
+
+   
+   
+   
 
 def Procto(request):
     return render(request,'Procto.html')
@@ -108,12 +248,65 @@ def About(request):
 
 
 
-def Contact(request):
-    return render(request,"Contact.html")
+def contact_view(request):
+    if request.method == 'POST':
+        name = request.POST.get('Name2')
+        email = request.POST.get('Email2')
+        subject = request.POST.get('Subject2')
+        phone = request.POST.get('phone2')
+        message = request.POST.get('Message2')
+
+        # Save to database
+        Contact.objects.create(
+            Name2=name,
+            Email2=email,
+            Subject2=subject,
+            phone2=phone,
+            Message2=message
+        )
+
+        messages.success(request, "Thanks for contacting us! We'll get back to you soon.")
+        return redirect('contact')
+
+    return render(request, "Contact.html")
+
+
+
+
+
+
+
+
+
 
 
 def Book(request):
-    return render(request,"Book.html")
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        age = request.POST.get('age')
+        city = request.POST.get('city')
+        phone = request.POST.get('phone')
+        surgery = request.POST.get('surgery')
+        message_text = request.POST.get('message')
+
+        Appointment.objects.create(
+            name=name,
+            age=age,
+            city=city,
+            phone=phone,
+            surgery=surgery,
+            message=message_text
+        )
+
+        messages.success(request, '🎉 Your appointment has been booked successfully!')
+        return redirect('Book')
+
+    return render(request, 'Book.html')  # Or 'Store/Inc/con.html' if that's the form
+
+   
+
+
+
 
 def Html(request):
     return render(request,"html.html")
@@ -140,3 +333,5 @@ def feedback_view(request):
         return redirect('Testmonial')
 
     return render(request, 'Testimonial.html')
+
+

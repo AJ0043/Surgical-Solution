@@ -199,6 +199,28 @@
 </head>
 <body>
   <div class="container">
+    {% if messages %}
+      <div style="margin-bottom: 20px;">
+        {% for message in messages %}
+          <div style="
+            padding: 15px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 10px;
+          ">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+   
+   
+   
+   
     <div class="section-heading">
       We Are Always Ready to Help You.<br />Book An Appointment
     </div>
@@ -207,6 +229,7 @@
       <!-- Contact Form -->
       <div class="contact-form">
         <form action="#" method="POST">
+          {% csrf_token %}
           <div class="form-row">
             <div>
               <label for="name">Full Name</label>

@@ -13,8 +13,9 @@
     .appointment {
         position: relative;
         width: 100%;
-        min-height: 350px;
+        min-height: 500px;
         background-image: url("{% static 'Images/appi.jpg' %}");
+        background-attachment: fixed; /* 🔥 Parallax magic */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -24,6 +25,7 @@
         text-align: center;
         border-radius: 0;
         overflow: hidden;
+        margin-top: -75px;
     }
 
     .appointment::before {
@@ -46,7 +48,7 @@
         font-size: 3rem;
         font-weight: bold;
         margin-bottom: 20px;
-        font-family:Serif;
+        font-family: Serif;
         text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
     }
 
@@ -59,7 +61,8 @@
 
     @media (max-width: 768px) {
         .appointment {
-            min-height: 280px;
+            background-attachment: scroll; /* Disable parallax on mobile for performance */
+            min-height: 400px;
             padding: 30px 10px;
         }
 
@@ -82,11 +85,7 @@
     </div>
 </div>
 
-
 {% include 'Store/Inc/con.html' %}
-
-
-
 {% include 'Store/Inc/Footer.html' %}
 
 {% endblock content %}
