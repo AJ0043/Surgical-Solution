@@ -176,6 +176,7 @@
     margin-bottom: 10px;
     border: 3px solid white;
     box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    margin-left:60px;
 }
 
 .card-back {
@@ -266,7 +267,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
- <style>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback</title>
+
+    <style>
         .feedback-wrapper {
             display: flex;
             justify-content: center;
@@ -343,35 +351,51 @@ document.addEventListener('DOMContentLoaded', function () {
             background-color: rgb(3, 92, 143);
         }
 
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .feedback-wrapper {
+                flex-direction: column;
+            }
+
+            .feedback-image {
+                min-height: 300px;
+            }
+        }
+
+        /* Mobile - hide image */
         @media (max-width: 768px) {
             .feedback-wrapper {
                 flex-direction: column;
             }
 
             .feedback-image {
-                min-height: 250px;
+                display: none;
+            }
+
+            .feedback-container {
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="feedback-wrapper">
-        <!-- Image section -->
-        <div class="feedback-image">
-            <img src="{% static 'Images/SS.png' %}" alt="Feedback Side Image">
-        </div>
+<div class="feedback-wrapper">
+    <!-- Image section -->
+    <div class="feedback-image">
+        <img src="{% static 'Images/SS.png' %}" alt="Feedback Side Image">
+    </div>
 
-        <!-- Form section -->
-        <div class="feedback-container">
-            <h2>Feedback Form</h2>
-            {% if messages %}
+    <!-- Form section -->
+    <div class="feedback-container">
+        <h2>Feedback Form</h2>
+
+        {% if messages %}
             {% for message in messages %}
-                <div style="
+                <div class="success-message" style="
                     background: linear-gradient(135deg, #05afa1, #0371a3);
                     color: white;
                     text-align: center;
-                  
                     padding: 12px;
                     border-radius: 10px;
                     margin-bottom: 20px;
@@ -382,30 +406,41 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
             {% endfor %}
         {% endif %}
-        
-            <form method="POST" action="#">
-                {% csrf_token %}
 
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name..." required>
+        <form method="POST" action="#" enctype="multipart/form-data" id="feedback-form">
+            {% csrf_token %}
 
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name..." required>
 
-                <label for="image">Upload Image</label>
-                <input type="file" id="image" name="image">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
 
-                <label for="facebook">Facebook Link </label>
-                <input type="url" id="facebook" name="facebook" placeholder="https://facebook.com/yourprofile">
+            <label for="image">Upload Image</label>
+            <input type="file" id="image" name="image">
 
-                <label for="instagram">Instagram Link </label>
-                <input type="url" id="instagram" name="instagram" placeholder="https://instagram.com/yourprofile">
+            <label for="facebook">Facebook Link </label>
+            <input type="url" id="facebook" name="facebook" placeholder="https://facebook.com/yourprofile">
 
-                
-                <button type="submit">Send Feedback</button>
-            </form>
-        </div>
+            <label for="instagram">Instagram Link </label>
+            <input type="url" id="instagram" name="instagram" placeholder="https://instagram.com/yourprofile">
+
+            <button type="submit">Send Feedback</button>
+        </form>
     </div>
-    
+</div>    
+
+<script>
+    // JavaScript to reset the form if success message is present
+    window.addEventListener('DOMContentLoaded', function () {
+        const successMsg = document.querySelector('.success-message');
+        if (successMsg && successMsg.textContent.toLowerCase().includes('success')) {
+            document.getElementById('feedback-form').reset();
+        }
+    });
+</script>
+
+</body>
+</html>
 {% include 'Store/Inc/Footer.html' %}
 {% endblock content %}
