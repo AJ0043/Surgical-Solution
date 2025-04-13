@@ -4,13 +4,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Responsive Navbar with Smooth Scroll Effect</title>
+  <title>Responsive Navbar with Smooth Scroll</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -58,9 +62,9 @@
       align-items: center;
       padding: 15px 30px;
       height: 80px;
-      background: transparent; /* Initial transparent */
+      background: transparent;
       z-index: 1001;
-      transition: background 0.1s ease-in-out;
+      transition: background 0.3s ease-in-out;
     }
 
     .navbar .logo img {
@@ -88,19 +92,20 @@
 
     .nav-links a {
       text-decoration: none;
-      color: rgb(6, 25, 26);
+      color: black;
       font-size: 19px;
-      position: relative;
       font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: black;
     }
 
     /* 🔹 Dropdown Menu */
     .dropdown {
       position: relative;
       cursor: pointer;
-      color: rgb(4, 18, 19);
-      font-weight: bold;
-      font-size: 19px;
     }
 
     .dropdown-content {
@@ -111,11 +116,11 @@
       min-width: 200px;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
       border-radius: 5px;
-      overflow: hidden;
       opacity: 0;
       visibility: hidden;
       transform: translateY(-10px);
       transition: all 0.3s ease-in-out;
+      z-index: 1000;
     }
 
     .dropdown-content a {
@@ -123,9 +128,9 @@
       padding: 10px;
       color: white;
       text-decoration: none;
-      transition: background 0.3s;
       font-family: Serif;
       border-bottom: 1px solid #ccc;
+      transition: background 0.3s;
     }
 
     .dropdown-content a:last-child {
@@ -165,10 +170,9 @@
       background: linear-gradient(135deg, #2980b9,rgb(109, 250, 179));
       transform: scale(1.05);
       color: teal;
-      transition:0.3s
     }
 
-    /* 🔹 Sidebar Menu */
+    /* 🔹 Hamburger for Mobile */
     .hamburger {
       display: none;
       font-size: 28px;
@@ -178,25 +182,43 @@
       color: rgb(23, 104, 158);
     }
 
+    .navbar.scrolled .nav-links a {
+      color: black;
+    }
+
+    .navbar.scrolled .dropdown-content a {
+      color: black;
+    }
+
+    .navbar.scrolled .dropdown-content a:hover {
+      background: rgb(231, 233, 233);
+      color: rgb(42, 185, 166);
+    }
+
+    /* 🔹 Responsive Sidebar */
     @media screen and (max-width: 1024px) {
       .nav-links {
         flex-direction: column;
         position: fixed;
-        top: 0;
-        right: -250px;
-        height: 100%;
-        width: 250px;
+        top: 120px;
+        left: 0;
+        right: 0;
+        height: 0;
+        overflow: hidden;
         background-color: rgba(255, 255, 255, 0.95);
-        box-shadow: -4px 0px 6px rgba(0, 0, 0, 0.2);
-        transition: transform 0.4s ease-in-out;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        transition: height 0.4s ease;
+        padding: 0;
       }
 
       .nav-links.active {
-        transform: translateX(-250px);
+        height: auto;
+        padding: 20px 0;
+      }
+
+      .nav-links li {
+        margin: 10px 0;
       }
 
       .hamburger {
@@ -210,6 +232,29 @@
 
       .navbar .logo img {
         width: 130px;
+      }
+
+      .dropdown-content {
+        position: static;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        box-shadow: none;
+        background: transparent;
+      }
+
+      .dropdown-content a {
+        color: black;
+        border: none;
+        background: none;
+      }
+
+      .dropdown::after {
+        display: none;
+      }
+
+      .dropdown:hover .dropdown-content {
+        all: unset;
       }
     }
   </style>
@@ -244,22 +289,21 @@
         <div class="dropdown-content">
           <a href="/gallery/">Gallery</a>
           <a href="/blogs/">Blog</a>
-          
-          
         </div>
       </li>
       <li><a href="/About/">ABOUT US</a></li>
       <li><a href="/Contact/">CONTACT US</a></li>
-      
-      
       <li><a href="/Book/" class="appointment-btn">BOOK APPOINTMENT</a></li>
     </ul>
   </nav>
 
   <!-- 🔹 JavaScript -->
   <script>
-    document.querySelector(".hamburger").addEventListener("click", function () {
-      document.querySelector(".nav-links").classList.toggle("active");
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
     });
 
     window.addEventListener("scroll", function () {
@@ -267,7 +311,6 @@
       let scrollTop = window.scrollY;
       let maxScroll = 150;
       let opacity = Math.min(scrollTop / maxScroll, 1);
-
       navbar.style.background = `linear-gradient(90deg, rgba(255, 255, 255, ${opacity}), rgba(204, 224, 255, ${opacity}))`;
     });
   </script>
