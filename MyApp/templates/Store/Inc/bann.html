@@ -192,9 +192,9 @@
 <!-- Script: Counter & Slider -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  // Counter Animation
+  // Counter Animation (Smooth and Slow)
   const counters = document.querySelectorAll(".count");
-  const speed = 100;
+  const speed = 200; // Slower speed
 
   counters.forEach((counter) => {
     const updateCount = () => {
@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (count < target) {
         counter.innerText = Math.ceil(count + inc);
-        setTimeout(updateCount, 20);
+        setTimeout(updateCount, 30); // Slower interval for smoothness
       } else {
         counter.innerText = target;
       }
