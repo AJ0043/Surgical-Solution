@@ -8,8 +8,14 @@ from django.contrib import messages
 
 # Create your views here.
 
+# views.py
+
+from django.shortcuts import redirect, render
+from django.contrib import messages
+from .models import Appointment, Testimonial
+
 def Home(request):
-     if request.method == 'POST':
+    if request.method == 'POST':
         name = request.POST.get('name')
         age = request.POST.get('age')
         city = request.POST.get('city')
@@ -17,6 +23,7 @@ def Home(request):
         surgery = request.POST.get('surgery')
         message_text = request.POST.get('message')
 
+        # Save appointment in the database
         Appointment.objects.create(
             name=name,
             age=age,
@@ -26,14 +33,29 @@ def Home(request):
             message=message_text
         )
 
+        # WhatsApp message formatting
+        whatsapp_message = (
+            f"Appointment Request%0A"
+            f"-----------------------%0A"
+            f"👤 Name: {name}%0A"
+            f"🎂 Age: {age}%0A"
+            f"🏙️ City: {city}%0A"
+            f"📞 Phone: {phone}%0A"
+            f"🩺 Surgery Type: {surgery}%0A"
+            f"📝 Message: {message_text}"
+        )
+
+        # WhatsApp redirect link with your number
+        whatsapp_url = f"https://wa.me/918949167574?text={whatsapp_message}"
+
+        # Redirect to WhatsApp with the formatted message
         messages.success(request, '🎉 Your appointment has been booked successfully!')
-        return redirect('home')
+        return redirect(whatsapp_url)
 
-     testimonials = Testimonial.objects.all()
+    testimonials = Testimonial.objects.all()
 
-     return render(request, 'index.html', {
+    return render(request, 'index.html', {
         'testimonials': testimonials
-
     })
 
 def Treatment(request):
@@ -41,7 +63,8 @@ def Treatment(request):
 
 
 def Lapro(request):
-    if request.method == 'POST':
+      if request.method == 'POST':
+        # Fetch form data
         name = request.POST.get('name')
         age = request.POST.get('age')
         city = request.POST.get('city')
@@ -49,6 +72,7 @@ def Lapro(request):
         surgery = request.POST.get('surgery')
         message_text = request.POST.get('message')
 
+        # Save appointment in the database
         Appointment.objects.create(
             name=name,
             age=age,
@@ -58,15 +82,32 @@ def Lapro(request):
             message=message_text
         )
 
-        messages.success(request, '🎉 Your appointment has been booked successfully!')
-        return redirect('Lapro')
+        # WhatsApp message formatting
+        whatsapp_message = (
+            f"Appointment Request%0A"
+            f"-----------------------%0A"
+            f"👤 Name: {name}%0A"
+            f"🎂 Age: {age}%0A"
+            f"🏙️ City: {city}%0A"
+            f"📞 Phone: {phone}%0A"
+            f"🩺 Surgery Type: {surgery}%0A"
+            f"📝 Message: {message_text}"
+        )
 
-    return render(request, 'Lapro.html')  # Or 'Store/Inc/con.html' if that's the form
+        # WhatsApp redirect link with your number
+        whatsapp_url = f"https://wa.me/918949167574?text={whatsapp_message}"
+
+        # Redirect to WhatsApp with the formatted message
+        messages.success(request, '🎉 Your appointment has been booked successfully!')
+        return redirect(whatsapp_url)
+
+      return render(request, 'Lapro.html')  # Or 'Store/Inc/con.html' if that's the form
 
     
 
 def Anorc(request):
     if request.method == 'POST':
+        # Fetch form data
         name = request.POST.get('name')
         age = request.POST.get('age')
         city = request.POST.get('city')
@@ -74,6 +115,7 @@ def Anorc(request):
         surgery = request.POST.get('surgery')
         message_text = request.POST.get('message')
 
+        # Save appointment in the database
         Appointment.objects.create(
             name=name,
             age=age,
@@ -83,16 +125,34 @@ def Anorc(request):
             message=message_text
         )
 
-        messages.success(request, '🎉 Your appointment has been booked successfully for Anorctal Surgury!')
-        return redirect('Anorc')
+        # WhatsApp message formatting
+        whatsapp_message = (
+            f"Appointment Request%0A"
+            f"-----------------------%0A"
+            f"👤 Name: {name}%0A"
+            f"🎂 Age: {age}%0A"
+            f"🏙️ City: {city}%0A"
+            f"📞 Phone: {phone}%0A"
+            f"🩺 Surgery Type: {surgery}%0A"
+            f"📝 Message: {message_text}"
+        )
 
-    return render(request, 'Anorctal.html')  # Or 'Store/Inc/con.html' if that's the form
+        # WhatsApp redirect link with your number
+        whatsapp_url = f"https://wa.me/918949167574?text={whatsapp_message}"
+
+        # Redirect to WhatsApp with the formatted message
+        messages.success(request, '🎉 Your appointment has been booked successfully!')
+        return redirect(whatsapp_url)
+
+    return render(request, 'Anorctal.html')
+  # Or 'Store/Inc/con.html' if that's the form
 
    
     
 
 def lap(request):
-     if request.method == 'POST':
+    if request.method == 'POST':
+        # Fetch form data
         name = request.POST.get('name')
         age = request.POST.get('age')
         city = request.POST.get('city')
@@ -100,6 +160,7 @@ def lap(request):
         surgery = request.POST.get('surgery')
         message_text = request.POST.get('message')
 
+        # Save appointment in the database
         Appointment.objects.create(
             name=name,
             age=age,
@@ -109,15 +170,34 @@ def lap(request):
             message=message_text
         )
 
-        messages.success(request, '🎉 Your appointment has been booked successfully ')
-        return redirect('Lap')
+        # WhatsApp message formatting
+        whatsapp_message = (
+            f"Appointment Request%0A"
+            f"-----------------------%0A"
+            f"👤 Name: {name}%0A"
+            f"🎂 Age: {age}%0A"
+            f"🏙️ City: {city}%0A"
+            f"📞 Phone: {phone}%0A"
+            f"🩺 Surgery Type: {surgery}%0A"
+            f"📝 Message: {message_text}"
+        )
 
-     return render(request, 'Lap.html')  # Or 'Store/Inc/con.html' if that's the form
+        # WhatsApp redirect link with your number
+        whatsapp_url = f"https://wa.me/918949167574?text={whatsapp_message}"
 
+        # Redirect to WhatsApp with the formatted message
+        messages.success(request, '🎉 Your appointment has been booked successfully!')
+        return redirect(whatsapp_url)
+
+    return render(request, 'Lap.html')
+  # Or 'Store/Inc/con.html' if that's the form
+
+   
 
 
 def Breast(request):
  if request.method == 'POST':
+        # Fetch form data
         name = request.POST.get('name')
         age = request.POST.get('age')
         city = request.POST.get('city')
@@ -125,6 +205,7 @@ def Breast(request):
         surgery = request.POST.get('surgery')
         message_text = request.POST.get('message')
 
+        # Save appointment in the database
         Appointment.objects.create(
             name=name,
             age=age,
@@ -134,19 +215,37 @@ def Breast(request):
             message=message_text
         )
 
-        messages.success(request, '🎉 Your appointment has been booked successfully ')
-        return redirect('Breast')
+        # WhatsApp message formatting
+        whatsapp_message = (
+            f"Appointment Request%0A"
+            f"-----------------------%0A"
+            f"👤 Name: {name}%0A"
+            f"🎂 Age: {age}%0A"
+            f"🏙️ City: {city}%0A"
+            f"📞 Phone: {phone}%0A"
+            f"🩺 Surgery Type: {surgery}%0A"
+            f"📝 Message: {message_text}"
+        )
 
- return render(request, 'Breast.html')  # Or 'Store/Inc/con.html' if that's the form
+        # WhatsApp redirect link with your number
+        whatsapp_url = f"https://wa.me/918949167574?text={whatsapp_message}"
 
+        # Redirect to WhatsApp with the formatted message
+        messages.success(request, '🎉 Your appointment has been booked successfully!')
+        return redirect(whatsapp_url)
+
+ return render(request, 'Breast.html')
+  # Or 'Store/Inc/con.html' if that's the form
+
+   
    
    
    
    
 
 def Stapler(request):
-   
-   if request.method == 'POST':
+  if request.method == 'POST':
+        # Fetch form data
         name = request.POST.get('name')
         age = request.POST.get('age')
         city = request.POST.get('city')
@@ -154,6 +253,7 @@ def Stapler(request):
         surgery = request.POST.get('surgery')
         message_text = request.POST.get('message')
 
+        # Save appointment in the database
         Appointment.objects.create(
             name=name,
             age=age,
@@ -163,17 +263,77 @@ def Stapler(request):
             message=message_text
         )
 
-        messages.success(request, '🎉 Your appointment has been booked successfully ')
-        return redirect('stepler')
+        # WhatsApp message formatting
+        whatsapp_message = (
+            f"Appointment Request%0A"
+            f"-----------------------%0A"
+            f"👤 Name: {name}%0A"
+            f"🎂 Age: {age}%0A"
+            f"🏙️ City: {city}%0A"
+            f"📞 Phone: {phone}%0A"
+            f"🩺 Surgery Type: {surgery}%0A"
+            f"📝 Message: {message_text}"
+        )
 
-   return render(request, 'Stapler.html')  # Or 'Store/Inc/con.html' if that's the form
+        # WhatsApp redirect link with your number
+        whatsapp_url = f"https://wa.me/918949167574?text={whatsapp_message}"
 
+        # Redirect to WhatsApp with the formatted message
+        messages.success(request, '🎉 Your appointment has been booked successfully!')
+        return redirect(whatsapp_url)
+
+  return render(request, 'Stapler.html')
+  # Or 'Store/Inc/con.html' if that's the form
+ 
    
    
    
 
 def Procto(request):
-    return render(request,'Procto.html')
+    if request.method == 'POST':
+        # Fetch form data
+        name = request.POST.get('name')
+        age = request.POST.get('age')
+        city = request.POST.get('city')
+        phone = request.POST.get('phone')
+        surgery = request.POST.get('surgery')
+        message_text = request.POST.get('message')
+
+        # Save appointment in the database
+        Appointment.objects.create(
+            name=name,
+            age=age,
+            city=city,
+            phone=phone,
+            surgery=surgery,
+            message=message_text
+        )
+
+        # WhatsApp message formatting
+        whatsapp_message = (
+            f"Appointment Request%0A"
+            f"-----------------------%0A"
+            f"👤 Name: {name}%0A"
+            f"🎂 Age: {age}%0A"
+            f"🏙️ City: {city}%0A"
+            f"📞 Phone: {phone}%0A"
+            f"🩺 Surgery Type: {surgery}%0A"
+            f"📝 Message: {message_text}"
+        )
+
+        # WhatsApp redirect link with your number
+        whatsapp_url = f"https://wa.me/918949167574?text={whatsapp_message}"
+
+        # Redirect to WhatsApp with the formatted message
+        messages.success(request, '🎉 Your appointment has been booked successfully!')
+        return redirect(whatsapp_url)
+
+    return render(request, 'Procto.html')
+  # Or 'Store/Inc/con.html' if that's the form
+
+    
+    
+
 
 def Consol(request):
     return render(request,'Consol.html')
@@ -289,6 +449,7 @@ def Book(request):
         surgery = request.POST.get('surgery')
         message_text = request.POST.get('message')
 
+        # Save to DB
         Appointment.objects.create(
             name=name,
             age=age,
@@ -298,10 +459,24 @@ def Book(request):
             message=message_text
         )
 
-        messages.success(request, '🎉 Your appointment has been booked successfully!')
-        return redirect('Book')
+        # WhatsApp message format
+        whatsapp_message = (
+            f"Appointment Request%0A"
+            f"-----------------------%0A"
+            f"👤 Name: {name}%0A"
+            f"🎂 Age: {age}%0A"
+            f"🏙️ City: {city}%0A"
+            f"📞 Phone: {phone}%0A"
+            f"🩺 Surgery Type: {surgery}%0A"
+            f"📝 Message: {message_text}"
+        )
+        whatsapp_url = f"https://wa.me/918949167574?text={whatsapp_message}"
 
-    return render(request, 'Book.html')  # Or 'Store/Inc/con.html' if that's the form
+        # Send URL to template
+        messages.success(request, '🎉 Your appointment has been booked successfully!')
+        return render(request, 'Book.html', {'whatsapp_url': whatsapp_url})
+
+    return render(request, 'Book.html')
 
    
 

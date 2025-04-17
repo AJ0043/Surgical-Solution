@@ -3,939 +3,1166 @@
 
 {% block content %}
 
-<!-- Banner Section -->
-<div class="parallax-banner">
-    <div class="banner-content">
-        <h1>ABOUT US</h1>
+<!-- Consultation Banner -->
+<link rel="stylesheet" href="{% static 'css/consultation.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="consultation-banner">
+  <div class="consultation-container">
+
+    <!-- Left: Text -->
+    <div class="consultation-text">
+        <h1>Dr Shailendra Jain</h1>
+        <p>As a seasoned General and Laparoscopic Surgeon with over two decades of experience, I have dedicated my career to providing exceptional surgical care to my patients.</p>
     </div>
+
+    <!-- Right: Image -->
+    <div class="consultation-image">
+      <img src="{% static 'Images/Mosaji44.jpg' %}" alt="Consultation Doctor">
+    </div>
+
+  </div>
 </div>
 
-<!-- Mosaji Highlight Services Section -->
-<div class="specialties-container">
-    <h2 class="section-heading"> Anorectal & Laparoscopic Specialties</h2>
-    <div class="specialties-grid">
-
-        <div class="specialty-card">
-            <h3>Anorectal Surgery</h3>
-            <p>Advanced treatment for piles, fissures, fistulas, and related anorectal conditions.</p>
-        </div>
-
-        <div class="specialty-card">
-            <h3>20+ Years Experience</h3>
-            <p>Trusted by over 15 hospitals across regions for expert care and surgical excellence.</p>
-        </div>
-
-        <div class="specialty-card">
-            <h3>Laparoscopic Surgery</h3>
-            <p>Minimally invasive procedures with faster recovery times.</p>
-        </div>
-
-        <div class="specialty-card">
-            <h3>Lap Hernia Surgery</h3>
-            <p>Minimally invasive hernia repair with faster recovery and less pain.</p>
-        </div>
-
-        <div class="specialty-card">
-            <h3>Stapler Surgery</h3>
-            <p>Cutting-edge stapler techniques for effective surgical outcomes.</p>
-        </div>
-
-        <div class="specialty-card">
-            <h3>Breast Surgery</h3>
-            <p>Comprehensive breast care with surgical precision.</p>
-        </div>
-
-        <div class="specialty-card">
-            <h3>Lipoma Removal</h3>
-            <p>Quick and safe removal of fatty tumors (lipomas).</p>
-        </div>
-
-        <div class="specialty-card">
-            <h3>Proctology Surgery</h3>
-            <p>Relief from piles, fissures & fistulas with advanced methods.</p>
-        </div>
-
-    </div>
+<!-- Our Expertise Section -->
+<div class="para1">
+  <h1>Our Expertise</h1>
+  <p>Dr. Shailendra Jain specializes in accurate diagnosis, personalized care, and effective treatment. His multi-disciplinary approach ensures comprehensive healthcare backed by years of experience and dedication to patient well-being.</p>
 </div>
 
-<!-- Introduction & Qualification -->
-<div class="mosaji-container">
-    <div class="mosaji-img">
-        <img src="{% static 'Images/Mosa.jpg' %}" alt="Dr. Shailendra Jain">
-    </div>
-    <div class="mosaji-text">
+<div class="expertise-cards">
+  <div class="expertise-card">
+    <i class="fas fa-stethoscope expertise-icon"></i>
+    <h3>Laparoscopic Surgery</h3>
+    <p>Minimally invasive treatment for gallbladder, hernias, appendicitis, and more.</p>
+  </div>
 
-        <div class="section">
-            <h2 onclick="toggleSection('intro')" class="collapsible">▶ Introduction</h2>
-            <div class="section-content" id="intro">
-                <p>Dr. Shailendra Jain is a highly respected medical professional, known for his dedication, compassion, and outstanding contributions to the medical community. With deep roots in Barwa Sagar, Uttar Pradesh, he has become a symbol of service and knowledge. His journey reflects hard work, humility, and a relentless pursuit of excellence in healthcare.</p>
-            </div>
-        </div>
+  <div class="expertise-card">
+    <i class="fas fa-lightbulb expertise-icon"></i>
+    <h3>Laser Surgery</h3>
+    <p>Precise laser treatment for piles, fissures, fistulas, and pilonidal sinuses.</p>
+  </div>
 
-        <div class="section">
-            <h2 onclick="toggleSection('qual')" class="collapsible">▶ Qualification & Achievements</h2>
-            <div class="section-content" id="qual">
-                <ul>
-                    <li><strong>MBBS from:</strong> Gajra Raja Medical College (GRMC), Gwalior</li>
-                    <li><strong>Schooling:</strong> Pt. Ramsahay Sharma Inter College, Barwasagar, Jhansi</li>
-                    <li><strong>Native Place:</strong> Barwa Sagar, Uttar Pradesh, India</li>
-                </ul>
-                <hr style="margin: 15px 0;">
-                <h4 style="color:#009688;">Achievements:</h4>
-                <ul>
-                    <li>Performed over <strong>5000+ successful surgeries</strong> in the past 20 years.</li>
-                    <li>Recognized by multiple hospitals for <strong>excellence in laparoscopic surgery</strong>.</li>
-                    <li>Regularly invited as a guest speaker at <strong>national-level medical conferences</strong>.</li>
-                    <li>Contributed actively to <strong>awareness campaigns</strong> on anorectal health in rural areas.</li>
-                    <li>Trained and mentored several junior surgeons in advanced surgical procedures.</li>
-                </ul>
-            </div>
-        </div>
+  <div class="expertise-card">
+    <i class="fas fa-syringe expertise-icon"></i>
+    <h3>Minimally Invasive Techniques</h3>
+    <p>Including ancient Kshar Sutra for piles and fistulas with minimal discomfort.</p>
+  </div>
 
-    </div>
+  <div class="expertise-card">
+    <i class="fas fa-breastplate expertise-icon"></i>
+    <h3>Breast Surgery</h3>
+    <p>Surgical care for various breast conditions with compassion and precision.</p>
+  </div>
+
+  <div class="expertise-card">
+    <i class="fas fa-ambulance expertise-icon"></i>
+    <h3>Gastrointestinal Surgery</h3>
+    <p>Advanced laparotomy procedures for stomach, bowel, and colorectal diseases.</p>
+  </div>
+
+  <div class="expertise-card">
+    <i class="fas fa-user-md expertise-icon"></i>
+    <h3>Other Procedures</h3>
+    <p>Stapler circumcision, hydrocele surgeries, and lump removals with minimal scarring.</p>
+  </div>
 </div>
 
-<!-- Clinic Information Section -->
-<div class="clinic-info-container">
-    <h2 class="clinic-heading">Clinic Information</h2>
-    <div class="clinic-details">
-        <p><strong>Address:</strong> 238 Rosewood Apartment, Sector 13 Dwarka, Delhi</p>
-        <p><strong>Phone:</strong> <a href="tel:+91981021713">+91 98102 1713</a></p>
+<div class="DR-banner">
+  <div class="banner-container">
+    <div class="banner-image">
+      <img src="{% static 'Images/Mosa.jpg' %}" alt="Consultation Doctor">
     </div>
+    <div class="banner-text">
+      <h1>Introduction</h1>
+      <p>About Dr. Shailendra Jain<br>
+        As a seasoned General and Laparoscopic Surgeon with over two decades of experience, I have dedicated my career to providing exceptional surgical care to my patients. With a remarkable track record of performing over 42,000 surgeries since 1999, I have honed my skills in various procedures, ensuring the best possible outcomes for my patients.
+      </p>
 
-    <!-- Map Section -->
-    <div class="map-container">
-        <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3601.698140226207!2d77.03399998955899!3d28.593488013095644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1ac7f08ada81%3A0xdb20173c0c84b885!2sLaser%20Surgical%20Solution!5e0!3m2!1sen!2sin!4v1744266470765!5m2!1sen!2sin" 
-        width="100%" 
-        height="350" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>    </div>
+      <!-- Social Media Icons -->
+      <div class="social-icons">
+        <a href="https://www.instagram.com/shailendrajai29/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/shailendra.jain.967" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/yourwhatsappnumber" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.youtube.com/@SurgeryGyan" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
 </div>
 
-<script>
-    function toggleSection(id) {
-        const section = document.getElementById(id);
-        section.classList.toggle("show");
-
-        const heading = section.previousElementSibling;
-        heading.classList.toggle("open");
-        heading.innerHTML = heading.classList.contains("open") ? '▼ ' + heading.innerHTML.slice(2) : '▶ ' + heading.innerHTML.slice(2);
-    }
-</script>
-
-<style>
-    /* Banner Styles */
-    .parallax-banner {
-        position: relative;
-        background-image: url("{% static 'Images/Ab.jpg' %}");
-        height: 40vh;
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        overflow: hidden;
-    }
-
-    .parallax-banner::before {
-        content: "";
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background-color: rgba(34, 31, 31, 0.7);
-        z-index: 1;
-    }
-
-    .banner-content {
-        position: relative;
-        z-index: 2;
-        padding: 15px 30px;
-        border-radius: 12px;
-    }
-
-    .banner-content h1 {
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #fff;
-        margin: 0;
-        font-family: 'Satisfy', cursive;
-    }
-
-    /* Specialties */
-    .specialties-container {
-        background-color: #ffffff;
-        padding: 60px 30px;
-        text-align: center;
-    }
-
-    .section-heading {
-        font-size: 2.2rem;
-        color: #009688;
-        font-weight: bold;
-        margin-bottom: 40px;
-        border-left: 6px solid #009688;
-        padding-left: 15px;
-        display: inline-block;
-        text-align: left;
-        font-family:Satisfy,cursive;
-    }
-
-    .specialties-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 2fr));
-        gap: 30px;
-    }
-
-    .specialty-card {
-        background:rgba(86, 110, 154, 0.6);
-        border-radius: 12px;
-        padding: 20px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        
-    }
-
-    .specialty-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-
-    .specialty-card h3 {
-        color: #333;
-        font-size: 1.3rem;
-        margin-bottom: 10px;
-        text-align:center;
-    }
-
-    .specialty-card p {
-        color: #666;
-        font-size: 1rem;
-        line-height: 1.5;
-        color:White;
-        text-align:center;
-    }
-
-    /* Mosaji Image + Text */
-    .mosaji-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
-        padding: 50px 20px;
-        background-color:rgba(184, 204, 216, 0.8);
-        gap: 50px;
-    }
-
-    .mosaji-img img {
-        max-width: 320px;
-        width: 100%;
-        border-radius: 12px;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-    }
-
-    .mosaji-img img:hover {
-        transform: scale(1.05);
-    }
-
-    .mosaji-text {
-        max-width: 700px;
-    }
-
-    .collapsible {
-        cursor: pointer;
-        font-size: 1.6rem;
-        font-weight: bold;
-        color: #222;
-        margin-bottom: 10px;
-        padding-left: 10px;
-        border-left: 4px solid #009688;
-        transition: all 0.3s ease;
-        font-family:Satisfy,cursive;
-    }
-
-    .collapsible:hover {
-        color: #009688;
-    }
-
-    .section-content {
-        display: none;
-        padding: 10px 20px;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        margin-bottom: 30px;
-        font-size: 1.1rem;
-        line-height: 1.7;
-        color: #444;
-    }
-
-    .section-content.show {
-        display: block;
-        animation: fadeIn 0.4s ease;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Clinic Information Styles */
-    .clinic-info-container {
-        padding: 30px 20px;
-        margin-top: 50px;
-        text-align: center;
-        border-radius: 10px;
-       
-    }
-
-    .clinic-heading {
-        font-size: 2.2rem;
-        color: #009688;
-        font-weight: bold;
-        margin-bottom: 15px;
-        border-left: 6px solid #009688;
-        padding-left: 15px;
-        display: inline-block;
-        text-align: left;
-        font-family:Satisfy,cursive;
-    }
-
-    .clinic-details {
-        font-size: 1.2rem;
-        color: #444;
-    }
-
-    .clinic-details a {
-        color: #009688;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    /* Map Styling */
-    .map-container iframe {
-        margin-top: 20px;
-        border-radius: 10px;
-    }
-
-    @media (max-width: 768px) {
-        .parallax-banner {
-            height: 35vh;
-        }
-
-        .banner-content h1 {
-            font-size: 1.8rem;
-        }
-
-        .mosaji-container {
-            flex-direction: column;
-            align-items: center;
-            padding: 30px 15px;
-        }
-
-        .collapsible {
-            font-size: 1.4rem;
-        }
-
-        .section-content {
-            font-size: 1rem;
-        }
-
-        .section-heading {
-            font-size: 1.6rem;
-        }
-
-        .specialty-card h3 {
-            font-size: 1.1rem;
-        }
-
-        .specialty-card p {
-            font-size: 0.95rem;
-        }
-    }
-</style>
 
 
 
-<!-- Why Choose Surgical Solution Section -->
-<div class="why-choose-container">
-    <h2 class="why-choose-heading">Why Choose Surgical Solution</h2>
-    <div class="why-choose-grid">
 
-        <div class="choose-card">
-            <i class="fas fa-clock choose-icon"></i>
-            <h3>24hr Emergency Service</h3>
-            <p>Available around the clock for your emergency needs.</p>
-        </div>
-
-        <div class="choose-card">
-            <i class="fas fa-users choose-icon"></i>
-            <h3>20+ Years Experience</h3>
-            <p>Two decades of experience in providing expert surgical care.</p>
-        </div>
-
-        <div class="choose-card">
-            <i class="fas fa-handshake choose-icon"></i>
-            <h3>Consultation Like a Friend</h3>
-            <p>Friendly and approachable consultation for your peace of mind.</p>
-        </div>
-
-        <div class="choose-card">
-            <i class="fas fa-heartbeat choose-icon"></i>
-            <h3>Best Treatment</h3>
-            <p>Our treatments are top-notch with a focus on the best outcomes.</p>
-        </div>
-
-        <div class="choose-card">
-            <i class="fas fa-smile choose-icon"></i>
-            <h3>5000+ Happy Patients</h3>
-            <p>Thousands of happy patients attest to our excellence.</p>
-        </div>
-
+<section class="about-section">
+    <div class="about-card">
+      <i class="fas fa-clock about-icon"></i>
+      <h2>24 Hrs Ready</h2>
+      <p>We are available around the clock to assist you with any urgent healthcare service or consultation you need.</p>
     </div>
-</div>
 
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
-<style>
-    /* Why Choose Section Styles */
-    .why-choose-container {
-        background-color: rgba(160, 183, 180, 0.6);
-        padding: 60px 30px;
-        text-align: center;
-        margin-top: 200px;
-        height: auto; /* Adjusting the height to auto for responsiveness */
-    }
-
-    .why-choose-heading {
-        font-size: 2.2rem;
-        color: #009688;
-        font-weight: bold;
-        margin-bottom: 40px;
-        border-left: 6px solid #009688;
-        padding-left: 15px;
-        display: inline-block;
-        text-align: left;
-        font-family:Satisfy,cursive;
-    }
-
-    .why-choose-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-    }
-
-    .choose-card {
-        background: #f9f9f9;
-        border-radius: 12px;
-        padding: 20px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .choose-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .choose-card h3 {
-        color: #333;
-        font-size: 1.3rem;
-        margin-bottom: 10px;
-    }
-
-    .choose-card p {
-        color: #666;
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-
-    .choose-card .choose-icon {
-        font-size: 3rem;
-        color: #009688;
-        margin-bottom: 15px;
-    }
-
-    /* Font Awesome Icons */
-    .choose-card i {
-        font-size: 3rem;
-        color: #009688;
-    }
-
-    /* Media Queries for Responsiveness */
-    @media (max-width: 768px) {
-        .why-choose-heading {
-            font-size: 1.6rem;
-        }
-
-        .choose-card h3 {
-            font-size: 1.1rem;
-        }
-
-        .choose-card p {
-            font-size: 0.95rem;
-        }
-
-        .choose-card .choose-icon {
-            font-size: 2.5rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .why-choose-heading {
-            font-size: 1.4rem;
-        }
-
-        .choose-card h3 {
-            font-size: 1rem;
-        }
-
-        .choose-card p {
-            font-size: 0.9rem;
-        }
-
-        .choose-card .choose-icon {
-            font-size: 2rem;
-        }
-    }
-</style>
-
-
-<!-- Contact and Book Appointment Section -->
-<div class="contact-container">
-    <h2 class="contact-heading">Contact Us & Book an Appointment</h2>
-    <p class="contact-text">We are here to assist you with all your needs. Reach out to us for any questions or book an appointment with our experts to get the best care possible.</p>
-    
-    <div class="contact-buttons">
-        <a href="tel:+1234567890" class="contact-btn contact-btn-phone">Call Us</a>
-        <a href="mailto:info@surgeonsolutions.com" class="contact-btn contact-btn-email">Email Us</a>
-        <a href="/book-appointment" class="contact-btn contact-btn-book">Book Appointment</a>
+    <div class="about-card">
+      <i class="fas fa-ambulance about-icon"></i>
+      <h2>Emergency Help</h2>
+      <p>Instant emergency support is always one call away. Our medical team responds quickly to every urgent request.</p>
     </div>
-</div>
 
-<style>
-    /* Contact Section Styles */
-    .contact-container {
-        background-color: rgba(255, 255, 255, 0.9);
-        padding: 50px 20px;
-        text-align: center;
-        margin-top: 100px;
-        border-radius: 12px;
-        
-    }
-
-    .contact-heading {
-        font-size: 2rem;
-        color: #009688;
-        font-weight: bold;
-        margin-bottom: 20px;
-        font-family:Satisfy,cursive;
-    }
-
-    .contact-text {
-        font-size: 1.2rem;
-        color: #666;
-        margin-bottom: 40px;
-        font-family:Satisfy,cursive;
-    }
-
-    .contact-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-        margin-top: 20px;
-    }
-
-    .contact-btn {
-        display: inline-block;
-        padding: 12px 20px;
-        font-size: 1rem;
-        font-weight: bold;
-        color: #fff;
-        background-color: #009688;
-        border-radius: 8px;
-        text-decoration: none;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .contact-btn:hover {
-        background-color: #00796b;
-        transform: translateY(-3px);
-    }
-
-    .contact-btn-phone {
-        background-color: #4caf50;
-    }
-
-    .contact-btn-phone:hover {
-        background-color: #388e3c;
-    }
-
-    .contact-btn-email {
-        background-color: #2196f3;
-    }
-
-    .contact-btn-email:hover {
-        background-color: #1976d2;
-    }
-
-    .contact-btn-book {
-        background-color: #ff9800;
-    }
-
-    .contact-btn-book:hover {
-        background-color: #f57c00;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .contact-heading {
-            font-size: 1.6rem;
-        }
-
-        .contact-text {
-            font-size: 1rem;
-        }
-
-        .contact-btn {
-            padding: 10px 18px;
-            font-size: 0.9rem;
-        }
-
-        .contact-buttons {
-            gap: 10px;
-            flex-direction: column;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .contact-heading {
-            font-size: 1.4rem;
-        }
-
-        .contact-text {
-            font-size: 0.95rem;
-        }
-
-        .contact-btn {
-            padding: 8px 15px;
-            font-size: 0.85rem;
-        }
-    }
-</style>
-
-
-<!-- Our Clients Section -->
-<div class="our-clients-container">
-    <h2 class="clients-heading">Our Clients</h2>
-    <div class="clients-grid">
-        <!-- Client Card -->
-        <div class="client-card">
-            <img src="{% static 'Images/AAA.png' %}">
-            <p class="client-name">Ayushmaan Hospital</p>
-        </div>
-
-        <!-- Client Card -->
-        <div class="client-card">
-            <img src="{% static 'Images/VVV.png' %}">
-            <p class="client-name">Vedanta hospital</p>
-        </div>
-
-        <!-- Client Card -->
-        <div class="client-card">
-            <img src="{% static 'Images/aap.png' %}">
-            <p class="client-name">Apollo Hosiptal</p>
-        </div>
+    <div class="about-card">
+      <i class="fas fa-smile about-icon"></i>
+      <h2>20,000+ Happy Patients</h2>
+      <p>Thousands of happy patients trust us for quality care and continuous medical support throughout their journey.</p>
     </div>
-</div>
 
-<style>
-    /* Our Clients Section Styles */
-    .our-clients-container {
-        padding: 60px 30px;
-        background-color:rgba(147, 163, 165, 0.7);
-        text-align: center;
-        margin-top:100px;
-
-    }
-
-    .clients-heading {
-        font-size: 2.2rem;
-        color: #009688;
-        font-weight: bold;
-        margin-bottom: 40px;
-        border-left: 6px solid #009688;
-        padding-left: 15px;
-        display: inline-block;
-        text-align: left;
-        font-family:Satisfy,cursive;
-    }
-
-    .clients-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-    }
-
-    .client-card {
-        background: #ffffff;
-        border-radius: 1400px;
-        padding: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .client-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .client-image {
-        width: 150%;
-        height: auto;
-        border-radius: 200px;
-        margin-bottom: 15px;
-    }
-
-    .client-name {
-        font-size: 1.2rem;
-        color: #333;
-    }
-
-    @media (max-width: 1024px) {
-        .clients-heading {
-            font-size: 1.8rem;
-        }
-
-        .client-name {
-            font-size: 1rem;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .clients-heading {
-            font-size: 1.6rem;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .client-card {
-            padding: 15px;
-        }
-
-        .client-image {
-            width: 80%;
-            margin: 0 auto;
-        }
-
-        .client-name {
-            font-size: 1rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .clients-heading {
-            font-size: 1.4rem;
-        }
-
-        .client-name {
-            font-size: 0.9rem;
-        }
-    }
-</style>
-<!-- Activities Section -->
-<!-- Activities Section -->
-<div class="activities-container">
-    <div class="activities-content">
-        <h2 class="activities-heading">Activities & Achievements</h2>
-        <p class="activities-description">
-            From the years 2011 to 2023, our specialist (Dr. Shailendra Jain) has achieved remarkable milestones in the field of surgery. His dedication to healthcare has helped countless patients recover and live healthier lives. His involvement in major hospitals like Vedanta Hospital, Apollo, and Ayushmaan Hospital in Delhi has made him a well-respected figure in the surgical community.
-        </p>
-        <p class="activities-achievements">
-            Dr. Shailendra Jain has participated in marathons and other sports events, showcasing his commitment not only to his profession but also to maintaining physical fitness. His passion for excellence and continuous learning has driven him to stay at the top of his field.
-        </p>
+    <div class="about-card">
+      <i class="fas fa-user-md about-icon"></i>
+      <h2>500+ Consultations</h2>
+      <p>We’ve delivered expert consultation to hundreds of patients, ensuring they get the right treatment and guidance.</p>
     </div>
-    <div class="activities-image">
-        <img src="{% static 'Images/Running.jpg' %}" class="activities-img">
-    </div>
-</div>
+  </section>
 
-<!-- Social Media Links Section -->
-<div class="social-media-container">
-    <h3>Connect with Dr. Shailendra Jain</h3>
-    <div class="social-media-links">
-        <a href="https://www.facebook.com/shailendra.jain.967" target="_blank" class="social-media-link">
-            <i class="fab fa-facebook-f social-icon"></i>
-        </a>
-        <a href="https://twitter.com/drshailendra" target="_blank" class="social-media-link">
-            <i class="fab fa-twitter social-icon"></i>
-        </a>
-        <a href="https://www.instagram.com/shailendrajai29/?hl=en" target="_blank" class="social-media-link">
-            <i class="fab fa-instagram social-icon"></i>
-        </a>
-    </div>
-</div>
 
-<!-- Font Awesome CDN in head (already correct) -->
+
+
+  <!DOCTYPE html>
+<html lang="en">
 <head>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Surgical Solution</title>
 
-<style>
-    /* Activities Section Styles */
-    .activities-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+
+
+    }
+
+    .topic {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      align-items: center;
+      gap: 40px;
+      padding: 80px 40px;
+      max-width: 100%;
+      margin: auto;
+      background-color: rgba(166, 188, 164, 0.9);
+      margin-top:100px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .topic-text h1 {
+      font-size: 42px;
+      color: #007bff;
+      margin-bottom: 25px;
+      font-family:Serif;
+    }
+
+    .topic-text p {
+      font-size: 20px;
+      line-height: 1.8;
+      color: #fff;
+    }
+
+    .topic img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      justify-self: end;
+
+    }
+
+    @media (max-width: 992px) {
+      .topic {
         padding: 60px 30px;
-        text-align: left;
-        flex-wrap: wrap;
+      }
+
+      .topic-text h1 {
+        font-size: 36px;
+      }
+
+      .topic-text p {
+        font-size: 18px;
+      }
     }
 
-    .activities-content {
-        flex: 1;
-        max-width: 50%;
-        margin-right: 30px;
-    }
-
-    .activities-heading {
-        font-size: 2.4rem;
-        font-family: 'Satisfy', cursive;
-        color: #009688;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    .activities-description,
-    .activities-achievements {
-        font-size: 1.3rem;
-        color: #333;
-        line-height: 1.6;
-        margin-bottom: 20px;
-    }
-
-    .activities-image {
-        flex: 1;
-        max-width: 45%;
-        text-align: center;
-        padding: 20px;
-    }
-
-    .activities-img {
-        width: 100%;
-        max-width: 350px;
-        height: auto;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .activities-img:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Social Media Section Styles */
-    .social-media-container {
+    @media (max-width: 768px) {
+      .topic {
+        display: flex;
+        flex-direction: column;
         text-align: center;
         padding: 40px 20px;
-        margin-top: 40px;
-        border-top: 2px solid #ddd;
+      }
+
+      .topic-text h1 {
+        font-size: 30px;
+      }
+
+      .topic-text p {
+        font-size: 16px;
+      }
+
+      .topic img {
+        max-width: 90%;
+        margin-top: 20px;
+        justify-self: center;
+      }
     }
 
-    .social-media-container h3 {
-        font-size: 2rem;
-        color: #009688;
-        margin-bottom: 25px;
-        font-family: 'Satisfy', cursive;
+    @media (max-width: 480px) {
+      .topic-text h1 {
+        font-size: 26px;
+      }
+
+      .topic-text p {
+        font-size: 15px;
+      }
+
+      .topic {
+        padding: 30px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Font Awesome (Don't forget this in <head>) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Full Page Container -->
+<div class="min-h-screen bg-lightblue-100 py-10 px-4 flex flex-col gap-10 items-center justify-start">
+  <!-- Content here -->
+
+
+  <!-- Qualification Section -->
+  <div class="Qalification bg-green-50 shadow-md rounded-2xl p-6 sm:p-8 md:p-10 max-w-xl w-full text-center">
+    <!-- Icon -->
+    <div class="flex justify-center mb-4">
+      <i class="fas fa-graduation-cap text-green-600 text-2xl sm:text-3xl md:text-4xl"></i>
+    </div>
+    <!-- Heading -->
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-800 mb-4">
+      Qualification
+    </h1>
+    <!-- Paragraph -->
+    <p class="text-gray-600 text-base sm:text-lg md:text-xl leading-relaxed">
+      Qualification details will be listed here. You can update this section with degrees, certifications, and achievements.
+    </p>
+  </div>
+
+  <!-- Profile Section -->
+  <div class="Profile bg-white shadow-md rounded-2xl p-6 sm:p-8 md:p-10 max-w-3xl w-full">
+    <!-- Profile Heading -->
+    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 text-center">Profile</h2>
+    <!-- Profile Paragraph -->
+    <p class="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed text-justify">
+      Dr. Shailendra Kumar Jain is an undisputed surgeon of West Delhi with 17 years of experience. He completed
+      his MBBS in 1995 from Gajra Raja Medical College, Gwalior. From the same college he went on to pursue his
+      MS in general surgery. Till date, he has performed thousands of successful surgeries, some of which were
+      extremely complicated. Widely acknowledged for his calm attitude in tough situations, Dr. Shailendra Jain can
+      be approached at Surgical Solution, Dwarka, New Delhi. He is an avid reader and keeps himself in touch with
+      what's happening new in the surgical field.
+    </p>
+  </div>
+
+  <div class="Education">
+    <h1>M.B.B.S</h1>
+    <p>Gajara Raja Medical College, Gwalior (1995)</p>
+    <h1>M.S</h1>
+    <p>Gajara Raja Medical College, Gwalior (1999)</p>
+    <p>Indian Association of Gastrointestinal Endo-Surgeons (IAGES) ……(2017)</p>
+</div>
+<style>
+/* Education Section */
+.Education {
+  background-color: rgba(35, 167, 189,0.7); /* White background */
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 48rem;
+  width: 100%;
+  margin: 2rem auto;
+  transform: translateY(0);
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards; /* Animation for fade-in and upward effect */
+}
+
+.Education h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  animation: slideInLeft 1s ease-out forwards; /* Slide-in animation for headings */
+}
+
+.Education p {
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 1rem;
+  animation: slideInLeft 1.5s ease-out forwards; /* Slide-in animation for paragraphs */
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Styles */
+@media (min-width: 640px) {
+  .Education h1 {
+    font-size: 1.75rem; /* Increased font size for small screens */
+  }
+
+  .Education p {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .Education {
+    padding: 2.5rem;
+  }
+
+  .Education h1 {
+    font-size: 2rem; /* Increased font size for medium screens */
+  }
+
+  .Education p {
+    font-size: 1.25rem;
+  }
+}
+
+
+</style>
+
+
+</div>
+
+<style>
+/* Full Page Container */
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.bg-gray-100 {
+  background-color: #f7fafc;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.gap-10 {
+  gap: 2.5rem;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+/* Qualification Section */
+.Qalification {
+  background-color: #f0fdf4; /* Light green background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  max-width: 28rem; /* Max width for small screens */
+  width: 100%;
+  text-align: center;
+}
+
+.Qalification .flex {
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.Qalification .fa-graduation-cap {
+  color: #16a34a; /* Green color for icon */
+  font-size: 2rem; /* Icon size */
+}
+
+.Qalification h1 {
+  font-size: 2rem; /* Heading size */
+  font-weight: 600; /* Bold */
+  color: #2d3748; /* Dark gray */
+  margin-bottom: 1rem;
+}
+
+.Qalification p {
+  color: #4a5568; /* Gray text */
+  font-size: 1rem; /* Base font size */
+  line-height: 1.75rem; /* Spacing between lines */
+}
+
+/* Profile Section */
+.Profile {
+  background-color: rgba(56, 123, 120,0.8); /* White background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  max-width: 48rem; /* Max width for larger screens */
+  width: 100%;
+}
+
+.Profile h2 {
+  font-size: 2rem; /* Heading size */
+  font-weight: 700; /* Bold */
+  color: #2d3748; /* Dark gray */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.Profile p {
+  color: Orange; /* Gray text */
+  font-size: 1rem; /* Base font size */
+  line-height: 1.75rem; /* Spacing between lines */
+  text-align: justify; /* Justify text */
+}
+
+/* Responsive Styles */
+@media (min-width: 640px) {
+  .sm\:text-3xl {
+    font-size: 1.875rem; /* Increased font size for small screens */
+  }
+
+  .sm\:text-lg {
+    font-size: 1.125rem;
+  }
+
+  .sm\:text-xl {
+    font-size: 1.25rem;
+  }
+
+  .sm\:p-8 {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:text-4xl {
+    font-size: 2.25rem; /* Increased font size for medium screens */
+  }
+
+  .md\:text-xl {
+    font-size: 1.5rem;
+  }
+
+  .md\:p-10 {
+    padding: 2.5rem;
+  }
+
+  .md\:text-justify {
+    text-align: justify;
+  }
+
+  .max-w-xl {
+    max-width: 36rem;
+  }
+
+  .max-w-3xl {
+    max-width: 48rem;
+  }
+}
+
+
+
+</style>
+
+<div class="Banner">
+  <div class="Carrier">
+    <h1>Our Career</h1>
+    <p>A journey of excellence and dedication through reputed hospitals across decades.</p>
+  </div>
+
+  <div class="Hospitals">
+    <div class="hospital-entry">
+      <h1>Consultant Jaipur Golden Hospital</h1>
+      <p>1999 - 2001</p>
+    </div>
+
+    <div class="hospital-entry">
+      <h1>2 B.M. Gupta Hospital Senior Consultant</h1>
+      <p>1999 - 2001</p>
+    </div>
+
+    <div class="hospital-entry">
+      <h1>Senior Consultant ESI Hospital</h1>
+      <p>2001 - 2004</p>
+    </div>
+
+    <div class="hospital-entry">
+      <h1>Senior Consultant Ayushman Hospital</h1>
+      <p>2006 - 2023</p>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Main Banner */
+.Banner {
+  background: linear-gradient(to right, #e0ffe4, #f2fff9);
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header Section */
+.Carrier {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.Carrier h1 {
+  font-size: 2.5rem;
+  color: #0a4f3c;
+}
+
+.Carrier p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 10px auto 0;
+}
+
+/* Hospital Entries */
+.Hospitals {
+  width: 100%;
+  max-width: 850px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.hospital-entry {
+  background: #f0fffa;
+  border-left: 5px solid #2a9d8f;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hospital-entry:hover {
+  transform: translateY(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Text inside each entry */
+.hospital-entry h1 {
+  font-size: 1.4rem;
+  color: #094b3b;
+  margin-bottom: 8px;
+}
+
+.hospital-entry p {
+  font-size: 1rem;
+  color: #2d6a4f;
+  font-weight: 500;
+  background: #dcfce7;
+  padding: 8px 12px;
+  display: inline-block;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.hospital-entry p:hover {
+  background: #b7f0c1;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Delay animations for cinematic effect */
+.hospital-entry:nth-child(1) { animation-delay: 0.2s; }
+.hospital-entry:nth-child(2) { animation-delay: 0.5s; }
+.hospital-entry:nth-child(3) { animation-delay: 0.8s; }
+.hospital-entry:nth-child(4) { animation-delay: 1.1s; }
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .Carrier h1 {
+    font-size: 2rem;
+  }
+
+  .Carrier p {
+    font-size: 1rem;
+  }
+
+  .hospital-entry h1 {
+    font-size: 1.2rem;
+  }
+
+  .hospital-entry p {
+    font-size: 0.95rem;
+  }
+
+  .hospital-entry {
+    padding: 15px;
+  }
+}
+</style>
+
+
+<div class="Map-address">
+  <h1>Address</h1>
+  <p>Laser Surgical Solution, 28.5935° N, 77.0314° E</p>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3795.1417537963425!2d77.03140847549942!3d28.593543075686004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1ac7f08ada81%3A0xdb20173c0c84b885!2sLaser%20Surgical%20Solution!5e1!3m2!1sen!2sin!4v1744894865739!5m2!1sen!2sin"
+    width="100%"
+    height="400"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+<style>
+.Map-address {
+
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Map-address h1 {
+  font-size: 2.2rem;
+  color: #075e54;
+  margin-bottom: 10px;
+}
+
+.Map-address p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+/* Style the iframe map */
+.Map-address iframe {
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .Map-address h1 {
+    font-size: 1.6rem;
+  }
+
+  .Map-address p {
+    font-size: 1rem;
+  }
+
+  .Map-address iframe {
+    height: 300px;
+  }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Address</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    .social-media-links {
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    .address {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .address h1 {
+      font-size: 32px;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    .address p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .address iframe {
+      width: 100%;
+      max-width: 1000px;
+      height: 450px;
+      border: 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Mobile & Tablet Responsive */
+    @media (max-width: 768px) {
+      .address h1 {
+        font-size: 28px;
+      }
+
+      .address p {
+        font-size: 14px;
+      }
+
+      .address iframe {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .address h1 {
+        font-size: 24px;
+      }
+
+      .address iframe {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+
+
+
+
+
+
+  <style>
+    .about-section {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 20px;
+        gap: 30px;
+        padding: 60px 20px;
+        margin-top:100px;
+      }
+
+      .about-card {
+        background-color: rgba(37, 58, 174, 0.3);
+        border-radius: 15px;
+        padding: 30px 25px;
+        max-width: 300px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .about-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .about-icon {
+        font-size: 40px;
+        color:rgb(35, 198, 157);
+        margin-bottom: 15px;
+      }
+
+      .about-card h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .about-card p {
+        font-size: 15px;
+        color: #555;
+        line-height: 1.5;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .about-card {
+          max-width: 45%;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .about-card {
+          max-width: 100%;
+        }
+      }
+  </style>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+  .DR-banner {
+    padding: 40px 20px;
+    background: rgba(164, 99, 99, 0.9);
+    marin-top:100px;
+  }
+
+  .banner-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    gap: 30px;
+  }
+
+  .banner-image {
+    flex: 1 1 300px;
+    text-align: center;
+  }
+
+  .banner-image img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+  }
+
+  .banner-text {
+    flex: 2 1 400px;
+  }
+
+  .banner-text h1 {
+    font-size: 36px;
+    color: rgb(217, 192, 26);
+    margin-bottom: 20px;
+    font-family: 'Serif';
+  }
+
+  .banner-text p {
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.6;
+    font-family: 'Satisfy', cursive;
+  }
+
+  .social-icons {
+    margin-top: 20px;
+  }
+
+  .social-icon {
+    font-size: 24px;
+    color: #0a3d62;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .social-icon:hover {
+    color: rgb(231, 213, 20);
+  }
+
+  @media (max-width: 768px) {
+    .banner-container {
+      flex-direction: column;
+      text-align: center;
+      padding: 0 15px;
     }
 
-    .social-media-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        background-color: #e0e0e0;
-        transition: background-color 0.3s ease, transform 0.3s ease;
+    .banner-text h1 {
+      font-size: 28px;
     }
 
-    .social-media-link:hover {
-        background-color: #009688;
-        transform: scale(1.1);
+    .banner-text p {
+      font-size: 16px;
     }
 
     .social-icon {
-        font-size: 1.5rem;
-        color: #333;
-        transition: color 0.3s ease;
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .banner-text h1 {
+      font-size: 24px;
     }
 
-    .social-media-link:hover .social-icon {
-        color: #fff;
+    .banner-text p {
+      font-size: 15px;
     }
-
-    /* Responsive Tweaks */
-    @media (max-width: 992px) {
-        .activities-container {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .activities-content,
-        .activities-image {
-            max-width: 100%;
-            margin: 0 auto 30px;
-        }
-
-        .activities-heading {
-            font-size: 2rem;
-        }
-
-        .activities-description,
-        .activities-achievements {
-            font-size: 1.1rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .activities-heading {
-            font-size: 1.7rem;
-        }
-
-        .activities-description,
-        .activities-achievements {
-            font-size: 1rem;
-        }
-
-        .social-media-link {
-            width: 40px;
-            height: 40px;
-        }
-
-        .social-icon {
-            font-size: 1.3rem;
-        }
-    }
+  }
 </style>
 
+
+<!-- Footer Include -->
 {% include 'Store/Inc/Footer.html' %}
+
+<!-- CSS Styling -->
+<style>
+  .consultation-banner {
+    background: rgba(37, 174, 167, 0.3);
+    padding: 60px 20px;
+
+  }
+
+  .consultation-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .consultation-text {
+    flex: 1 1 500px;
+  }
+
+  .consultation-text h1 {
+    font-size: 36px;
+    color: #0a3d62;
+    margin-bottom: 15px;
+    font-family: Serif;
+  }
+
+  .consultation-text p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .consultation-image {
+    flex: 1 1 400px;
+    text-align: center;
+  }
+
+  .consultation-image img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.30);
+    object-fit: cover;
+  }
+
+  .para1 {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .para1 h1 {
+    font-size: 32px;
+    color: #0a3d62;
+    margin-bottom: 10px;
+    font-family: 'Serif';
+  }
+
+  .para1 p {
+    font-size: 18px;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+  }
+
+  .expertise-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+  }
+
+  .expertise-card {
+    background: rgba(176, 190, 71, 0.5);
+    border: 1px solid #ddd;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+  }
+
+  .expertise-card i {
+    font-size: 40px;
+    color: #26a69a;
+    margin-bottom: 15px;
+  }
+
+  .expertise-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #26a69a;
+  }
+
+  .expertise-card p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  .expertise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .consultation-banner {
+      padding: 40px 15px;
+    }
+
+    .consultation-container {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+
+    .consultation-text h1 {
+      font-size: 28px;
+    }
+
+    .consultation-text p {
+      font-size: 16px;
+    }
+
+    .consultation-image img {
+      max-width: 80%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .consultation-banner {
+      padding: 20px 10px;
+    }
+
+    .consultation-text h1 {
+      font-size: 24px;
+    }
+
+    .consultation-text p {
+      font-size: 15px;
+      margin-bottom: 100px;
+    }
+
+    .consultation-image img {
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      margin-top: 50px;
+    }
+  }
+</style>
+
 {% endblock content %}

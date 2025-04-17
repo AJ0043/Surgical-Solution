@@ -219,7 +219,13 @@
     {% endif %}
    
    
-   
+    <script>
+      document.getElementById("appointment-form").onsubmit = function (event) {
+          setTimeout(function () {
+              document.getElementById("appointment-form").reset();
+          }, 3000); // 3 seconds delay before erasing form
+      };
+  </script>
    
     <div class="section-heading">
       We Are Always Ready to Help You.<br />Book An Appointment
