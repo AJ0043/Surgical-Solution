@@ -3,16 +3,14 @@ from .models import TestimonialCard
 from .models import GalleryPhoto,Blog
 from .models import Testimonial , Contact ,Appointment
 from django.contrib import messages
-from django.contrib import messages
-
-
-# Create your views here.
-
-# views.py
-
-from django.shortcuts import redirect, render
-from django.contrib import messages
 from .models import Appointment, Testimonial
+from datetime import date
+
+
+
+from django.shortcuts import render, redirect
+from .models import TestimonialCard, GalleryPhoto, Blog, Testimonial, Contact, Appointment
+from datetime import datetime, date
 
 def Home(request):
     if request.method == 'POST':
@@ -20,8 +18,20 @@ def Home(request):
         age = request.POST.get('age')
         city = request.POST.get('city')
         phone = request.POST.get('phone')
+        time = request.POST.get('time')
+        appointment_date = request.POST.get('date')  # Changed variable name to avoid conflict
         surgery = request.POST.get('surgery')
         message_text = request.POST.get('message')
+
+        # Convert string inputs to appropriate date and time objects
+        if appointment_date:
+            appointment_date = date.fromisoformat(appointment_date)  # Convert date string to date object
+        if time:
+            time = datetime.strptime(time, '%H:%M').time()  # Convert time string to time object
+
+        # Ensure `age` is an integer
+        if age:
+            age = int(age)  # Convert string to integer
 
         # Save appointment in the database
         Appointment.objects.create(
@@ -30,10 +40,12 @@ def Home(request):
             city=city,
             phone=phone,
             surgery=surgery,
-            message=message_text
+            message=message_text,
+            date=appointment_date,
+            time=time
         )
 
-        # WhatsApp message formatting
+        # WhatsApp message formatting with Date and Time included
         whatsapp_message = (
             f"Appointment Request%0A"
             f"-----------------------%0A"
@@ -42,11 +54,13 @@ def Home(request):
             f"🏙️ City: {city}%0A"
             f"📞 Phone: {phone}%0A"
             f"🩺 Surgery Type: {surgery}%0A"
-            f"📝 Message: {message_text}"
+            f"📝 Message: {message_text}%0A"
+            f"📅 Date: {appointment_date}%0A"  # Adding date
+            f"⏰ Time: {time}"  # Adding time
         )
 
         # WhatsApp redirect link with your number
-        whatsapp_url = f"https://wa.me/918949167574?text={whatsapp_message}"
+        whatsapp_url = f"https://wa.me/919810217113?text={whatsapp_message}"
 
         # Redirect to WhatsApp with the formatted message
         messages.success(request, '🎉 Your appointment has been booked successfully!')
@@ -58,31 +72,45 @@ def Home(request):
         'testimonials': testimonials
     })
 
+
 def Treatment(request):
     return render(request,'Treatment.html')
 
 
 def Lapro(request):
-      if request.method == 'POST':
-        # Fetch form data
+    if request.method == 'POST':
         name = request.POST.get('name')
         age = request.POST.get('age')
         city = request.POST.get('city')
         phone = request.POST.get('phone')
+        time = request.POST.get('time')
+        appointment_date = request.POST.get('date')
         surgery = request.POST.get('surgery')
         message_text = request.POST.get('message')
 
-        # Save appointment in the database
+        # Convert string inputs to appropriate date and time objects
+        if appointment_date:
+            appointment_date = date.fromisoformat(appointment_date)
+        if time:
+            time = datetime.strptime(time, '%H:%M').time()
+
+        # Convert age to integer
+        if age:
+            age = int(age)
+
+        # Save to DB
         Appointment.objects.create(
             name=name,
             age=age,
             city=city,
             phone=phone,
             surgery=surgery,
-            message=message_text
+            message=message_text,
+            date=appointment_date,
+            time=time
         )
 
-        # WhatsApp message formatting
+        # Format WhatsApp message
         whatsapp_message = (
             f"Appointment Request%0A"
             f"-----------------------%0A"
@@ -91,29 +119,38 @@ def Lapro(request):
             f"🏙️ City: {city}%0A"
             f"📞 Phone: {phone}%0A"
             f"🩺 Surgery Type: {surgery}%0A"
-            f"📝 Message: {message_text}"
+            f"📝 Message: {message_text}%0A"
+            f"📅 Date: {appointment_date}%0A"
+            f"⏰ Time: {time}"
         )
 
-        # WhatsApp redirect link with your number
-        whatsapp_url = f"https://wa.me/918949167574?text={whatsapp_message}"
-
-        # Redirect to WhatsApp with the formatted message
+        whatsapp_url = f"https://wa.me/919810217113?text={whatsapp_message}"
         messages.success(request, '🎉 Your appointment has been booked successfully!')
         return redirect(whatsapp_url)
 
-      return render(request, 'Lapro.html')  # Or 'Store/Inc/con.html' if that's the form
+    return render(request, 'Lapro.html')
 
-    
 
 def Anorc(request):
     if request.method == 'POST':
-        # Fetch form data
         name = request.POST.get('name')
         age = request.POST.get('age')
         city = request.POST.get('city')
         phone = request.POST.get('phone')
+        time = request.POST.get('time')
+        appointment_date = request.POST.get('date')  # Changed variable name to avoid conflict
         surgery = request.POST.get('surgery')
         message_text = request.POST.get('message')
+
+        # Convert string inputs to appropriate date and time objects
+        if appointment_date:
+            appointment_date = date.fromisoformat(appointment_date)  # Convert date string to date object
+        if time:
+            time = datetime.strptime(time, '%H:%M').time()  # Convert time string to time object
+
+        # Ensure `age` is an integer
+        if age:
+            age = int(age)  # Convert string to integer
 
         # Save appointment in the database
         Appointment.objects.create(
@@ -122,10 +159,12 @@ def Anorc(request):
             city=city,
             phone=phone,
             surgery=surgery,
-            message=message_text
+            message=message_text,
+            date=appointment_date,
+            time=time
         )
 
-        # WhatsApp message formatting
+        # WhatsApp message formatting with Date and Time included
         whatsapp_message = (
             f"Appointment Request%0A"
             f"-----------------------%0A"
@@ -134,31 +173,44 @@ def Anorc(request):
             f"🏙️ City: {city}%0A"
             f"📞 Phone: {phone}%0A"
             f"🩺 Surgery Type: {surgery}%0A"
-            f"📝 Message: {message_text}"
+            f"📝 Message: {message_text}%0A"
+            f"📅 Date: {appointment_date}%0A"  # Adding date
+            f"⏰ Time: {time}"  # Adding time
         )
 
         # WhatsApp redirect link with your number
-        whatsapp_url = f"https://wa.me/918949167574?text={whatsapp_message}"
+        whatsapp_url = f"https://wa.me/919810217113?text={whatsapp_message}"
 
         # Redirect to WhatsApp with the formatted message
         messages.success(request, '🎉 Your appointment has been booked successfully!')
         return redirect(whatsapp_url)
 
-    return render(request, 'Anorctal.html')
-  # Or 'Store/Inc/con.html' if that's the form
+    return render(request, 'Anorc.html')  # Or 'Store/Inc/con.html' if that's the form
 
-   
-    
+
+
+
 
 def lap(request):
     if request.method == 'POST':
-        # Fetch form data
         name = request.POST.get('name')
         age = request.POST.get('age')
         city = request.POST.get('city')
         phone = request.POST.get('phone')
+        time = request.POST.get('time')
+        appointment_date = request.POST.get('date')  # Changed variable name to avoid conflict
         surgery = request.POST.get('surgery')
         message_text = request.POST.get('message')
+
+        # Convert string inputs to appropriate date and time objects
+        if appointment_date:
+            appointment_date = date.fromisoformat(appointment_date)  # Convert date string to date object
+        if time:
+            time = datetime.strptime(time, '%H:%M').time()  # Convert time string to time object
+
+        # Ensure `age` is an integer
+        if age:
+            age = int(age)  # Convert string to integer
 
         # Save appointment in the database
         Appointment.objects.create(
@@ -167,10 +219,12 @@ def lap(request):
             city=city,
             phone=phone,
             surgery=surgery,
-            message=message_text
+            message=message_text,
+            date=appointment_date,
+            time=time
         )
 
-        # WhatsApp message formatting
+        # WhatsApp message formatting with Date and Time included
         whatsapp_message = (
             f"Appointment Request%0A"
             f"-----------------------%0A"
@@ -179,31 +233,43 @@ def lap(request):
             f"🏙️ City: {city}%0A"
             f"📞 Phone: {phone}%0A"
             f"🩺 Surgery Type: {surgery}%0A"
-            f"📝 Message: {message_text}"
+            f"📝 Message: {message_text}%0A"
+            f"📅 Date: {appointment_date}%0A"  # Adding date
+            f"⏰ Time: {time}"  # Adding time
         )
 
         # WhatsApp redirect link with your number
-        whatsapp_url = f"https://wa.me/918949167574?text={whatsapp_message}"
+        whatsapp_url = f"https://wa.me/919810217113?text={whatsapp_message}"
 
         # Redirect to WhatsApp with the formatted message
         messages.success(request, '🎉 Your appointment has been booked successfully!')
         return redirect(whatsapp_url)
 
-    return render(request, 'Lap.html')
-  # Or 'Store/Inc/con.html' if that's the form
+    return render(request, 'Lap.html')  # Or 'Store/Inc/con.html' if that's the form
 
-   
+
 
 
 def Breast(request):
- if request.method == 'POST':
-        # Fetch form data
+    if request.method == 'POST':
         name = request.POST.get('name')
         age = request.POST.get('age')
         city = request.POST.get('city')
         phone = request.POST.get('phone')
+        time = request.POST.get('time')
+        appointment_date = request.POST.get('date')  # Changed variable name to avoid conflict
         surgery = request.POST.get('surgery')
         message_text = request.POST.get('message')
+
+        # Convert string inputs to appropriate date and time objects
+        if appointment_date:
+            appointment_date = date.fromisoformat(appointment_date)  # Convert date string to date object
+        if time:
+            time = datetime.strptime(time, '%H:%M').time()  # Convert time string to time object
+
+        # Ensure `age` is an integer
+        if age:
+            age = int(age)  # Convert string to integer
 
         # Save appointment in the database
         Appointment.objects.create(
@@ -212,10 +278,12 @@ def Breast(request):
             city=city,
             phone=phone,
             surgery=surgery,
-            message=message_text
+            message=message_text,
+            date=appointment_date,
+            time=time
         )
 
-        # WhatsApp message formatting
+        # WhatsApp message formatting with Date and Time included
         whatsapp_message = (
             f"Appointment Request%0A"
             f"-----------------------%0A"
@@ -224,34 +292,46 @@ def Breast(request):
             f"🏙️ City: {city}%0A"
             f"📞 Phone: {phone}%0A"
             f"🩺 Surgery Type: {surgery}%0A"
-            f"📝 Message: {message_text}"
+            f"📝 Message: {message_text}%0A"
+            f"📅 Date: {appointment_date}%0A"  # Adding date
+            f"⏰ Time: {time}"  # Adding time
         )
 
         # WhatsApp redirect link with your number
-        whatsapp_url = f"https://wa.me/918949167574?text={whatsapp_message}"
+        whatsapp_url = f"https://wa.me/919810217113?text={whatsapp_message}"
 
         # Redirect to WhatsApp with the formatted message
         messages.success(request, '🎉 Your appointment has been booked successfully!')
         return redirect(whatsapp_url)
 
- return render(request, 'Breast.html')
-  # Or 'Store/Inc/con.html' if that's the form
+    return render(request, 'Breast.html')  # Or 'Store/Inc/con.html' if that's the form
 
-   
-   
-   
-   
-   
+
+
+
+
+
 
 def Stapler(request):
-  if request.method == 'POST':
-        # Fetch form data
+    if request.method == 'POST':
         name = request.POST.get('name')
         age = request.POST.get('age')
         city = request.POST.get('city')
         phone = request.POST.get('phone')
+        time = request.POST.get('time')
+        appointment_date = request.POST.get('date')  # Changed variable name to avoid conflict
         surgery = request.POST.get('surgery')
         message_text = request.POST.get('message')
+
+        # Convert string inputs to appropriate date and time objects
+        if appointment_date:
+            appointment_date = date.fromisoformat(appointment_date)  # Convert date string to date object
+        if time:
+            time = datetime.strptime(time, '%H:%M').time()  # Convert time string to time object
+
+        # Ensure `age` is an integer
+        if age:
+            age = int(age)  # Convert string to integer
 
         # Save appointment in the database
         Appointment.objects.create(
@@ -260,10 +340,12 @@ def Stapler(request):
             city=city,
             phone=phone,
             surgery=surgery,
-            message=message_text
+            message=message_text,
+            date=appointment_date,
+            time=time
         )
 
-        # WhatsApp message formatting
+        # WhatsApp message formatting with Date and Time included
         whatsapp_message = (
             f"Appointment Request%0A"
             f"-----------------------%0A"
@@ -272,32 +354,44 @@ def Stapler(request):
             f"🏙️ City: {city}%0A"
             f"📞 Phone: {phone}%0A"
             f"🩺 Surgery Type: {surgery}%0A"
-            f"📝 Message: {message_text}"
+            f"📝 Message: {message_text}%0A"
+            f"📅 Date: {appointment_date}%0A"  # Adding date
+            f"⏰ Time: {time}"  # Adding time
         )
 
         # WhatsApp redirect link with your number
-        whatsapp_url = f"https://wa.me/918949167574?text={whatsapp_message}"
+        whatsapp_url = f"https://wa.me/919810217113?text={whatsapp_message}"
 
         # Redirect to WhatsApp with the formatted message
         messages.success(request, '🎉 Your appointment has been booked successfully!')
         return redirect(whatsapp_url)
 
-  return render(request, 'Stapler.html')
-  # Or 'Store/Inc/con.html' if that's the form
- 
-   
-   
-   
+    return render(request, 'Stapler.html')  # Or 'Store/Inc/con.html' if that's the form
+
+
+
+
 
 def Procto(request):
     if request.method == 'POST':
-        # Fetch form data
         name = request.POST.get('name')
         age = request.POST.get('age')
         city = request.POST.get('city')
         phone = request.POST.get('phone')
+        time = request.POST.get('time')
+        appointment_date = request.POST.get('date')  # Changed variable name to avoid conflict
         surgery = request.POST.get('surgery')
         message_text = request.POST.get('message')
+
+        # Convert string inputs to appropriate date and time objects
+        if appointment_date:
+            appointment_date = date.fromisoformat(appointment_date)  # Convert date string to date object
+        if time:
+            time = datetime.strptime(time, '%H:%M').time()  # Convert time string to time object
+
+        # Ensure `age` is an integer
+        if age:
+            age = int(age)  # Convert string to integer
 
         # Save appointment in the database
         Appointment.objects.create(
@@ -306,10 +400,12 @@ def Procto(request):
             city=city,
             phone=phone,
             surgery=surgery,
-            message=message_text
+            message=message_text,
+            date=appointment_date,
+            time=time
         )
 
-        # WhatsApp message formatting
+        # WhatsApp message formatting with Date and Time included
         whatsapp_message = (
             f"Appointment Request%0A"
             f"-----------------------%0A"
@@ -318,21 +414,23 @@ def Procto(request):
             f"🏙️ City: {city}%0A"
             f"📞 Phone: {phone}%0A"
             f"🩺 Surgery Type: {surgery}%0A"
-            f"📝 Message: {message_text}"
+            f"📝 Message: {message_text}%0A"
+            f"📅 Date: {appointment_date}%0A"  # Adding date
+            f"⏰ Time: {time}"  # Adding time
         )
 
         # WhatsApp redirect link with your number
-        whatsapp_url = f"https://wa.me/918949167574?text={whatsapp_message}"
+        whatsapp_url = f"https://wa.me/919810217113?text={whatsapp_message}"
 
         # Redirect to WhatsApp with the formatted message
         messages.success(request, '🎉 Your appointment has been booked successfully!')
         return redirect(whatsapp_url)
 
-    return render(request, 'Procto.html')
-  # Or 'Store/Inc/con.html' if that's the form
+    return render(request, 'Procto.html')  # Or 'Store/Inc/con.html' if that's the form
 
-    
-    
+
+
+
 
 
 def Consol(request):
@@ -404,7 +502,7 @@ def blog_list(request):
 
 
 def About(request):
-    return render(request,"about.html")
+    return render(request,"About.html")
 
 
 
@@ -442,6 +540,7 @@ def contact_view(request):
 
 def Book(request):
     if request.method == 'POST':
+        # Fetch form data
         name = request.POST.get('name')
         age = request.POST.get('age')
         city = request.POST.get('city')
@@ -449,7 +548,7 @@ def Book(request):
         surgery = request.POST.get('surgery')
         message_text = request.POST.get('message')
 
-        # Save to DB
+        # Save appointment in the database
         Appointment.objects.create(
             name=name,
             age=age,
@@ -459,7 +558,7 @@ def Book(request):
             message=message_text
         )
 
-        # WhatsApp message format
+        # WhatsApp message formatting
         whatsapp_message = (
             f"Appointment Request%0A"
             f"-----------------------%0A"
@@ -470,15 +569,18 @@ def Book(request):
             f"🩺 Surgery Type: {surgery}%0A"
             f"📝 Message: {message_text}"
         )
+
+        # WhatsApp redirect link with your number
         whatsapp_url = f"https://wa.me/918949167574?text={whatsapp_message}"
 
-        # Send URL to template
+        # Redirect to WhatsApp with the formatted message
         messages.success(request, '🎉 Your appointment has been booked successfully!')
-        return render(request, 'Book.html', {'whatsapp_url': whatsapp_url})
+        return redirect(whatsapp_url)
 
     return render(request, 'Book.html')
+  # Or 'Store/Inc/con.html' if that's the form
 
-   
+
 
 
 

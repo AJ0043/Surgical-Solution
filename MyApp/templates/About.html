@@ -109,7 +109,7 @@
 
     <div class="about-card">
       <i class="fas fa-smile about-icon"></i>
-      <h2>20,000+ Happy Patients</h2>
+      <h2>40,000+ Happy Patients</h2>
       <p>Thousands of happy patients trust us for quality care and continuous medical support throughout their journey.</p>
     </div>
 
@@ -297,7 +297,7 @@
 .Education h1 {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #2d3748;
+  color: Orange;
   margin-bottom: 0.5rem;
   animation: slideInLeft 1s ease-out forwards; /* Slide-in animation for headings */
 }
@@ -518,24 +518,31 @@
 
   <div class="Hospitals">
     <div class="hospital-entry">
-      <h1>Consultant Jaipur Golden Hospital</h1>
+      <h1>Consultant - Jaipur Golden Hospital</h1>
       <p>1999 - 2001</p>
     </div>
 
     <div class="hospital-entry">
-      <h1>2 B.M. Gupta Hospital Senior Consultant</h1>
-      <p>1999 - 2001</p>
+      <h1>B.M. Gupta Hospital - Senior Consultant</h1>
+      <p>Present</p>
     </div>
 
     <div class="hospital-entry">
-      <h1>Senior Consultant ESI Hospital</h1>
+      <h1>Senior Consultant - ESI Hospital</h1>
       <p>2001 - 2004</p>
     </div>
 
     <div class="hospital-entry">
-      <h1>Senior Consultant Ayushman Hospital</h1>
+      <h1>Senior Consultant - Ayushman Hospital</h1>
       <p>2006 - 2023</p>
     </div>
+
+      <div class="hospital-entry">
+      <h1>Senior Consultant - Indus Velly Hospital</h1>
+      <p>Present</p>
+    </div>
+
+
   </div>
 </div>
 
@@ -563,22 +570,26 @@
 
 .Carrier p {
   font-size: 1.1rem;
-  color: #555;
+  color: orange;
   max-width: 700px;
   margin: 10px auto 0;
 }
 
 /* Hospital Entries */
+/* Hospitals container: Grid layout */
 .Hospitals {
   width: 100%;
-  max-width: 850px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  justify-content: center;
+  align-items: stretch;
 }
 
+/* Hospital cards */
 .hospital-entry {
-  background: #f0fffa;
+  background: white;
   border-left: 5px solid #2a9d8f;
   border-radius: 12px;
   padding: 20px;
@@ -587,8 +598,13 @@
   transform: translateY(30px);
   animation: fadeInUp 1s ease forwards;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
 }
 
+/* Card hover effect */
 .hospital-entry:hover {
   transform: translateY(10px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
@@ -597,15 +613,16 @@
 /* Text inside each entry */
 .hospital-entry h1 {
   font-size: 1.4rem;
-  color: #094b3b;
+  color: green;
   margin-bottom: 8px;
+  font-family:serif;
 }
 
 .hospital-entry p {
   font-size: 1rem;
-  color: #2d6a4f;
+  color: Royalblue;
   font-weight: 500;
-  background: #dcfce7;
+  background: white;
   padding: 8px 12px;
   display: inline-block;
   border-radius: 8px;

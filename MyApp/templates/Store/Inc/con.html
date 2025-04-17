@@ -126,8 +126,10 @@
 
     .contact-image img {
       width: 100%;
-      max-width: 100%;
       height: auto;
+      max-width: 110%;
+      max-height: 800px;
+      object-fit: contain;
       border-radius: 10px;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     }
@@ -217,16 +219,7 @@
         {% endfor %}
       </div>
     {% endif %}
-   
-   
-    <script>
-      document.getElementById("appointment-form").onsubmit = function (event) {
-          setTimeout(function () {
-              document.getElementById("appointment-form").reset();
-          }, 3000); // 3 seconds delay before erasing form
-      };
-  </script>
-   
+
     <div class="section-heading">
       We Are Always Ready to Help You.<br />Book An Appointment
     </div>
@@ -258,6 +251,17 @@
             </div>
           </div>
 
+          <div class="form-row">
+            <div>
+              <label for="time">Time</label>
+              <input type="time" id="time" name="time" required />
+            </div>
+            <div>
+              <label for="date">Date</label>
+              <input type="date" id="date" name="date" required />
+            </div>
+          </div>
+
           <div>
             <label for="surgery">Choose Surgery Type</label>
             <select id="surgery" name="surgery" required>
@@ -280,9 +284,7 @@
         </form>
 
         <!-- WhatsApp Call Button -->
-        <a href="https://wa.me/91981021713" target="_blank">
-          <button class="call-now-btn">Call Now</button>
-        </a>
+
       </div>
 
       <!-- Doctor Image -->
